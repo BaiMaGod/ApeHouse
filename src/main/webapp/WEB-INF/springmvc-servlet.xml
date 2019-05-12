@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+    	http://www.springframework.org/schema/beans 
+    	http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+        
+        
+	<!-- 使用扫描机制，扫描包 -->
+	<context:component-scan base-package="com.controller" />
+	<context:component-scan base-package="com.service"/>
+	<context:component-scan base-package="com.dao"/>
+	<mvc:annotation-driven />
+	
+	
+    <!-- 静态资源需要单独处理，不需要dispatcher servlet -->  
+	<mvc:resources location="/statics/" mapping="/statics/**"></mvc:resources>
+	
+	
+	<!-- 配置视图解析器 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+		id="internalResourceViewResolver">
+		<!-- 前缀 -->
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<!-- 后缀 -->
+		<property name="suffix" value=".jsp" />
+	</bean>
+	
+	
+	
+	<!-- 配置MultipartResolver 用于文件上传 使用spring的CommosMultipartResolver -->  
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"  
+        p:defaultEncoding="UTF-8"  
+        p:maxUploadSize="5400000"  
+        p:uploadTempDir="fileUpload/temp" 
+     > 
+     
+      <!--D:\spring mvc workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\fileUpload  -->  
+    </bean> 
+    <!-- 	defaultEncoding="UTF-8" 		是请求的编码格式，默认为iso-8859-1
+			maxUploadSize="5400000" 		是允许上传文件的最大值，单位为字节
+			uploadTempDir="fileUpload/temp" 为上传文件的临时路径--> 
+
+	<!-- 配置拦截器 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/user/*"/>
+			<bean class="com.interceptor.MyInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
+	<!-- 配置统一异常处理 -->
+	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<!-- 定义默认的异常处理页面，当该异常类型注册时使用 -->
+		<property name="defaultErrorView" value="error"></property>
+		
+		<!-- 定义异常处理页面用来获取异常信息的变量名，默认为exception -->
+		<property name="exceptionAttribute" value="ex"></property>
+		
+		<!-- 定义需要特殊处理的异常，用雷鸣或完全路径名作为key，异常也 名作为值 -->
+		<property name="exceptionMappings">
+			<props>
+				<prop key="java.lang.Exception">exception</prop>
+			</props>
+		</property>
+	</bean>
+
+
+</beans>
