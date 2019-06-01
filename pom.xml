@@ -100,9 +100,22 @@
     	<artifactId>cassandra-all</artifactId>
     	<version>0.8.1</version>
     </dependency>
-  
-  
-  
+
+
+      <!--ip判断地区-->
+      <dependency>
+          <groupId>com.maxmind.geoip2</groupId>
+          <artifactId>geoip2</artifactId>
+          <version>2.2.0</version>
+      </dependency>
+
+
+      <!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
+      <dependency>
+          <groupId>org.hibernate.validator</groupId>
+          <artifactId>hibernate-validator</artifactId>
+          <version>6.0.16.Final</version>
+      </dependency>
   
   
   
@@ -376,9 +389,17 @@
 
 
 
+      <!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+      <dependency>
+          <groupId>javax.validation</groupId>
+          <artifactId>validation-api</artifactId>
+          <version>2.0.1.Final</version>
+      </dependency>
+
+
+
   </dependencies>
   
-  
-  
+
   
 </project>

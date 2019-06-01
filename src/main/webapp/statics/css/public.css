@@ -1,0 +1,31 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    background-color: #fbfbfb;
+}
+a{
+    text-decoration: none;
+}
+
+/*顶部导航栏样式*/
+
+
+
+
+
+/*顶部导航栏样式 结束*/
+
+
+/*foot样式*/
+.footer {
+    background: #333;
+    border-top: 8px solid #d56464;
+    position: relative;
+    display: block
+
+}
+.footer .footer-inner .copyright {
+    text-align: center;
+    float: none!important
+}
+/*foot样式*/

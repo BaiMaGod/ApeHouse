@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>猿馆</title>
+
+    <meta name="description" content="猿馆">
+    <meta name="keywords" content="程序">
+    <meta name="author" content="Y.C"/>
+
+
+    <!-- 字体图标样式 -->
+    <link rel="stylesheet" href="../../../statics/css/font-awesome-4.7.0/css/font-awesome.min.css">
+
+
+    <link rel="stylesheet" href="../../../statics/css/main.css">
+
+  <!--  <script type='text/javascript' src='//libs.baidu.com/jquery/1.8.3/jquery.min.js?ver=1.0'></script>-->
+    <!--<script src="../../../statics/js/jquery-3.3.1.js"></script>-->
+
+    <!-- 轮播大图样式 -->
+    <link rel="stylesheet" type="text/css" href="../../../statics/css/wowslider/style.css" />
+    <script type="text/javascript" src="../../../statics/css/wowslider/jquery.js"></script>
+
+</head>
+<body>
+
+
+<!-- 顶部导航栏 -->
+<div id="nav-header" class="navbar">
+
+    <ul class="nav">
+        <li id="menu-item-44"
+            class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-44">
+            <a href="https://cuiqingcai.com">首页</a></li>
+        <li id="menu-item-14"
+            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-14"><a
+                href="https://cuiqingcai.com/category/life">生活笔记</a>
+            <ul class="sub-menu">
+                <li id="menu-item-19" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-19">
+                    <a href="https://cuiqingcai.com/category/life/notes">个人随笔</a></li>
+                <li id="menu-item-18" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-18">
+                    <a href="https://cuiqingcai.com/category/life/daily">个人日记</a></li>
+                <li id="menu-item-15" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-15">
+                    <a href="https://cuiqingcai.com/category/life/presatation">个人展示</a></li>
+            </ul>
+        </li>
+        <li id="menu-item-7"
+            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-7"><a
+                href="https://cuiqingcai.com/category/technique">技术杂谈</a>
+            <ul class="sub-menu">
+                <li id="menu-item-9" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-9"><a
+                        href="https://cuiqingcai.com/category/technique/cc">C/C++</a></li>
+                <li id="menu-item-11" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-11">
+                    <a href="https://cuiqingcai.com/category/technique/java">Java</a></li>
+                <li id="menu-item-17" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-17">
+                    <a href="https://cuiqingcai.com/category/technique/php">PHP</a></li>
+                <li id="menu-item-153"
+                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-153"><a
+                        href="https://cuiqingcai.com/category/technique/html">HTML</a></li>
+                <li id="menu-item-960"
+                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-960"><a
+                        href="https://cuiqingcai.com/category/technique/python">Python</a></li>
+                <li id="menu-item-1277"
+                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1277"><a
+                        href="https://cuiqingcai.com/category/technique/javascript">JS</a></li>
+                <li id="menu-item-16" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-16">
+                    <a href="https://cuiqingcai.com/category/technique/other">Other</a></li>
+            </ul>
+        </li>
+        <li id="menu-item-418" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-418"><a
+                href="https://cuiqingcai.com/category/resources">福利专区</a></li>
+        <li id="menu-item-851" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-851"><a
+                href="https://cuiqingcai.com/about">关于自己</a></li>
+        <li id="menu-item-251" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-251"><a
+                href="https://cuiqingcai.com/message">给我留言</a></li>
+        <li id="menu-item-1131" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1131"><a
+                href="https://cuiqingcai.com/donate">赞助作者</a></li>
+        <li id="menu-item-4571" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4571"><a
+                href="https://cuiqingcai.com/exchange">技术交流</a></li>
+        <li id="menu-item-6142" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6142"><a
+                href="https://cuiqingcai.com/question">提问交流</a></li>
+        <li id="menu-item-6397" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6397"><a
+                href="https://cuiqingcai.com/project">项目合作</a></li>
+        <li style="float:right;">
+            <div class="toggle-search active"><i class="fa fa-search fa-lg"></i></div>
+            <div class="search-expand" style="display: block;">
+                <div class="search-expand-inner">
+                    <form method="get" class="searchform themeform"
+                          onsubmit="location.href='https://cuiqingcai.com/?s=' + encodeURIComponent(this.s.value).replace(/%20/g, '+'); return false;"
+                          action="/">
+                        <div>
+                            <input type="ext" class="search" name="s" onblur="if(this.value=='')this.value='search...';"
+                                   onfocus="if(this.value=='search...')this.value='';" value="search...">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="screen-mini">
+        <button data-type="screen-nav" class="btn btn-inverse screen-nav"><i class="fa fa-list"></i></button>
+    </div>
+</div>
+<!--顶部导航栏结束-->
+
+
+<!-- 中间主体部分 -->
+<section class="container">
+
+    <!-- 通知 -->
+    <div class="speedbar">
+        <div class="pull-right">
+            <i class="fa fa-user"></i>
+            <a href="/wp-login.php?action=register">投稿</a>&nbsp;&nbsp;&nbsp;
+            <i class="fa fa-power-off"></i>
+            <a href="https://cuiqingcai.com/wp-login.php">登录</a>
+        </div>
+        <div class="toptip">
+            <strong class="text-success"><i class="fa fa-volume-up"></i> </strong>
+            &nbsp;《Python3网络爬虫开发实战》赠书活动正在进行中！详情请戳
+            <a href="https://cuiqingcai.com/6173.html">赠书活动</a>
+            ！欢迎参与！非常感谢！
+        </div>
+    </div>
+    <!-- 通知 结束-->
+
+    <!-- 中间左边部分 -->
+    <div class="content-wrap">
+        <div class="content">
+
+            <!-- wowslider 轮播图 -->
+            <div id="wowslider-container1" style="font-size: 10px; perspective: 2000px;">
+                <div class="ws_images"><ul>
+                    <li><img src="../../../statics/images/data1/images/0.jpg" alt="0" title="0" id="wows1_0"/></li>
+                    <li><img src="../../../statics/images/data1/images/5.jpg" alt="5" title="5" id="wows1_1"/></li>
+                    <li><a href="http://wowslider.net"><img src="../../../statics/images/data1/images/1.jpg" alt="javascript photo gallery" title="1" id="wows1_2"/></a></li>
+                    <li><img src="../../../statics/images/data1/images/2.jpg" alt="2" title="2" id="wows1_3"/></li>
+                </ul></div>
+                <div class="ws_bullets">
+                    <div>
+                        <a href="#" title="0"><span><img src="../../../statics/images/data1/tooltips/0.jpg" alt="0"/>1</span></a>
+                        <a href="#" title="5"><span><img src="../../../statics/images/data1/tooltips/5.jpg" alt="5"/>2</span></a>
+                        <a href="#" title="1"><span><img src="../../../statics/images/data1/tooltips/1.jpg" alt="1"/>3</span></a>
+                        <a href="#" title="2"><span><img src="../../../statics/images/data1/tooltips/2.jpg" alt="2"/>4</span></a>
+                    </div>
+                </div>
+                <div class="ws_script" style="position:absolute;left:-99%">
+                    <a href="http://wowslider.net">css slideshow</a> by WOWSlider.com v8.8
+                </div>
+                <div class="ws_shadow"></div>
+            </div>
+            <script type="text/javascript" src="../../../statics/css/wowslider/wowslider.js"></script>
+            <script type="text/javascript" src="../../../statics/css/wowslider/script.js"></script>
+            <!-- wowslider 轮播图 结束-->
+
+            <!--<script type="text/javascript" src="../../../statics/js/wowSlider.js"></script>-->
+
+            <div>
+                <div class="left-ad"
+                     style="clear: both;background-color: #fff; width: 30%;float: left;margin-right:2%;"></div>
+                <div class="hot-posts">
+                    <h2 class="title">热门排行</h2>
+                    <ul>
+                        <li><p><span class="muted"><a href="javascript:;" data-action="ding" data-id="1052"
+                                                      class="Addlike action"><i class="fa fa-heart-o"></i><span
+                                class="count">30896</span> 喜欢</a></span>
+                        </p><span class="label label-1">1</span><a href="https://cuiqingcai.com/1052.html"
+                                                                   title="Python2爬虫学习系列教程">Python2爬虫学习系列教程</a></li>
+                        <li><p><span class="muted"><a href="javascript:;" data-action="ding" data-id="4320"
+                                                      class="Addlike action"><i class="fa fa-heart-o"></i><span
+                                class="count">3021</span> 喜欢</a></span>
+                        </p><span class="label label-2">2</span><a href="https://cuiqingcai.com/4320.html"
+                                                                   title="Python3爬虫视频学习教程">Python3爬虫视频学习教程</a></li>
+                        <li><p><span class="muted"><a href="javascript:;" data-action="ding" data-id="927"
+                                                      class="Addlike action"><i class="fa fa-heart-o"></i><span
+                                class="count">2409</span> 喜欢</a></span>
+                        </p><span class="label label-3">3</span><a href="https://cuiqingcai.com/927.html"
+                                                                   title="Python爬虫入门一之综述">Python爬虫入门一之综述</a></li>
+                        <li><p><span class="muted"><a href="javascript:;" data-action="ding" data-id="1319"
+                                                      class="Addlike action"><i class="fa fa-heart-o"></i><span
+                                class="count">2362</span> 喜欢</a></span>
+                        </p><span class="label label-4">4</span><a href="https://cuiqingcai.com/1319.html"
+                                                                   title="Python爬虫利器二之Beautiful Soup的用法">Python爬虫利器二之Beautiful
+                            Soup的用法</a></li>
+                        <li><p><span class="muted"><a href="javascript:;" data-action="ding" data-id="947"
+                                                      class="Addlike action"><i class="fa fa-heart-o"></i><span
+                                class="count">2360</span> 喜欢</a></span>
+                        </p><span class="label label-5">5</span><a href="https://cuiqingcai.com/947.html"
+                                                                   title="Python爬虫入门三之Urllib库的基本使用">Python爬虫入门三之Urllib库的基本使用</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <article class="excerpt">
+                <header><a class="label label-important" href="https://cuiqingcai.com/category/technique/javascript">JavaScript<i
+                        class="label-arrow"></i></a>
+                    <h2><a target="_blank" href="https://cuiqingcai.com/6533.html" title="为什么你们就是不能加个空格呢？">为什么你们就是不能加个空格呢？ </a>
+                    </h2>
+                </header>
+                <div class="focus"><a target="_blank" href="https://cuiqingcai.com/6533.html"><img class="thumb"
+                                                                                                   src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2019/05/u20170851661555839722fm11gp0.jpg&amp;h=123&amp;w=200&amp;q=90&amp;zc=1&amp;ct=1"
+                                                                                                   alt="为什么你们就是不能加个空格呢？"></a>
+                </div>
+                <span class="note"> 想写这篇文章很久了，也想做这件事很久了，我个人感觉自己是有强迫症的，所以一直有什么事让我看着不太舒服就想把它纠正过来。
+文字，也不例外。
+现在大家看各种新闻啊、文章啊，几乎每篇文章都会有点数字和英文的吧，比如就拿 Python 来说，看下面两句话：
+
+卧槽Python真牛逼啊排名...</span>
+                <p class="auth-span">
+                    <span class="muted"><i class="fa fa-user"></i> <a href="https://cuiqingcai.com/author/cqcre">崔庆才</a></span>
+                    <span class="muted"><i class="fa fa-clock-o"></i> 5天前</span> <span class="muted"><i
+                        class="fa fa-eye"></i> 1130浏览</span> <span class="muted"><i class="fa fa-comments-o"></i> <a
+                        target="_blank" href="https://cuiqingcai.com/6533.html#comments">6评论</a></span><span
+                        class="muted">
+<a href="javascript:;" data-action="ding" data-id="6533" class="Addlike action"><i class="fa fa-heart-o"></i><span
+        class="count">14</span>喜欢</a></span></p>
+            </article>
+            <article class="excerpt">
+                <header><a class="label label-important"
+                           href="https://cuiqingcai.com/category/technique/python">Python<i class="label-arrow"></i></a>
+                    <h2><a target="_blank" href="https://cuiqingcai.com/6519.html" title="Python 中拼音库 PyPinyin 的用法">Python
+                        中拼音库 PyPinyin 的用法 </a></h2>
+                </header>
+                <div class="focus"><a target="_blank" href="https://cuiqingcai.com/6519.html"><img class="thumb"
+                                                                                                   src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2019/04/timg.jpeg&amp;h=123&amp;w=200&amp;q=90&amp;zc=1&amp;ct=1"
+                                                                                                   alt="Python 中拼音库 PyPinyin 的用法"></a>
+                </div>
+                <span class="note"> 最近碰到了一个问题，项目中很多文件都是接手过来的中文命名的一些素材，结果在部署的时候文件名全都乱码了，导致项目无法正常运行。
+后来请教了一位大佬怎么解决文件名乱码的问题，他说这个需要正面解决吗？不需要，把文件名全部改掉，文件名永远不要用中文，永远不要。
+我想他这么说的话，一定也是...</span>
+                <p class="auth-span">
+                    <span class="muted"><i class="fa fa-user"></i> <a href="https://cuiqingcai.com/author/cqcre">崔庆才</a></span>
+                    <span class="muted"><i class="fa fa-clock-o"></i> 1个月前 (04-04)</span> <span class="muted"><i
+                        class="fa fa-eye"></i> 6438浏览</span> <span class="muted"><i class="fa fa-comments-o"></i> <a
+                        target="_blank" href="https://cuiqingcai.com/6519.html#comments">21评论</a></span><span
+                        class="muted">
+<a href="javascript:;" data-action="ding" data-id="6519" class="Addlike action"><i class="fa fa-heart-o"></i><span
+        class="count">71</span>喜欢</a></span></p>
+            </article>
+            <article class="excerpt">
+                <header><a class="label label-important"
+                           href="https://cuiqingcai.com/category/technique/python">Python<i class="label-arrow"></i></a>
+                    <h2><a target="_blank" href="https://cuiqingcai.com/6519.html" title="Python 中拼音库 PyPinyin 的用法">Python
+                        中拼音库 PyPinyin 的用法 </a></h2>
+                </header>
+                <div class="focus"><a target="_blank" href="https://cuiqingcai.com/6519.html"><img class="thumb"
+                                                                                                   src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2019/04/timg.jpeg&amp;h=123&amp;w=200&amp;q=90&amp;zc=1&amp;ct=1"
+                                                                                                   alt="Python 中拼音库 PyPinyin 的用法"></a>
+                </div>
+                <span class="note"> 最近碰到了一个问题，项目中很多文件都是接手过来的中文命名的一些素材，结果在部署的时候文件名全都乱码了，导致项目无法正常运行。
+后来请教了一位大佬怎么解决文件名乱码的问题，他说这个需要正面解决吗？不需要，把文件名全部改掉，文件名永远不要用中文，永远不要。
+我想他这么说的话，一定也是...</span>
+                <p class="auth-span">
+                    <span class="muted"><i class="fa fa-user"></i> <a href="https://cuiqingcai.com/author/cqcre">崔庆才</a></span>
+                    <span class="muted"><i class="fa fa-clock-o"></i> 1个月前 (04-04)</span> <span class="muted"><i
+                        class="fa fa-eye"></i> 6438浏览</span> <span class="muted"><i class="fa fa-comments-o"></i> <a
+                        target="_blank" href="https://cuiqingcai.com/6519.html#comments">21评论</a></span><span
+                        class="muted">
+<a href="javascript:;" data-action="ding" data-id="6519" class="Addlike action"><i class="fa fa-heart-o"></i><span
+        class="count">71</span>喜欢</a></span></p>
+            </article>
+            <article class="excerpt">
+                <header><a class="label label-important"
+                           href="https://cuiqingcai.com/category/technique/python">Python<i class="label-arrow"></i></a>
+                    <h2><a target="_blank" href="https://cuiqingcai.com/6519.html" title="Python 中拼音库 PyPinyin 的用法">Python
+                        中拼音库 PyPinyin 的用法 </a></h2>
+                </header>
+                <div class="focus"><a target="_blank" href="https://cuiqingcai.com/6519.html"><img class="thumb"
+                                                                                                   src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2019/04/timg.jpeg&amp;h=123&amp;w=200&amp;q=90&amp;zc=1&amp;ct=1"
+                                                                                                   alt="Python 中拼音库 PyPinyin 的用法"></a>
+                </div>
+                <span class="note"> 最近碰到了一个问题，项目中很多文件都是接手过来的中文命名的一些素材，结果在部署的时候文件名全都乱码了，导致项目无法正常运行。
+后来请教了一位大佬怎么解决文件名乱码的问题，他说这个需要正面解决吗？不需要，把文件名全部改掉，文件名永远不要用中文，永远不要。
+我想他这么说的话，一定也是...</span>
+                <p class="auth-span">
+                    <span class="muted"><i class="fa fa-user"></i> <a href="https://cuiqingcai.com/author/cqcre">崔庆才</a></span>
+                    <span class="muted"><i class="fa fa-clock-o"></i> 1个月前 (04-04)</span> <span class="muted"><i
+                        class="fa fa-eye"></i> 6438浏览</span> <span class="muted"><i class="fa fa-comments-o"></i> <a
+                        target="_blank" href="https://cuiqingcai.com/6519.html#comments">21评论</a></span><span
+                        class="muted">
+<a href="javascript:;" data-action="ding" data-id="6519" class="Addlike action"><i class="fa fa-heart-o"></i><span
+        class="count">71</span>喜欢</a></span></p>
+            </article>
+            <article class="excerpt">
+                <header><a class="label label-important"
+                           href="https://cuiqingcai.com/category/technique/python">Python<i class="label-arrow"></i></a>
+                    <h2><a target="_blank" href="https://cuiqingcai.com/6519.html" title="Python 中拼音库 PyPinyin 的用法">Python
+                        中拼音库 PyPinyin 的用法 </a></h2>
+                </header>
+                <div class="focus"><a target="_blank" href="https://cuiqingcai.com/6519.html"><img class="thumb"
+                                                                                                   src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2019/04/timg.jpeg&amp;h=123&amp;w=200&amp;q=90&amp;zc=1&amp;ct=1"
+                                                                                                   alt="Python 中拼音库 PyPinyin 的用法"></a>
+                </div>
+                <span class="note"> 最近碰到了一个问题，项目中很多文件都是接手过来的中文命名的一些素材，结果在部署的时候文件名全都乱码了，导致项目无法正常运行。
+后来请教了一位大佬怎么解决文件名乱码的问题，他说这个需要正面解决吗？不需要，把文件名全部改掉，文件名永远不要用中文，永远不要。
+我想他这么说的话，一定也是...</span>
+                <p class="auth-span">
+                    <span class="muted"><i class="fa fa-user"></i> <a href="https://cuiqingcai.com/author/cqcre">崔庆才</a></span>
+                    <span class="muted"><i class="fa fa-clock-o"></i> 1个月前 (04-04)</span> <span class="muted"><i
+                        class="fa fa-eye"></i> 6438浏览</span> <span class="muted"><i class="fa fa-comments-o"></i> <a
+                        target="_blank" href="https://cuiqingcai.com/6519.html#comments">21评论</a></span><span
+                        class="muted">
+<a href="javascript:;" data-action="ding" data-id="6519" class="Addlike action"><i class="fa fa-heart-o"></i><span
+        class="count">71</span>喜欢</a></span></p>
+            </article>
+            <article class="excerpt">
+                <header><a class="label label-important" href="https://cuiqingcai.com/category/life/notes">个人随笔<i
+                        class="label-arrow"></i></a>
+                    <h2><a target="_blank" href="https://cuiqingcai.com/6511.html" title="从学校迈入职场">从学校迈入职场 </a></h2>
+                </header>
+                <div class="focus"><a target="_blank" href="https://cuiqingcai.com/6511.html"><img class="thumb"
+                                                                                                   src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2018/02/5.3.2.jpg&amp;h=123&amp;w=200&amp;q=90&amp;zc=1&amp;ct=1"
+                                                                                                   alt="从学校迈入职场"></a>
+                </div>
+                <span class="note"> 正式入职微软，提交了第一个 PR 之后，我坐在椅子上思考人生。终于我也变成了一名正式的企业员工，变成了一名正式的踏入社会的职业人士，从此我的学生生涯也算是画上了一个句号，不，更确切的说应该是画上了一个引号。
+和同事租了房子，生活条件算是还不错，有了属于自己的房间，有了专属自己的衣...</span>
+                <p class="auth-span">
+                    <span class="muted"><i class="fa fa-user"></i> <a href="https://cuiqingcai.com/author/cqcre">崔庆才</a></span>
+                    <span class="muted"><i class="fa fa-clock-o"></i> 2个月前 (03-24)</span> <span class="muted"><i
+                        class="fa fa-eye"></i> 10740浏览</span> <span class="muted"><i class="fa fa-comments-o"></i> <a
+                        target="_blank" href="https://cuiqingcai.com/6511.html#comments">26评论</a></span><span
+                        class="muted">
+<a href="javascript:;" data-action="ding" data-id="6511" class="Addlike action"><i class="fa fa-heart-o"></i><span
+        class="count">158</span>喜欢</a></span></p>
+            </article>
+            <article class="excerpt">
+                <header><a class="label label-important" href="https://cuiqingcai.com/category/technique">技术杂谈<i
+                        class="label-arrow"></i></a>
+                    <h2><a target="_blank" href="https://cuiqingcai.com/6509.html" title="如何使用 SSH 控制连接 Windows 服务器">如何使用
+                        SSH 控制连接 Windows 服务器 </a></h2>
+                </header>
+                <div class="focus"><a target="_blank" href="https://cuiqingcai.com/6509.html"><img class="thumb"
+                                                                                                   src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2018/02/2.5.jpg&amp;h=123&amp;w=200&amp;q=90&amp;zc=1&amp;ct=1"
+                                                                                                   alt="如何使用 SSH 控制连接 Windows 服务器"></a>
+                </div>
+                <span class="note"> 入职微软之后，这边大多数是使用 Windows 进行开发的，比如我的台式机是 Windows 的，还有一部分服务器是 Windows 的，当然 Linux 是也非常多。
+很多情况下我是使用自己的 Mac 笔记本来远程连接我的 Windows 机器来开发的。比如如果我在工位上，我会...</span>
+                <p class="auth-span">
+                    <span class="muted"><i class="fa fa-user"></i> <a href="https://cuiqingcai.com/author/cqcre">崔庆才</a></span>
+                    <span class="muted"><i class="fa fa-clock-o"></i> 2个月前 (03-24)</span> <span class="muted"><i
+                        class="fa fa-eye"></i> 3693浏览</span> <span class="muted"><i class="fa fa-comments-o"></i> <a
+                        target="_blank" href="https://cuiqingcai.com/6509.html#comments">4评论</a></span><span
+                        class="muted">
+<a href="javascript:;" data-action="ding" data-id="6509" class="Addlike action"><i class="fa fa-heart-o"></i><span
+        class="count">32</span>喜欢</a></span></p>
+            </article>
+            <article class="excerpt">
+                <header>
+                    <a class="label label-important" href="https://cuiqingcai.com/category/technique/python">
+                        Python
+                        <i class="label-arrow"></i>
+                    </a>
+                    <h2>
+                        <a target="_blank" href="https://cuiqingcai.com/6485.html"
+                           title="逻辑回归的算法推导及案例对接">逻辑回归的算法推导及案例对接 </a>
+                    </h2>
+                </header>
+                <div class="focus">
+                    <a target="_blank" href="https://cuiqingcai.com/6485.html">
+                        <img class="thumb"
+                             src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2019/02/001rpX2hzy6PLD2ctK5bd690.jpeg&amp;h=123&amp;w=200&amp;q=90&amp;zc=1&amp;ct=1"
+                             alt="逻辑回归的算法推导及案例对接">
+                    </a>
+                </div>
+                <span class="note">在线性回归模型中，我们实际上是建立了一个模型来拟合自变量和因变量之间的线性关系，但是在某些时候，我们要做的可能是一个分类模型，那么这里就可能用到线性回归模型的变种——逻辑回归，本节我们就逻辑回归来做一个详细的说明。
+实例引入
+我们还是以上一节的例子为例，张三、李四、王五、赵六都要...
+                </span>
+                <p class="auth-span">
+                    <span class="muted"><i class="fa fa-user"></i> <a href="https://cuiqingcai.com/author/cqcre">崔庆才</a></span>
+                    <span class="muted">
+                        <i class="fa fa-clock-o"></i>
+                        3个月前 (02-21)
+                    </span>
+                    <span class="muted">
+                        <i class="fa fa-eye"></i>
+                        6739浏览
+                    </span>
+                    <span class="muted">
+                        <i class="fa fa-comments-o"></i>
+                        <a target="_blank" href="https://cuiqingcai.com/6485.html#comments">22评论</a>
+                    </span>
+                    <span class="muted">
+                        <a href="javascript:;" data-action="ding" data-id="6485" class="Addlike action">
+                            <i class="fa fa-heart-o"></i>
+                            <span class="count">44</span>
+                            喜欢
+                        </a>
+                    </span>
+                </p>
+            </article>
+            <article class="excerpt">
+                <header><a class="label label-important"
+                           href="https://cuiqingcai.com/category/technique/python">Python<i class="label-arrow"></i></a>
+                    <h2><a target="_blank" href="https://cuiqingcai.com/6462.html" title="程序猿的情人节怎么过？">程序猿的情人节怎么过？ </a>
+                    </h2>
+                </header>
+                <div class="focus"><a target="_blank" href="https://cuiqingcai.com/6462.html"><img class="thumb"
+                                                                                                   src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2019/02/xxx-e1550713767872.png&amp;h=123&amp;w=200&amp;q=90&amp;zc=1&amp;ct=1"
+                                                                                                   alt="程序猿的情人节怎么过？"></a>
+                </div>
+                <span class="note"> 都说程序猿是一类不解风情的生物，“赚的多，花的少，死的早”已经成为了程序猿的标志，“眼镜、格子衫、垢面蓬头、拖鞋裤衩”已然也成了程序猿的代表形象，“代码、游戏、老湿”也已经快要成了程序猿的生命。
+但！有的时候，比如情人节，我们就可以发挥我们的特长了，我们程序猿也可以有自己的浪漫！...</span>
+                <p class="auth-span">
+                    <span class="muted"><i class="fa fa-user"></i> <a href="https://cuiqingcai.com/author/cqcre">崔庆才</a></span>
+                    <span class="muted"><i class="fa fa-clock-o"></i> 3个月前 (02-21)</span> <span class="muted"><i
+                        class="fa fa-eye"></i> 6609浏览</span> <span class="muted"><i class="fa fa-comments-o"></i> <a
+                        target="_blank" href="https://cuiqingcai.com/6462.html#comments">10评论</a></span><span
+                        class="muted">
+<a href="javascript:;" data-action="ding" data-id="6462" class="Addlike action"><i class="fa fa-heart-o"></i><span
+        class="count">55</span>喜欢</a></span></p>
+            </article>
+            <article class="excerpt">
+                <header><a class="label label-important" href="https://cuiqingcai.com/category/technique">技术杂谈<i
+                        class="label-arrow"></i></a>
+                    <h2><a target="_blank" href="https://cuiqingcai.com/6457.html" title="分享一套 MacBook 高效开发工具">分享一套
+                        MacBook 高效开发工具 </a></h2>
+                </header>
+                <div class="focus"><a target="_blank" href="https://cuiqingcai.com/6457.html"><img class="thumb"
+                                                                                                   src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2019/02/sss.jpg&amp;h=123&amp;w=200&amp;q=90&amp;zc=1&amp;ct=1"
+                                                                                                   alt="分享一套 MacBook 高效开发工具"></a>
+                </div>
+                <span class="note"> 作为一名程序员，能够利用好工具提高开发和工作效率是非常重要的。我个人使用的都是苹果系列产品，电脑为 MacBook Pro 15 寸，手机 iPhone 7P，另外还有一个 iPad Pro 和一副 Apple Watch。我一直觉得 Mac 是非常适合做程序开发的，它既有比较不...</span>
+                <p class="auth-span">
+                    <span class="muted"><i class="fa fa-user"></i> <a href="https://cuiqingcai.com/author/cqcre">崔庆才</a></span>
+                    <span class="muted"><i class="fa fa-clock-o"></i> 3个月前 (02-21)</span> <span class="muted"><i
+                        class="fa fa-eye"></i> 7212浏览</span> <span class="muted"><i class="fa fa-comments-o"></i> <a
+                        target="_blank" href="https://cuiqingcai.com/6457.html#comments">6评论</a></span><span
+                        class="muted">
+<a href="javascript:;" data-action="ding" data-id="6457" class="Addlike action"><i class="fa fa-heart-o"></i><span
+        class="count">22</span>喜欢</a></span></p>
+            </article>
+            <article class="excerpt">
+                <header><a class="label label-important"
+                           href="https://cuiqingcai.com/category/technique/python">Python<i class="label-arrow"></i></a>
+                    <h2><a target="_blank" href="https://cuiqingcai.com/6454.html" title="还在一个个写规则？来了解下爬虫的智能化解析吧！">还在一个个写规则？来了解下爬虫的智能化解析吧！ </a>
+                    </h2>
+                </header>
+                <div class="focus"><a target="_blank" href="https://cuiqingcai.com/6454.html"><img class="thumb"
+                                                                                                   src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2019/02/xxx-e1550711818507.jpeg&amp;h=123&amp;w=200&amp;q=90&amp;zc=1&amp;ct=1"
+                                                                                                   alt="还在一个个写规则？来了解下爬虫的智能化解析吧！"></a>
+                </div>
+                <span class="note"> 爬虫是做什么的？是帮助我们来快速获取有效信息的。然而做过爬虫的人都知道，解析是个麻烦事。
+比如一篇新闻吧，链接是这个：https://news.ifeng.com/c/7kQcQG2peWU，页面预览图如下：
+
+我们需要从页面中提取出标题、发布人、发布时间、发布内容、图片等内容。...</span>
+                <p class="auth-span">
+                    <span class="muted"><i class="fa fa-user"></i> <a href="https://cuiqingcai.com/author/cqcre">崔庆才</a></span>
+                    <span class="muted"><i class="fa fa-clock-o"></i> 3个月前 (02-21)</span> <span class="muted"><i
+                        class="fa fa-eye"></i> 12291浏览</span> <span class="muted"><i class="fa fa-comments-o"></i> <a
+                        target="_blank" href="https://cuiqingcai.com/6454.html#comments">12评论</a></span>
+                    <span class="muted">
+                        <a href="javascript:;" data-action="ding" data-id="6454" class="Addlike action">
+                            <i class="fa fa-heart-o"></i>
+                            <span class="count">44</span>喜欢
+                        </a>
+                    </span>
+                </p>
+            </article>
+            <article class="excerpt">
+                <header><a class="label label-important"
+                           href="https://cuiqingcai.com/category/technique/python">Python<i class="label-arrow"></i></a>
+                    <h2><a target="_blank" href="https://cuiqingcai.com/6431.html" title="今天，我终于弄懂了字体反爬是个啥玩意！">今天，我终于弄懂了字体反爬是个啥玩意！ </a>
+                    </h2>
+                </header>
+                <div class="focus"><a target="_blank" href="https://cuiqingcai.com/6431.html"><img class="thumb"
+                                                                                                   src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2018/02/201802111155445124jhQyer.yasuotu.gif&amp;h=123&amp;w=200&amp;q=90&amp;zc=1&amp;ct=1"
+                                                                                                   alt="今天，我终于弄懂了字体反爬是个啥玩意！"></a>
+                </div>
+                <span class="note"> 大家好，我是四毛，欢迎关注我的公众号。
+有什么想要交流的可以在后台第一时间私我。
+
+今天的文章内容主要是关于字体反爬。
+目前已知的几个字体反爬的网站是猫眼，汽车之家，天眼查，起点中文网等等。
+以前也看过这方面的文章，今天跟个老哥在交流的时候，终于实操了一把，弄懂了字体反爬是个啥玩...</span>
+                <p class="auth-span">
+                    <span class="muted"><i class="fa fa-user"></i> <a href="https://cuiqingcai.com/author/simon">四毛</a></span>
+                    <span class="muted"><i class="fa fa-clock-o"></i> 3个月前 (02-20)</span> <span class="muted"><i
+                        class="fa fa-eye"></i> 8519浏览</span> <span class="muted"><i class="fa fa-comments-o"></i> <a
+                        target="_blank" href="https://cuiqingcai.com/6431.html#comments">5评论</a></span><span
+                        class="muted">
+<a href="javascript:;" data-action="ding" data-id="6431" class="Addlike action"><i class="fa fa-heart-o"></i><span
+        class="count">24</span>喜欢</a></span></p>
+            </article>
+            <article class="excerpt">
+                <header><a class="label label-important"
+                           href="https://cuiqingcai.com/category/technique/python">Python<i class="label-arrow"></i></a>
+                    <h2><a target="_blank" href="https://cuiqingcai.com/6408.html" title="第一次见到这种反爬虫。咋办？盘它。">第一次见到这种反爬虫。咋办？盘它。 </a>
+                    </h2>
+                </header>
+                <div class="focus"><a target="_blank" href="https://cuiqingcai.com/6408.html"><img class="thumb"
+                                                                                                   src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2018/02/201802111155445124jhQyer.yasuotu.gif&amp;h=123&amp;w=200&amp;q=90&amp;zc=1&amp;ct=1"
+                                                                                                   alt="第一次见到这种反爬虫。咋办？盘它。"></a>
+                </div>
+                <span class="note"> 大家好，我是四毛，欢迎大家关注我的公众号。
+
+今天在工作中，碰到了第一次碰见的反爬虫机制，感觉很有意思，在这里记录一下，希望对大家有帮助。
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;今天用到的库：
+requests [请求]
+lzstring [解压数据]
+pyexecjs [执行JS]
+&nbsp;
+简...</span>
+                <p class="auth-span">
+                    <span class="muted"><i class="fa fa-user"></i> <a href="https://cuiqingcai.com/author/simon">四毛</a></span>
+                    <span class="muted"><i class="fa fa-clock-o"></i> 4个月前 (01-26)</span> <span class="muted"><i
+                        class="fa fa-eye"></i> 14090浏览</span> <span class="muted"><i class="fa fa-comments-o"></i> <a
+                        target="_blank" href="https://cuiqingcai.com/6408.html#comments">7评论</a></span><span
+                        class="muted">
+<a href="javascript:;" data-action="ding" data-id="6408" class="Addlike action"><i class="fa fa-heart-o"></i><span
+        class="count">52</span>喜欢</a></span></p>
+            </article>
+
+            <article class="excerpt" style="">
+                <header><a class="label label-important"
+                           href="https://cuiqingcai.com/category/technique/python">Python<i class="label-arrow"></i></a>
+                    <h2><a target="_blank" href="https://cuiqingcai.com/6341.html" title="大众点评还不会爬？跟着我，我教你。">大众点评还不会爬？跟着我，我教你。 </a>
+                    </h2>
+                </header>
+                <div class="focus"><a target="_blank" href="https://cuiqingcai.com/6341.html"><img class="thumb"
+                                                                                                   src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2018/02/201802111155445124jhQyer.yasuotu.gif&amp;h=123&amp;w=200&amp;q=90&amp;zc=1&amp;ct=1"
+                                                                                                   alt="大众点评还不会爬？跟着我，我教你。"></a>
+                </div>
+                <span class="note"> 大家好，我是四毛，好久没有写东西了，欢迎大家关注我的公众号。
+
+今天的文章是关于如何使用requests来爬取大众点评的数据。
+看完本文，你可以：
+1、了解大众点评的CSS反爬虫机制
+2、破解反爬虫机制
+3、使用requests即可正确获取到评论数，平均价格，服务，味道，环境数据...</span>
+                <p class="auth-span">
+                    <span class="muted"><i class="fa fa-user"></i> <a href="https://cuiqingcai.com/author/simon">四毛</a></span>
+                    <span class="muted"><i class="fa fa-clock-o"></i> 4个月前 (01-24)</span> <span class="muted"><i
+                        class="fa fa-eye"></i> 11994浏览</span> <span class="muted"><i class="fa fa-comments-o"></i> <a
+                        target="_blank" href="https://cuiqingcai.com/6341.html#comments">7评论</a></span><span
+                        class="muted">
+<a href="javascript:;" data-action="ding" data-id="6341" class="Addlike action"><i class="fa fa-heart-o"></i><span
+        class="count">23</span>喜欢</a></span></p>
+            </article>
+            <article class="excerpt" style="">
+                <header><a class="label label-important" href="https://cuiqingcai.com/category/life/daily">个人日记<i
+                        class="label-arrow"></i></a>
+                    <h2><a target="_blank" href="https://cuiqingcai.com/6401.html" title="2018 年终总结：成就不算少，进步不算多">2018
+                        年终总结：成就不算少，进步不算多 </a></h2>
+                </header>
+                <div class="focus"><a target="_blank" href="https://cuiqingcai.com/6401.html"><img class="thumb"
+                                                                                                   src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2019/01/ti333mg.jpeg&amp;h=123&amp;w=200&amp;q=90&amp;zc=1&amp;ct=1"
+                                                                                                   alt="2018 年终总结：成就不算少，进步不算多"></a>
+                </div>
+                <span class="note"> 最近一段时间没有更新原创文章了，主要是因为最近整个在忙硕士毕业的各种事情，毕业答辩完了以后休假了一小段时间，整个十二月就这么过去了。
+转眼已经 2019 年了，其实去年我并没有写年终总结，现在到头来还是蛮后悔的，说实话总结其实还是蛮有必要的，现在就趁着这个时间来对自己的 2018...</span>
+                <p class="auth-span">
+                    <span class="muted"><i class="fa fa-user"></i> <a href="https://cuiqingcai.com/author/cqcre">崔庆才</a></span>
+                    <span class="muted"><i class="fa fa-clock-o"></i> 4个月前 (01-05)</span> <span class="muted"><i
+                        class="fa fa-eye"></i> 10343浏览</span> <span class="muted"><i class="fa fa-comments-o"></i> <a
+                        target="_blank" href="https://cuiqingcai.com/6401.html#comments">5评论</a></span><span
+                        class="muted">
+<a href="javascript:;" data-action="ding" data-id="6401" class="Addlike action"><i class="fa fa-heart-o"></i><span
+        class="count">153</span>喜欢</a></span></p>
+            </article>
+
+
+            <article class="excerpt" style="">
+                <header><a class="label label-important" href="https://cuiqingcai.com/category/technique/linux">Linux<i
+                        class="label-arrow"></i></a>
+                    <h2><a target="_blank" href="https://cuiqingcai.com/6378.html"
+                           title="小白学爬虫之代理(公有云)">小白学爬虫之代理(公有云) </a></h2>
+                </header>
+                <div class="focus"><a target="_blank" href="https://cuiqingcai.com/6378.html"><img class="thumb"
+                                                                                                   src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2018/12/HGXSM1O5KGB_QWQDIC.gif&amp;h=123&amp;w=200&amp;q=90&amp;zc=1&amp;ct=1"
+                                                                                                   alt="小白学爬虫之代理(公有云)"></a>
+                </div>
+                <span class="note">
+&nbsp;
+Hello 各位小伙伴 雷门吼！
+在教程之前首先申明！此教程适合土豪不缺钱的玩家
+潜水了许久了，今天来更新点东西~
+今天说点啥呢？ 那就是代理！！
+代理在爬虫界的重要作用相信各位应该清楚吧！毕竟绝大部分反爬可以靠代理解决；不能被代理解决的也得要代理配合解决。
+
+市...</span>
+                <p class="auth-span">
+                    <span class="muted"><i class="fa fa-user"></i> <a href="https://cuiqingcai.com/author/aiyo">哎哟卧槽</a></span>
+                    <span class="muted"><i class="fa fa-clock-o"></i> 5个月前 (12-26)</span> <span class="muted"><i
+                        class="fa fa-eye"></i> 5556浏览</span> <span class="muted"><i class="fa fa-comments-o"></i> <a
+                        target="_blank" href="https://cuiqingcai.com/6378.html#comments">1评论</a></span><span
+                        class="muted">
+<a href="javascript:;" data-action="ding" data-id="6378" class="Addlike action"><i class="fa fa-heart-o"></i><span
+        class="count">15</span>喜欢</a></span></p>
+            </article>
+
+            <article class="excerpt" style="">
+                <header><a class="label label-important"
+                           href="https://cuiqingcai.com/category/technique/python">Python<i class="label-arrow"></i></a>
+                    <h2><a target="_blank" href="https://cuiqingcai.com/5094.html" title="爬虫代理哪家强？十大付费代理详细对比评测出炉！">爬虫代理哪家强？十大付费代理详细对比评测出炉！ </a>
+                    </h2>
+                </header>
+                <div class="focus"><a target="_blank" href="https://cuiqingcai.com/5094.html"><img class="thumb"
+                                                                                                   src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2018/02/52.jpg&amp;h=123&amp;w=200&amp;q=90&amp;zc=1&amp;ct=1"
+                                                                                                   alt="爬虫代理哪家强？十大付费代理详细对比评测出炉！"></a>
+                </div>
+                <span class="note"> 前言
+随着大数据时代的到来，爬虫已经成了获取数据的必不可少的方式，做过爬虫的想必都深有体会，爬取的时候莫名其妙 IP 就被网站封掉了，毕竟各大网站也不想自己的数据被轻易地爬走。
+对于爬虫来说，为了解决封禁 IP 的问题，一个有效的方式就是使用代理，使用代理之后可以让爬虫伪装自己的...</span>
+                <p class="auth-span">
+                    <span class="muted"><i class="fa fa-user"></i> <a href="https://cuiqingcai.com/author/cqcre">崔庆才</a></span>
+                    <span class="muted"><i class="fa fa-clock-o"></i> 7个月前 (10-03)</span> <span class="muted"><i
+                        class="fa fa-eye"></i> 68260浏览</span> <span class="muted"><i class="fa fa-comments-o"></i> <a
+                        target="_blank" href="https://cuiqingcai.com/5094.html#comments">6评论</a></span><span
+                        class="muted">
+<a href="javascript:;" data-action="ding" data-id="5094" class="Addlike action"><i class="fa fa-heart-o"></i><span
+        class="count">292</span>喜欢</a></span></p>
+            </article>
+
+            <article class="excerpt" style="">
+                <header><a class="label label-important"
+                           href="https://cuiqingcai.com/category/technique/python">Python<i class="label-arrow"></i></a>
+                    <h2><a target="_blank" href="https://cuiqingcai.com/5788.html"
+                           title="正则表达式中零宽断言的用法">正则表达式中零宽断言的用法 </a></h2>
+                </header>
+                <div class="focus"><a target="_blank" href="https://cuiqingcai.com/5788.html"><img class="thumb"
+                                                                                                   src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2018/03/54-e1520178167345.jpeg&amp;h=123&amp;w=200&amp;q=90&amp;zc=1&amp;ct=1"
+                                                                                                   alt="正则表达式中零宽断言的用法"></a>
+                </div>
+                <span class="note"> 了解了正则表达式，想必一般情况下的匹配都不会出现什么问题，但是如果一些特殊情况，可能需要用到一些更高级的正则表达式匹配操作，本节我们来说明一下正则表达式的一个较常用又比较重要的知识点——零宽断言。
+实例引入
+首先我们来看一个例子，这里有一段问答对话：
+问：我用的是Windows ...</span>
+                <p class="auth-span">
+                    <span class="muted"><i class="fa fa-user"></i> <a href="https://cuiqingcai.com/author/cqcre">崔庆才</a></span>
+                    <span class="muted"><i class="fa fa-clock-o"></i> 1年前 (2018-03-02)</span> <span class="muted"><i
+                        class="fa fa-eye"></i> 8427浏览</span> <span class="muted"><i class="fa fa-comments-o"></i> <a
+                        target="_blank" href="https://cuiqingcai.com/5788.html#comments">107评论</a></span><span
+                        class="muted">
+<a href="javascript:;" data-action="ding" data-id="5788" class="Addlike action"><i class="fa fa-heart-o"></i><span
+        class="count">47</span>喜欢</a></span></p>
+            </article>
+
+            <article class="excerpt" style="">
+                <header><a class="label label-important" href="https://cuiqingcai.com/category/technique/paper">Paper<i
+                        class="label-arrow"></i></a>
+                    <h2><a target="_blank" href="https://cuiqingcai.com/5737.html"
+                           title="[论文笔记] Learning Phrase Representations using RNN Encoder–Decoder for Statistical Machine Translation">[论文笔记]
+                        Learning Phrase Representations using RNN Encoder–Decoder for Statistical Machine
+                        Translation </a></h2>
+                </header>
+                <div class="focus"><a target="_blank" href="https://cuiqingcai.com/5737.html"><img class="thumb"
+                                                                                                   src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2018/02/1.8.jpg&amp;h=123&amp;w=200&amp;q=90&amp;zc=1&amp;ct=1"
+                                                                                                   alt="[论文笔记] Learning Phrase Representations using RNN Encoder–Decoder for Statistical Machine Translation"></a>
+                </div>
+                <span class="note"> 我们知道，Seq2Seq 现在已经成为了机器翻译、对话聊天、文本摘要等工作的重要模型，真正提出 Seq2Seq 的文章是《Sequence to Sequence Learning with Neural Networks》，但本篇《Learning Phrase Represe...</span>
+                <p class="auth-span">
+                    <span class="muted"><i class="fa fa-user"></i> <a href="https://cuiqingcai.com/author/cqcre">崔庆才</a></span>
+                    <span class="muted"><i class="fa fa-clock-o"></i> 1年前 (2018-02-26)</span> <span class="muted"><i
+                        class="fa fa-eye"></i> 7780浏览</span> <span class="muted"><i class="fa fa-comments-o"></i> <a
+                        target="_blank" href="https://cuiqingcai.com/5737.html#respond">0评论</a></span><span
+                        class="muted">
+<a href="javascript:;" data-action="ding" data-id="5737" class="Addlike action"><i class="fa fa-heart-o"></i><span
+        class="count">13</span>喜欢</a></span></p>
+            </article>
+
+            <article class="excerpt" style="">
+                <header><a class="label label-important"
+                           href="https://cuiqingcai.com/category/technique/python">Python<i class="label-arrow"></i></a>
+                    <h2><a target="_blank" href="https://cuiqingcai.com/5709.html" title="TensorFlow验证码识别">TensorFlow验证码识别 </a>
+                    </h2>
+                </header>
+                <div class="focus"><a target="_blank" href="https://cuiqingcai.com/5709.html"><img class="thumb"
+                                                                                                   src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2018/02/6.2.jpg&amp;h=123&amp;w=200&amp;q=90&amp;zc=1&amp;ct=1"
+                                                                                                   alt="TensorFlow验证码识别"></a>
+                </div>
+                <span class="note"> 本节我们来用 TensorFlow 来实现一个深度学习模型，用来实现验证码识别的过程，这里我们识别的验证码是图形验证码，首先我们会用标注好的数据来训练一个模型，然后再用模型来实现这个验证码的识别。
+验证码
+首先我们来看下验证码是怎样的，这里我们使用 Python 的 captch...</span>
+                <p class="auth-span">
+                    <span class="muted"><i class="fa fa-user"></i> <a href="https://cuiqingcai.com/author/cqcre">崔庆才</a></span>
+                    <span class="muted"><i class="fa fa-clock-o"></i> 1年前 (2018-02-21)</span> <span class="muted"><i
+                        class="fa fa-eye"></i> 19102浏览</span> <span class="muted"><i class="fa fa-comments-o"></i> <a
+                        target="_blank" href="https://cuiqingcai.com/5709.html#respond">0评论</a></span><span
+                        class="muted">
+<a href="javascript:;" data-action="ding" data-id="5709" class="Addlike action"><i class="fa fa-heart-o"></i><span
+        class="count">35</span>喜欢</a></span></p>
+            </article>
+            <article class="excerpt" style="">
+                <header><a class="label label-important"
+                           href="https://cuiqingcai.com/category/technique/python">Python<i class="label-arrow"></i></a>
+                    <h2><a target="_blank" href="https://cuiqingcai.com/5696.html" title="利用python库twilio来免费发送短信">利用python库twilio来免费发送短信 </a>
+                    </h2>
+                </header>
+                <div class="focus"><a target="_blank" href="https://cuiqingcai.com/5696.html"><img class="thumb"
+                                                                                                   src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2018/02/201802111155445124jhQyer.yasuotu.gif&amp;h=123&amp;w=200&amp;q=90&amp;zc=1&amp;ct=1"
+                                                                                                   alt="利用python库twilio来免费发送短信"></a>
+                </div>
+                <span class="note"> &nbsp; &nbsp; &nbsp; &nbsp;大家好，我是四毛，最近开通了个人公众号“用Python来编程”，欢迎大家“关注”，这样您就可以收到优质的文章了。
+&nbsp;
+
+&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;今天跟大家分享的主题是利用python库twilio来免费发送短信。
+&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;先放一张成品图...</span>
+                <p class="auth-span">
+                    <span class="muted"><i class="fa fa-user"></i> <a href="https://cuiqingcai.com/author/simon">四毛</a></span>
+                    <span class="muted"><i class="fa fa-clock-o"></i> 1年前 (2018-02-12)</span> <span class="muted"><i
+                        class="fa fa-eye"></i> 17229浏览</span> <span class="muted"><i class="fa fa-comments-o"></i> <a
+                        target="_blank" href="https://cuiqingcai.com/5696.html#comments">10评论</a></span><span
+                        class="muted">
+<a href="javascript:;" data-action="ding" data-id="5696" class="Addlike action"><i class="fa fa-heart-o"></i><span
+        class="count">40</span>喜欢</a></span></p>
+            </article>
+            <article class="excerpt" style="">
+                <header><a class="label label-important"
+                           href="https://cuiqingcai.com/category/technique/python">Python<i class="label-arrow"></i></a>
+                    <h2><a target="_blank" href="https://cuiqingcai.com/5678.html" title="[Python3网络爬虫开发实战] 后续章节">[Python3网络爬虫开发实战]
+                        后续章节 </a></h2>
+                </header>
+                <div class="focus"><a target="_blank" href="https://cuiqingcai.com/5678.html"><img class="thumb"
+                                                                                                   src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2018/01/Python-3网格爬虫开发实战-宣传图.jpg&amp;h=123&amp;w=200&amp;q=90&amp;zc=1&amp;ct=1"
+                                                                                                   alt="[Python3网络爬虫开发实战] 后续章节"></a>
+                </div>
+                <span class="note"> 本书此部分内容属进阶内容，暂不开放。
+如需查看更多可以购买书籍查看。
+购买地址：
+https://item.jd.com/26114674847.html
+https://item.jd.com/26124473455.html
+本书由图灵教育-人民邮电出版社出版发行。
+作者：崔...</span>
+                <p class="auth-span">
+                    <span class="muted"><i class="fa fa-user"></i> <a href="https://cuiqingcai.com/author/cqcre">崔庆才</a></span>
+                    <span class="muted"><i class="fa fa-clock-o"></i> 1年前 (2018-02-07)</span> <span class="muted"><i
+                        class="fa fa-eye"></i> 53688浏览</span> <span class="muted"><i class="fa fa-comments-o"></i> <a
+                        target="_blank" href="https://cuiqingcai.com/5678.html#comments">1评论</a></span><span
+                        class="muted">
+<a href="javascript:;" data-action="ding" data-id="5678" class="Addlike action"><i class="fa fa-heart-o"></i><span
+        class="count">65</span>喜欢</a></span></p>
+            </article>
+            <article class="excerpt" style="">
+                <header><a class="label label-important"
+                           href="https://cuiqingcai.com/category/technique/python">Python<i class="label-arrow"></i></a>
+                    <h2><a target="_blank" href="https://cuiqingcai.com/5657.html"
+                           title="[Python3网络爬虫开发实战] 7.4-使用Selenium爬取淘宝商品">[Python3网络爬虫开发实战] 7.4-使用Selenium爬取淘宝商品 </a>
+                    </h2>
+                </header>
+                <div class="focus"><a target="_blank" href="https://cuiqingcai.com/5657.html"><img class="thumb"
+                                                                                                   src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2018/02/7.4.jpg&amp;h=123&amp;w=200&amp;q=90&amp;zc=1&amp;ct=1"
+                                                                                                   alt="[Python3网络爬虫开发实战] 7.4-使用Selenium爬取淘宝商品"></a>
+                </div>
+                <span class="note"> 在前一章中，我们已经成功尝试分析Ajax来抓取相关数据，但是并不是所有页面都可以通过分析Ajax来完成抓取。比如，淘宝，它的整个页面数据确实也是通过Ajax获取的，但是这些Ajax接口参数比较复杂，可能会包含加密密钥等，所以如果想自己构造Ajax参数，还是比较困难的。对于这种页面...</span>
+                <p class="auth-span">
+                    <span class="muted"><i class="fa fa-user"></i> <a href="https://cuiqingcai.com/author/cqcre">崔庆才</a></span>
+                    <span class="muted"><i class="fa fa-clock-o"></i> 1年前 (2018-01-31)</span> <span class="muted"><i
+                        class="fa fa-eye"></i> 46089浏览</span> <span class="muted"><i class="fa fa-comments-o"></i> <a
+                        target="_blank" href="https://cuiqingcai.com/5657.html#comments">3评论</a></span><span
+                        class="muted">
+<a href="javascript:;" data-action="ding" data-id="5657" class="Addlike action"><i class="fa fa-heart-o"></i><span
+        class="count">89</span>喜欢</a></span></p>
+            </article>
+            <div class="ias_trigger" style=""><a href="#">下一页</a></div>
+            <div class="pagination" style="display: none;">
+                <ul>
+                    <li class="prev-page"><a href="https://cuiqingcai.com/page/4">上一页</a></li>
+                    <li><a href="https://cuiqingcai.com/">1</a></li>
+                    <li><a href="https://cuiqingcai.com/page/2">2</a></li>
+                    <li><a href="https://cuiqingcai.com/page/3">3</a></li>
+                    <li><a href="https://cuiqingcai.com/page/4">4</a></li>
+                    <li class="active"><span>5</span></li>
+                    <li><a href="https://cuiqingcai.com/page/6">6</a></li>
+                    <li><a href="https://cuiqingcai.com/page/7">7</a></li>
+                    <li><a href="https://cuiqingcai.com/page/8">8</a></li>
+                    <li><a href="https://cuiqingcai.com/page/9">9</a></li>
+                    <li><span> ... </span></li>
+                    <li class="next-page"><a href="https://cuiqingcai.com/page/6">下一页</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 中间左边部分 结束 -->
+
+    <!-- 侧边栏 -->
+    <aside class="sidebar">
+
+        <!-- 侧边栏顶部 选项 -->
+        <div class="widget widget_text">
+            <div class="textwidget">
+                <div class="social">
+
+                    <a href="https://weibo.com/cuiqingcai" rel="external nofollow" title="" target="_blank"
+                       data-original-title="新浪微博"><i class="sinaweibo fa fa-weibo"></i></a><a
+                        href="http://t.qq.com/CQCcqc123456?preview" rel="external nofollow" title="" target="_blank"
+                        data-original-title="腾讯微博"><i class="tencentweibo fa fa-tencent-weibo"></i></a><a class="weixin"
+                                                                                                          data-original-title=""
+                                                                                                          title=""><i
+                        class="weixins fa fa-weixin"></i>
+                    <div class="weixin-popover">
+                        <div class="popover bottom in">
+                            <div class="arrow"></div>
+                            <div class="popover-title"></div>
+                            <div class="popover-content"><img
+                                    src="https://cuiqingcai.com/wp-content/themes/Yusi/img/weixin.gif"></div>
+                        </div>
+                    </div>
+                </a>
+                    <a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=cqc@cuiqingcai.com"
+                       rel="external nofollow" title="" target="_blank" data-original-title="Email"><i
+                            class="email fa fa-envelope-o"></i></a><a href="?feed=rss2" rel="external nofollow"
+                                                                      target="_blank" title=""
+                                                                      data-original-title="订阅本站"><i
+                        class="rss fa fa-rss"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 侧边栏顶部 热门专题 轮播图 -->
+        <div class="widget widget_metaslider_widget">
+            <div class="title"><h2>热门专题</h2></div>
+
+            <!-- meta slider -->
+            <div style="width: 100%;" class="metaslider metaslider-nivo metaslider-2698 ml-slider meta-slider">
+
+                <div id="metaslider_container_2698">
+                    <div class="slider-wrapper theme-bar">
+                        <div class="ribbon"></div>
+                        <div id="metaslider_2698" class="nivoSlider">
+                            <a href="https://cuiqingcai.com/1052.html" target="_blank" class="nivo-imageLink" style="display: block;">
+                                <img src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    height="300" width="320" data-title="Python爬虫学习系列教程" title="Python爬虫学习系列教程"
+                                    alt="Python爬虫学习系列教程" class="slider-2698 slide-1720"
+                                    style="width: 100px; visibility: hidden; display: inline;">
+                            </a>
+                            <a href="https://cuiqingcai.com/4320.html" target="_blank" class="nivo-imageLink"
+                               style="display: none;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/02/wallpaper_5226849-1.jpg"
+                                    height="300" width="320" data-title="Python3爬虫学习视频教程" title="OpenGL绘图系列教程"
+                                    alt="OpenGL绘图系列教程" class="slider-2698 slide-951"
+                                    style="width: 100px; visibility: hidden; display: inline;">
+                            </a>
+                            <a href="https://cuiqingcai.com/4352.html" target="_blank" class="nivo-imageLink"
+                               style="display: block;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2016/03/20-234x220.jpg"
+                                    height="300" width="320" data-title="小白学爬虫系列教程" alt=""
+                                    class="slider-2698 slide-4372"
+                                    style="width: 100px; visibility: hidden; display: inline;">
+                            </a>
+                            <img class="nivo-main-image"
+                                 src="https://qiniu.cuiqingcai.com/wp-content/uploads/2016/03/20-234x220.jpg"
+                                 style="display: inline; height: 0px; width: 100px; overflow: hidden;">
+                            <div class="nivo-caption" style="display: block;">Python爬虫学习系列教程</div>
+                            <div class="nivo-directionNav">
+                                <a class="nivo-prevNav">&lt;</a>
+                                <a class="nivo-nextNav">&gt;</a>
+                            </div>
+                            <div class="nivo-box" name="0" rel="0"
+                                 style="opacity: 0.978203; left: 0px; top: 0px; width: 14px; height: 0px; overflow: hidden;">
+                                <img src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                     style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-0px;">
+                            </div>
+                            <div class="nivo-box" name="1" rel="0"
+                                 style="opacity: 1; left: 14px; top: 0px; width: 14px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-14px;">
+                            </div>
+                            <div class="nivo-box" name="2" rel="0"
+                                 style="opacity: 1; left: 28px; top: 0px; width: 14px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-28px;">
+                            </div>
+                            <div class="nivo-box" name="3" rel="0"
+                                 style="opacity: 1; left: 42px; top: 0px; width: 14px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-42px;">
+                            </div>
+                            <div class="nivo-box" name="4" rel="0"
+                                 style="opacity: 1; left: 56px; top: 0px; width: 14px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-56px;">
+                            </div>
+                            <div class="nivo-box" name="5" rel="0"
+                                 style="opacity: 1; left: 70px; top: 0px; width: 14px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-70px;">
+                            </div>
+                            <div class="nivo-box" name="6" rel="0"
+                                 style="opacity: 1; left: 84px; top: 0px; width: 16px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-84px;">
+                            </div>
+                            <div class="nivo-box" name="0" rel="1"
+                                 style="opacity: 1; left: 0px; top: 0px; width: 14px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-0px;">
+                            </div>
+                            <div class="nivo-box" name="1" rel="1"
+                                 style="opacity: 1; left: 14px; top: 0px; width: 14px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-14px;">
+                            </div>
+                            <div class="nivo-box" name="2" rel="1"
+                                 style="opacity: 1; left: 28px; top: 0px; width: 14px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-28px;">
+                            </div>
+                            <div class="nivo-box" name="3" rel="1"
+                                 style="opacity: 1; left: 42px; top: 0px; width: 14px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-42px;">
+                            </div>
+                            <div class="nivo-box" name="4" rel="1"
+                                 style="opacity: 1; left: 56px; top: 0px; width: 14px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-56px;">
+                            </div>
+                            <div class="nivo-box" name="5" rel="1"
+                                 style="opacity: 1; left: 70px; top: 0px; width: 14px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-70px;">
+                            </div>
+                            <div class="nivo-box" name="6" rel="1"
+                                 style="opacity: 1; left: 84px; top: 0px; width: 16px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-84px;">
+                            </div>
+                            <div class="nivo-box" name="0" rel="2"
+                                 style="opacity: 1; left: 0px; top: 0px; width: 14px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-0px;">
+                            </div>
+                            <div class="nivo-box" name="1" rel="2"
+                                 style="opacity: 1; left: 14px; top: 0px; width: 14px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-14px;">
+                            </div>
+                            <div class="nivo-box" name="2" rel="2"
+                                 style="opacity: 1; left: 28px; top: 0px; width: 14px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-28px;">
+                            </div>
+                            <div class="nivo-box" name="3" rel="2"
+                                 style="opacity: 1; left: 42px; top: 0px; width: 14px; height: 0px;">
+                                <img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-42px;" >
+                            </div>
+                            <div class="nivo-box" name="4" rel="2"
+                                 style="opacity: 1; left: 56px; top: 0px; width: 14px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-56px;">
+                            </div>
+                            <div class="nivo-box" name="5" rel="2"
+                                 style="opacity: 1; left: 70px; top: 0px; width: 14px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-70px;">
+                            </div>
+                            <div class="nivo-box" name="6" rel="2"
+                                 style="opacity: 1; left: 84px; top: 0px; width: 16px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-84px;">
+                            </div>
+                            <div class="nivo-box" name="0" rel="3"
+                                 style="opacity: 1; left: 0px; top: 0px; width: 14px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-0px;">
+                            </div>
+                            <div class="nivo-box" name="1" rel="3"
+                                 style="opacity: 1; left: 14px; top: 0px; width: 14px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-14px;">
+                            </div>
+                            <div class="nivo-box" name="2" rel="3"
+                                 style="opacity: 1; left: 28px; top: 0px; width: 14px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-28px;">
+                            </div>
+                            <div class="nivo-box" name="3" rel="3"
+                                 style="opacity: 1; left: 42px; top: 0px; width: 14px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-42px;">
+                            </div>
+                            <div class="nivo-box" name="4" rel="3"
+                                 style="opacity: 1; left: 56px; top: 0px; width: 14px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-56px;">
+                            </div>
+                            <div class="nivo-box" name="5" rel="3"
+                                 style="opacity: 1; left: 70px; top: 0px; width: 14px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-70px;">
+                            </div>
+                            <div class="nivo-box" name="6" rel="3"
+                                 style="opacity: 1; left: 84px; top: 0px; width: 16px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-84px;">
+                            </div>
+                            <div class="nivo-box" name="0" rel="4"
+                                 style="opacity: 1; left: 0px; top: 0px; width: 14px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-0px;">
+                            </div>
+                            <div class="nivo-box" name="1" rel="4"
+                                 style="opacity: 1; left: 14px; top: 0px; width: 14px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-14px;">
+                            </div>
+                            <div class="nivo-box" name="2" rel="4"
+                                 style="opacity: 1; left: 28px; top: 0px; width: 14px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-28px;">
+                            </div>
+                            <div class="nivo-box" name="3" rel="4"
+                                 style="opacity: 1; left: 42px; top: 0px; width: 14px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-42px;">
+                            </div>
+                            <div class="nivo-box" name="4" rel="4"
+                                 style="opacity: 1; left: 56px; top: 0px; width: 14px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-56px;">
+                            </div>
+                            <div class="nivo-box" name="5" rel="4"
+                                 style="opacity: 1; left: 70px; top: 0px; width: 14px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-70px;">
+                            </div>
+                            <div class="nivo-box" name="6" rel="4"
+                                 style="opacity: 1; left: 84px; top: 0px; width: 16px; height: 0px;"><img
+                                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2015/04/wallpaper_5263464.jpg"
+                                    style="position:absolute; width:100px; height:auto; display:block; top:-0px; left:-84px;">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+               <!-- <script type="text/javascript">
+                    var metaslider_2698 = function ($) {
+                        $('#metaslider_2698').nivoSlider({
+                            boxCols: 7,
+                            boxRows: 5,
+                            pauseTime: 3000,
+                            effect: "random",
+                            controlNav: false,
+                            directionNav: true,
+                            pauseOnHover: true,
+                            animSpeed: 600,
+                            prevText: "&lt;",
+                            nextText: "&gt;",
+                            slices: 15,
+                            manualAdvance: false
+                        });
+                    };
+                    var timer_metaslider_2698 = function () {
+                        var slider = !window.jQuery ? window.setTimeout(timer_metaslider_2698, 100) : !jQuery.isReady ? window.setTimeout(timer_metaslider_2698, 1) : metaslider_2698(window.jQuery);
+                    };
+                    timer_metaslider_2698();
+                </script>-->
+            </div>
+            <!--// meta slider-->
+        </div>
+
+        <!-- 广告位1 -->
+        <div class="widget widget_text">
+            <div class="textwidget"><p><a href="https://www.abuyun.com/http-proxy/introduce.html"><img
+                    style="width:100%"
+                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2019/04/601554968669_.pic_hd.jpg"><br>
+            </a></p>
+            </div>
+        </div>
+
+        <!-- 广告位2 -->
+        <div class="widget widget_text">
+            <div class="textwidget"><a
+                    href="https://developer.huaweicloud.com/campus?utm_source=cuiqingcai&amp;utm_medium=blog&amp;utm_campaign=campus"><img
+                    style="width:100%" src="https://qiniu.cuiqingcai.com/wp-content/uploads/2018/10/云服务器学生优惠套餐9元月.jpg">
+            </a></div>
+        </div>
+
+        <!-- 广告位3 -->
+        <div class="widget widget_text">
+            <div class="textwidget"><p><a
+                    href="https://e.coding.net/?utm_source=jingmi&amp;utm_medium=banner&amp;utm_campaign=march2019"><img
+                    style="width: 100%;"
+                    src="https://qiniu.cuiqingcai.com/wp-content/uploads/2019/04/371554791054_.pic_.png"><br>
+            </a></p>
+            </div>
+        </div>
+
+        <!-- 文章归档 -->
+        <div class="widget widget_archive">
+            <div class="title"><h2>文章归档</h2></div>
+            <ul>
+                <li><a href="https://cuiqingcai.com/date/2019/05">2019年五月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2019/04">2019年四月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2019/03">2019年三月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2019/02">2019年二月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2019/01">2019年一月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2018/12">2018年十二月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2018/10">2018年十月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2018/09">2018年九月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2018/08">2018年八月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2018/07">2018年七月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2018/06">2018年六月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2018/05">2018年五月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2018/04">2018年四月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2018/03">2018年三月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2018/02">2018年二月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2018/01">2018年一月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2017/12">2017年十二月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2017/11">2017年十一月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2017/10">2017年十月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2017/09">2017年九月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2017/08">2017年八月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2017/07">2017年七月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2017/06">2017年六月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2017/05">2017年五月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2017/04">2017年四月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2017/03">2017年三月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2017/02">2017年二月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2017/01">2017年一月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2016/12">2016年十二月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2016/11">2016年十一月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2016/10">2016年十月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2016/09">2016年九月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2016/08">2016年八月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2016/07">2016年七月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2016/06">2016年六月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2016/03">2016年三月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2016/02">2016年二月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2016/01">2016年一月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2015/12">2015年十二月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2015/11">2015年十一月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2015/10">2015年十月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2015/09">2015年九月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2015/08">2015年八月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2015/07">2015年七月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2015/06">2015年六月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2015/05">2015年五月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2015/04">2015年四月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2015/03">2015年三月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2015/02">2015年二月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2015/01">2015年一月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2014/12">2014年十二月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2014/11">2014年十一月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2014/10">2014年十月</a></li>
+                <li><a href="https://cuiqingcai.com/date/2014/09">2014年九月</a></li>
+            </ul>
+        </div>
+
+        <div class="widget d_postlist">
+            <div class="title"><h2>猜你喜欢</h2></div>
+            <ul>
+                <li><a href="https://cuiqingcai.com/1001.html" title="Python爬虫实战四之抓取淘宝MM照片"><span class="thumbnail"><img
+                        src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2015/02/wallpaper_5270641.jpg&amp;h=64&amp;w=100&amp;q=90&amp;zc=1&amp;ct=1"
+                        alt="Python爬虫实战四之抓取淘宝MM照片"></span><span class="text">Python爬虫实战四之抓取淘宝MM照片</span><span
+                        class="muted">2015-02-20</span><span class="muted">789评论</span></a></li>
+                <li><a href="https://cuiqingcai.com/5413.html" title="[Python3网络爬虫开发实战] 1.8-爬虫框架的安装"><span
+                        class="thumbnail"><img
+                        src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2018/02/1.8.jpg&amp;h=64&amp;w=100&amp;q=90&amp;zc=1&amp;ct=1"
+                        alt="[Python3网络爬虫开发实战] 1.8-爬虫框架的安装"></span><span
+                        class="text">[Python3网络爬虫开发实战] 1.8-爬虫框架的安装</span><span class="muted">2018-01-25</span><span
+                        class="muted">551评论</span></a></li>
+                <li><a href="https://cuiqingcai.com/5432.html" title="[Python3网络爬虫开发实战] 1.8.4-Scrapy-Redis的安装"><span
+                        class="thumbnail"><img
+                        src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2018/02/1.8.4.jpg&amp;h=64&amp;w=100&amp;q=90&amp;zc=1&amp;ct=1"
+                        alt="[Python3网络爬虫开发实战] 1.8.4-Scrapy-Redis的安装"></span><span class="text">[Python3网络爬虫开发实战] 1.8.4-Scrapy-Redis的安装</span><span
+                        class="muted">2018-01-25</span><span class="muted">370评论</span></a></li>
+                <li><a href="https://cuiqingcai.com/4725.html" title="小白进阶之Scrapy第五篇（Scrapy-Splash配合CrawlSpider；瞎几把整的）"><span
+                        class="thumbnail"><img
+                        src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2016/11/QQ图片20161102215153.jpg&amp;h=64&amp;w=100&amp;q=90&amp;zc=1&amp;ct=1"
+                        alt="小白进阶之Scrapy第五篇（Scrapy-Splash配合CrawlSpider；瞎几把整的）"></span><span class="text">小白进阶之Scrapy第五篇（Scrapy-Splash配合CrawlSpider；瞎几把整的）</span><span
+                        class="muted">2017-07-12</span><span class="muted">359评论</span></a></li>
+                <li><a href="https://cuiqingcai.com/2227.html" title="WordPress从Apache迁移到Nginx过程"><span
+                        class="thumbnail"><img
+                        src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2015/11/wallpaper_5266633-e1447405155617.jpg&amp;h=64&amp;w=100&amp;q=90&amp;zc=1&amp;ct=1"
+                        alt="WordPress从Apache迁移到Nginx过程"></span><span
+                        class="text">WordPress从Apache迁移到Nginx过程</span><span class="muted">2015-11-13</span><span
+                        class="muted">347评论</span></a></li>
+                <li><a href="https://cuiqingcai.com/4804.html" title="HTTP 206 获取文件部分内容和范围请求"><span
+                        class="thumbnail"><img
+                        src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://cuiqingcai.com/wp-content/themes/Yusi/img/pic/9.jpg&amp;h=64&amp;w=100&amp;q=90&amp;zc=1&amp;ct=1"
+                        alt="HTTP 206 获取文件部分内容和范围请求"></span><span class="text">HTTP 206 获取文件部分内容和范围请求</span><span
+                        class="muted">2017-09-15</span><span class="muted">327评论</span></a></li>
+                <li><a href="https://cuiqingcai.com/5560.html" title="[Python3网络爬虫开发实战] 5.1.1-TXT文本存储"><span
+                        class="thumbnail"><img
+                        src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2018/02/5.1.1.jpg&amp;h=64&amp;w=100&amp;q=90&amp;zc=1&amp;ct=1"
+                        alt="[Python3网络爬虫开发实战] 5.1.1-TXT文本存储"></span><span
+                        class="text">[Python3网络爬虫开发实战] 5.1.1-TXT文本存储</span><span class="muted">2018-01-29</span><span
+                        class="muted">326评论</span></a></li>
+                <li><a href="https://cuiqingcai.com/5965.html" title="【Python搞搞轻量博客】必要的知识"><span class="thumbnail"><img
+                        src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2018/04/timg.jpeg&amp;h=64&amp;w=100&amp;q=90&amp;zc=1&amp;ct=1"
+                        alt="【Python搞搞轻量博客】必要的知识"></span><span class="text">【Python搞搞轻量博客】必要的知识</span><span
+                        class="muted">2018-04-14</span><span class="muted">326评论</span></a></li>
+                <li><a href="https://cuiqingcai.com/1890.html" title="Winpcap网络编程一之前言，实验要求，实验目标"><span
+                        class="thumbnail"><img
+                        src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2015/07/wallpaper_5265748.jpg&amp;h=64&amp;w=100&amp;q=90&amp;zc=1&amp;ct=1"
+                        alt="Winpcap网络编程一之前言，实验要求，实验目标"></span><span class="text">Winpcap网络编程一之前言，实验要求，实验目标</span><span
+                        class="muted">2015-07-13</span><span class="muted">322评论</span></a></li>
+                <li><a href="https://cuiqingcai.com/2577.html" title="Python爬虫利器四之PhantomJS的用法"><span class="thumbnail"><img
+                        src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2016/03/26-e1458581127439.jpg&amp;h=64&amp;w=100&amp;q=90&amp;zc=1&amp;ct=1"
+                        alt="Python爬虫利器四之PhantomJS的用法"></span><span class="text">Python爬虫利器四之PhantomJS的用法</span><span
+                        class="muted">2016-03-22</span><span class="muted">318评论</span></a></li>
+            </ul>
+        </div>
+
+        <div class="widget d_tag">
+            <div class="title"><h2>标签云</h2></div>
+            <div class="d_tags"><a title="" href="https://cuiqingcai.com/tag/python" data-original-title="156个话题">Python
+                (156)</a><a title="" href="https://cuiqingcai.com/tag/%e7%88%ac%e8%99%ab" data-original-title="135个话题">爬虫
+                (135)</a><a title="" href="https://cuiqingcai.com/tag/php" data-original-title="31个话题">PHP (31)</a><a
+                    title="" href="https://cuiqingcai.com/tag/js" data-original-title="23个话题">JS (23)</a><a title=""
+                                                                                                            href="https://cuiqingcai.com/tag/html"
+                                                                                                            data-original-title="12个话题">HTML
+                (12)</a><a title="" href="https://cuiqingcai.com/tag/%e6%b7%b1%e5%ba%a6%e5%ad%a6%e4%b9%a0"
+                           data-original-title="12个话题">深度学习 (12)</a><a title="" href="https://cuiqingcai.com/tag/opengl"
+                                                                       data-original-title="11个话题">OpenGL (11)</a><a
+                    title="" href="https://cuiqingcai.com/tag/jquery" data-original-title="9个话题">jQuery (9)</a><a
+                    title="" href="https://cuiqingcai.com/tag/tensorflow" data-original-title="8个话题">TensorFlow
+                (8)</a><a title="" href="https://cuiqingcai.com/tag/linux" data-original-title="7个话题">Linux (7)</a><a
+                    title="" href="https://cuiqingcai.com/tag/wordpress" data-original-title="7个话题">WordPress (7)</a><a
+                    title="" href="https://cuiqingcai.com/tag/winpcap" data-original-title="7个话题">Winpcap (7)</a><a
+                    title="" href="https://cuiqingcai.com/tag/flask" data-original-title="7个话题">Flask (7)</a><a title=""
+                                                                                                                href="https://cuiqingcai.com/tag/css"
+                                                                                                                data-original-title="6个话题">CSS
+                (6)</a><a title="" href="https://cuiqingcai.com/tag/security" data-original-title="6个话题">Security
+                (6)</a><a title="" href="https://cuiqingcai.com/tag/mysql" data-original-title="5个话题">Mysql (5)</a><a
+                    title="" href="https://cuiqingcai.com/tag/git" data-original-title="4个话题">Git (4)</a><a title=""
+                                                                                                            href="https://cuiqingcai.com/tag/bootstrap"
+                                                                                                            data-original-title="4个话题">Bootstrap
+                (4)</a><a title="" href="https://cuiqingcai.com/tag/net" data-original-title="4个话题">Net (4)</a><a
+                    title="" href="https://cuiqingcai.com/tag/java" data-original-title="3个话题">Java (3)</a><a title=""
+                                                                                                              href="https://cuiqingcai.com/tag/python3"
+                                                                                                              data-original-title="3个话题">Python3
+                (3)</a><a title="" href="https://cuiqingcai.com/tag/%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0"
+                          data-original-title="3个话题">机器学习 (3)</a><a title="" href="https://cuiqingcai.com/tag/cocos2d-x"
+                                                                    data-original-title="2个话题">Cocos2d-x (2)</a><a
+                    title="" href="https://cuiqingcai.com/tag/jsp" data-original-title="2个话题">JSP (2)</a><a title=""
+                                                                                                            href="https://cuiqingcai.com/tag/matlab"
+                                                                                                            data-original-title="2个话题">Matlab
+                (2)</a><a title="" href="https://cuiqingcai.com/tag/photoshop" data-original-title="2个话题">Photoshop
+                (2)</a><a title="" href="https://cuiqingcai.com/tag/less" data-original-title="2个话题">LESS (2)</a><a
+                    title="" href="https://cuiqingcai.com/tag/sass" data-original-title="2个话题">SASS (2)</a><a title=""
+                                                                                                              href="https://cuiqingcai.com/tag/ssh"
+                                                                                                              data-original-title="2个话题">SSH
+                (2)</a><a title="" href="https://cuiqingcai.com/tag/nlp" data-original-title="2个话题">NLP (2)</a><a
+                    title="" href="https://cuiqingcai.com/tag/elasticsearch" data-original-title="2个话题">Elasticsearch
+                (2)</a><a title="" href="https://cuiqingcai.com/tag/json" data-original-title="1个话题">Json (1)</a><a
+                    title="" href="https://cuiqingcai.com/tag/redis" data-original-title="1个话题">Redis (1)</a><a title=""
+                                                                                                                href="https://cuiqingcai.com/tag/nginx"
+                                                                                                                data-original-title="1个话题">Nginx
+                (1)</a><a title="" href="https://cuiqingcai.com/tag/appium" data-original-title="1个话题">Appium (1)</a><a
+                    title="" href="https://cuiqingcai.com/tag/gulp" data-original-title="1个话题">Gulp (1)</a><a title=""
+                                                                                                              href="https://cuiqingcai.com/tag/laravel"
+                                                                                                              data-original-title="1个话题">Laravel
+                (1)</a><a title="" href="https://cuiqingcai.com/tag/%e6%b5%8b%e8%af%95" data-original-title="1个话题">测试
+                (1)</a><a title="" href="https://cuiqingcai.com/tag/app" data-original-title="1个话题">APP (1)</a><a
+                    title="" href="https://cuiqingcai.com/tag/scrapy%e5%88%86%e5%b8%83%e5%bc%8f"
+                    data-original-title="1个话题">Scrapy分布式 (1)</a><a title=""
+                                                                   href="https://cuiqingcai.com/tag/%e8%a7%86%e9%a2%91"
+                                                                   data-original-title="1个话题">视频 (1)</a><a title=""
+                                                                                                           href="https://cuiqingcai.com/tag/scrapy"
+                                                                                                           data-original-title="1个话题">Scrapy
+                (1)</a><a title="" href="https://cuiqingcai.com/tag/%e7%9f%a5%e4%b9%8e" data-original-title="1个话题">知乎
+                (1)</a><a title="" href="https://cuiqingcai.com/tag/neo4j" data-original-title="1个话题">Neo4j (1)</a><a
+                    title="" href="https://cuiqingcai.com/tag/http" data-original-title="1个话题">HTTP (1)</a><a title=""
+                                                                                                              href="https://cuiqingcai.com/tag/%e7%ae%97%e6%b3%95"
+                                                                                                              data-original-title="1个话题">算法
+                (1)</a><a title="" href="https://cuiqingcai.com/tag/%e4%bb%a3%e7%90%86" data-original-title="1个话题">代理
+                (1)</a><a title="" href="https://cuiqingcai.com/tag/seq2seq" data-original-title="1个话题">Seq2Seq
+                (1)</a><a title="" href="https://cuiqingcai.com/tag/%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f"
+                          data-original-title="1个话题">正则表达式 (1)</a><a title=""
+                                                                     href="https://cuiqingcai.com/tag/flask%e7%bc%93%e5%ad%98"
+                                                                     data-original-title="1个话题">Flask缓存 (1)</a><a
+                    title="" href="https://cuiqingcai.com/tag/mac" data-original-title="1个话题">Mac (1)</a><a title=""
+                                                                                                            href="https://cuiqingcai.com/tag/sqlalchemy"
+                                                                                                            data-original-title="1个话题">Sqlalchemy
+                (1)</a><a title="" href="https://cuiqingcai.com/tag/%e5%bc%82%e6%ad%a5" data-original-title="1个话题">异步
+                (1)</a><a title="" href="https://cuiqingcai.com/tag/%e5%8d%8f%e7%a8%8b" data-original-title="1个话题">协程
+                (1)</a><a title="" href="https://cuiqingcai.com/tag/%e7%9b%91%e6%8e%a7" data-original-title="1个话题">监控
+                (1)</a><a title="" href="https://cuiqingcai.com/tag/grafana" data-original-title="1个话题">Grafana
+                (1)</a><a title="" href="https://cuiqingcai.com/tag/influxdb" data-original-title="1个话题">InfluxDB
+                (1)</a><a title="" href="https://cuiqingcai.com/tag/%e5%a4%a7%e4%bc%97%e7%82%b9%e8%af%84"
+                          data-original-title="1个话题">大众点评 (1)</a><a title=""
+                                                                    href="https://cuiqingcai.com/tag/%e6%80%bb%e7%bb%93"
+                                                                    data-original-title="1个话题">总结 (1)</a><a title=""
+                                                                                                            href="https://cuiqingcai.com/tag/windows"
+                                                                                                            data-original-title="1个话题">Windows
+                (1)</a></div>
+        </div>
+
+        <div class="widget widget_links">
+            <div class="title"><h2>友情链接</h2></div>
+            <ul class="xoxo blogroll">
+                <li><a href="http://www.99banzou.com" target="_blank">99伴奏网</a></li>
+                <li><a href="http://www.anotherhome.net" target="_blank">Anotherhome</a></li>
+                <li><a href="http://zhouchenwen.com" rel="acquaintance" target="_blank">ColdCoder</a></li>
+                <li><a href="https://www.3maio.com" target="_blank">Cpphp</a></li>
+                <li><a href="http://www.spotty.com.cn/" target="_blank">DevNews</a></li>
+                <li><a href="http://www.findspace.name" target="_blank">Findspace</a></li>
+                <li><a href="http://blog.hickwu.com/" target="_blank">Hick</a></li>
+                <li><a href="https://higuoxing.com" target="_blank">Higuoxing</a></li>
+                <li><a href="http://www.51dev.com/">it技术社区</a></li>
+                <li><a href="http://www.jankl.com/">jank</a></li>
+                <li><a href="http://www.keen8.com/">keen8博客</a></li>
+                <li><a href="http://lise.io/" target="_blank">Keep It Simple</a></li>
+                <li><a href="http://www.k2zone.cn/" target="_blank">kTWO</a></li>
+                <li><a href="http://monkeyblog.cn/">Monkey前端博客</a></li>
+                <li><a href="http://www.newbieblog.cc/" target="_blank">newbie'blog</a></li>
+                <li><a href="http://www.urselect.com/?aid=dnk9st" target="_blank">nopcommerce</a></li>
+                <li><a href="http://www.imop.us/" target="_blank">phper.yang</a></li>
+                <li><a href="https://www.yuanrenxue.com/" target="_blank">Python教程</a></li>
+                <li><a href="http://www.lizenghai.com/" target="_blank">Python量化投资</a></li>
+                <li><a href="http://www.shangzekai.xyz">Shang</a></li>
+                <li><a href="http://wonderlee.me">Wonder’s Land</a></li>
+                <li><a href="http://wxinjie.cn/">XJIE</a></li>
+                <li><a href="http://www.yunlifang.cn/?jm">云立方</a></li>
+                <li><a href="http://www.paurl.com/">互联网运营</a></li>
+                <li><a href="http://www.atrail.cn/" target="_blank">从前以后</a></li>
+                <li><a href="http://lanbing510.info" target="_blank">冰蓝</a></li>
+                <li><a href="https://lengyue.me/" target="_blank">冷月的博客</a></li>
+                <li><a href="http://www.61mon.com/" target="_blank">刘毅</a></li>
+                <li><a href="http://www.superqq.com/">刚刚在线</a></li>
+                <li><a href="http://qianxunclub.com/" target="_blank">千寻啊千寻</a></li>
+                <li><a href="http://www.weixianmanbu.com/">危险漫步博客</a></li>
+                <li><a href="http://kodcloud.com/">可道云</a></li>
+                <li><a href="http://www.lvtao.net" target="_blank">吕滔博客</a></li>
+                <li><a href="https://wujunze.com" target="_blank">吴钧泽博客</a></li>
+                <li><a href="http://www.hellobi.com/" target="_blank">天善智能</a></li>
+                <li><a href="http://www.fddcn.cn" target="_blank">奋斗的承诺</a></li>
+                <li><a href="http://www.jrady.cn/" target="_blank">宏愿</a></li>
+                <li><a href="http://www.cenchong.com/" target="_blank">岑冲个人博客</a></li>
+                <li><a href="https://upliu.net/" target="_blank">开飞机的小蜗牛</a></li>
+                <li><a href="http://www.chrafz.com/">张弦先生</a></li>
+                <li><a href="http://www.503error.com/">张志明的个人博客</a></li>
+                <li><a href="https://www.sastdoglcy.cn/" target="_blank">成长的柚子</a></li>
+                <li><a href="http://www.jishux.com/" target="_blank">技术栈</a></li>
+                <li><a href="https://seofangfa.com" target="_blank">方法SEO顾问</a></li>
+                <li><a href="http://www.lishengcn.cn/" target="_blank">李胜的脚步</a></li>
+                <li><a href="http://www.jikedaohang.com/">极客导航</a></li>
+                <li><a href="http://liaoyuming.cn" rel="acquaintance" target="_blank">永远站</a></li>
+                <li><a href="http://www.hubwiz.com" target="_blank">汇智网</a></li>
+                <li><a href="http://frankchen.xyz/" target="_blank">江南消夏</a></li>
+                <li><a href="http://bysocket.com" target="_blank">泥瓦匠BYSocket</a></li>
+                <li><a href="http://www.xiaoxiangyucuo.com/">潇湘雨错</a></li>
+                <li><a href="http://www.xiongge.club/">熊哥club</a></li>
+                <li><a href="https://geekspider.org/" target="_blank">爬虫实验室</a></li>
+                <li><a href="http://www.aihongxin.com/">爱红心 爱分享</a></li>
+                <li><a href="http://blog.wangjingxin.top/">王镜鑫的博客</a></li>
+                <li><a href="http://zerlong.com/" target="_blank">知语</a></li>
+                <li><a href="https://www.binblogs.cn" target="_blank">码农De边缘世界</a></li>
+                <li><a href="http://ibloger.net" target="_blank">程序喵</a></li>
+                <li><a href="http://www.numberer.net/" target="_blank">第二导航</a></li>
+                <li><a href="http://blog.csdn.net/lu_wei_wei">米四度的思考</a></li>
+                <li><a href="http://www.zoeys.cn/" target="_blank">糊糊</a></li>
+                <li><a href="https://www.carlstedt.cn/">紫杉倒影</a></li>
+                <li><a href="http://redstonewill.com/" target="_blank">红色石头</a></li>
+                <li><a href="http://www.laodong.me" target="_blank">老董博客</a></li>
+                <li><a href="http://zangyiwei.com">臧义伟博客</a></li>
+                <li><a href="http://www.lanqibing.com/" target="_blank">蓝骑兵</a></li>
+                <li><a href="http://www.zhan0929.cc">詹加兵个人博客</a></li>
+                <li><a href="http://zhaoshuai.me/%20" target="_blank">赵帅的个人博客</a></li>
+                <li><a href="http://blog.zfuyun.top/">赵浮云博客</a></li>
+                <li><a href="http://www.leyle.com/" target="_blank">遗落岛</a></li>
+                <li><a href="http://www.hackernc.com" target="_blank">黑客内参</a></li>
+
+            </ul>
+        </div>
+
+        <div class="widget widget_text">
+            <div class="title"><h2>精品推荐</h2></div>
+            <div class="textwidget">
+                <div class="side-ad">
+                    <script type="text/javascript">
+                        var cpro_id = "u2578794";
+                        (window["cproStyleApi"] = window["cproStyleApi"] || {})[cpro_id] = {
+                            at: "3",
+                            rsi0: "300",
+                            rsi1: "250",
+                            pat: "17",
+                            tn: "baiduCustNativeAD",
+                            rss1: "#FFFFFF",
+                            conBW: "1",
+                            adp: "1",
+                            ptt: "0",
+                            titFF: "%E5%BE%AE%E8%BD%AF%E9%9B%85%E9%BB%91",
+                            titFS: "14",
+                            rss2: "#00a67c",
+                            titSU: "0"
+                        }
+                    </script>
+                   <!-- <script src="https://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script>-->
+                    <div id="BAIDU_SSP__wrapper_u2578794_0">
+                        <iframe id="iframeu2578794_0" name="iframeu2578794_0"
+                                src="https://pos.baidu.com/gcgm?conwid=300&amp;conhei=250&amp;rdid=2578794&amp;dc=3&amp;exps=110011&amp;psi=ea7372b46598e169707171cc0e746bed&amp;di=u2578794&amp;dri=0&amp;dis=0&amp;dai=1&amp;ps=5322x957&amp;coa=at%3D3%26rsi0%3D300%26rsi1%3D250%26pat%3D17%26tn%3DbaiduCustNativeAD%26rss1%3D%2523FFFFFF%26conBW%3D1%26adp%3D1%26ptt%3D0%26titFF%3D%2525E5%2525BE%2525AE%2525E8%2525BD%2525AF%2525E9%25259B%252585%2525E9%2525BB%252591%26titFS%3D14%26rss2%3D%252300a67c%26titSU%3D0&amp;enu=encoding&amp;dcb=___adblockplus&amp;dtm=HTML_POST&amp;dvi=0.0&amp;dci=-1&amp;dpt=none&amp;tsr=0&amp;tpr=1557657903072&amp;ti=%E9%9D%99%E8%A7%85%E4%B8%A8%E5%B4%94%E5%BA%86%E6%89%8D%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2&amp;ari=2&amp;dbv=2&amp;drs=1&amp;pcs=1349x657&amp;pss=1349x5362&amp;cfv=0&amp;cpl=3&amp;chi=2&amp;cce=true&amp;cec=UTF-8&amp;tlm=1557657903&amp;prot=2&amp;rw=657&amp;ltu=https%3A%2F%2Fcuiqingcai.com%2F&amp;ecd=1&amp;uc=1366x728&amp;pis=-1x-1&amp;sr=1366x768&amp;tcn=1557657903&amp;qn=030d78d80bb15f67&amp;tt=1557657903034.47.48.49"
+                                width="300" height="250" align="center,center" vspace="0" hspace="0" marginwidth="0"
+                                marginheight="0" scrolling="no" frameborder="0"
+                                style="border:0;vertical-align:bottom;margin:0;width:300px;height:250px"
+                                allowtransparency="true"></iframe>
+                    </div>
+                </div>
+                <style>
+                    #BAIDU_SSP__wrapper_u2578794_1 {
+                        display: none;
+                    }
+
+                    #BAIDU_SSP__wrapper_u2578794_0 #iframeu2578794_0 .bd-logo2 {
+                        display: none !important;
+                    }
+                </style>
+            </div>
+        </div>
+
+        <div class="widget widget_text">
+            <div class="textwidget">
+                <a href="https://edu.hellobi.com/course/157" style="display:none">
+                    <img src="https://qiniu.cuiqingcai.com/wp-content/uploads/2018/01/WX20180104-140302.png">
+                </a>
+            </div>
+        </div>
+    </aside>
+</section>
+<!-- 中间主体部分 结束 -->
+
+
+<!-- 返回顶部按钮  -->
+<div class="rollto" style="display: block;">
+    <button class="btn btn-inverse" data-type="totop" title="回顶部"><i class="fa fa-arrow-up fa-lg"></i></button>
+</div>
+<!-- 返回顶部按钮  结束 -->
+
+<!-- 底部信息 -->
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="copyright pull-left">
+            <a href="https://cuiqingcai.com " title="静觅">静觅</a>
+            版权所有丨采用
+            <a href="http://yusi123.com/"> 欲思 </a>
+            主题丨基于
+            <a href="http://cn.wordpress.org/" title="WordPress"> WordPress </a>
+            构建 © 2018丨托管于
+            <a rel="nofollow" target="_blank" href="https://cloud.tencent.com/">腾讯云主机</a>
+            &amp;
+            <a rel="nofollow" target="_blank" href="https://www.qiniu.com/">七牛云存储 </a>
+            丨京ICP备18015597号-1
+            <div>
+                <script type="text/javascript">
+                    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                    document.write(unescape("%3Cspan id='cnzz_stat_icon_1253486800'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1253486800%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
+                </script>
+                <span id="cnzz_stat_icon_1253486800">
+                        <a href="https://www.cnzz.com/stat/website.php?web_id=1253486800" target="_blank">站长统计</a>
+                        <a href="https://www.cnzz.com/stat/website.php?web_id=1253486800" target="_blank"> |  今日IP[1345] | 今日PV[3438] | 昨日IP[2021] |  昨日PV[5630] | </a>
+                        <a href="https://www.cnzz.com/stat/website.php?web_id=1253486800&amp;method=online"
+                           target="_blank">当前在线[31]</a>
+                    </span>
+               <!-- <script src=" https://s4.cnzz.com/z_stat.php?id=1253486800&amp;online=1&amp;show=line"
+                        type="text/javascript">
+
+                </script>-->
+               <!-- <script src="https://c.cnzz.com/core.php?web_id=1253486800&amp;show=line&amp;online=1&amp;t=z"
+                        charset="utf-8" type="text/javascript">
+
+                </script>-->
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- 底部信息 结束 -->
+
+
+
+<script src="../../../statics/js/main.js"></script>
+
+
+<script type='text/javascript' src='https://cuiqingcai.com/wp-content/plugins/ml-slider/assets/sliders/nivoslider/jquery.nivo.slider.pack.js?ver=3.5'></script>
+<script type='text/javascript' src='https://cuiqingcai.com/wp-content/themes/Yusi/js/jquery.fitvids.js?ver=2.0.110526'></script>
+</body>
+</html>

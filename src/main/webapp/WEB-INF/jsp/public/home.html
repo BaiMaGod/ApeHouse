@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>猿馆——白马46的个人博客</title>
+
+    <link rel="stylesheet" href="../../../statics/css/public.css">
+    <link rel="stylesheet" href="../../../statics/css/font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="../../../statics/css/fhNav.css">
+
+
+    <link rel="stylesheet" type="text/css" href="../../../statics/css/engine1/style.css" />
+</head>
+<body>
+<div style="height: 100%">
+
+    <!-- 顶部导航栏 -->
+    <div class="wrap">
+
+        <div class="topBox">
+            <div class="fhNav">
+                <div class="bottomLine"></div>
+                <ul class="nav clearfix">
+                    <li class="selectedNav"><a href="home.html">首页</a></li>
+                    <li><a href="blog.html">博客文章</a></li>
+                    <li>福利分享</li>
+                    <li><a href="resourceCenter.html"> 资源中心</a></li>
+                    <li>赞助白马</li>
+                    <li>技术交流</li>
+                    <li>给我留言</li>
+                </ul>
+            </div>
+            <div class="div_search">
+                <input type="text" placeholder="全站搜索...">
+                <button type="button" ><i class="fa fa-search fa-lg"></i></button>
+
+            </div>
+        </div>
+        <script src="../../../statics/js/jquery.js"></script>
+        <script src="../../../statics/js/fhNav.js"></script>
+        <script>
+            $(".div_search button").click(function () {
+                var search_input = $(".div_search input");
+                search_input.toggle("slow");
+            });
+        </script>
+    </div>
+    <!--顶部导航栏结束-->
+
+    <!-- 中心部分 -->
+    <div id="body_center">
+
+
+
+        <!-- 主轮播 -->
+        <div id="wowslider-container1">
+            <div class="ws_images"><ul>
+                <li><img src="../../../statics/images/data1/images/201.jpg" alt="201" title="热门推荐1" id="wows1_0"/></li>
+                <li><img src="../../../statics/images/data1/images/300.jpg" alt="responsive slider" title="热门推荐2" id="wows1_1"/></li>
+                <li><img src="../../../statics/images/data1/images/301.jpg" alt="301" title="热门推荐3" id="wows1_2"/></li>
+            </ul></div>
+            <div class="ws_bullets">
+                <div>
+                    <a href="#" title="201">
+                        <span><img src="../../../statics/images/data1/tooltips/201.jpg" alt="201"/>1</span>
+                    </a>
+                    <a href="#" title="300">
+                        <span><img src="../../../statics/images/data1/tooltips/300.jpg" alt="300"/>2</span>
+                    </a>
+                    <a href="#" title="301">
+                        <span><img src="../../../statics/images/data1/tooltips/301.jpg" alt="301"/>3</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="ws_shadow"></div>
+        </div>
+        <script type="text/javascript" src="../../../statics/css/engine1/wowslider.js"></script>
+        <script type="text/javascript" src="../../../statics/css/engine1/script.js"></script>
+        <!-- 主轮播 结束 -->
+
+    </div>
+    <!-- 中心部分 结束 -->
+
+</div>
+</body>
+</html>

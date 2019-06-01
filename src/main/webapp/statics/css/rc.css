@@ -1,0 +1,81 @@
+
+.container {
+    max-width: 1226px;
+    margin: 0 auto;
+    text-align: left;
+    position: relative;
+}
+
+.content {
+    margin-right: 370px
+}
+
+.content-wrap {
+    width: 850px;
+    float: left
+}
+
+
+
+
+
+/*侧边栏 */
+.sidebar {
+    float: left;
+    margin-left: 10px;
+    width: 365px;
+
+}
+
+.widget{
+    background-color: white;
+}
+
+/*侧边栏 搜索*/
+.widget_text{
+    height: 60px;
+}
+.sidebar_search{
+    height: 50px;
+    width: 340px;
+    margin: auto;
+    padding-top: 5px;
+}
+.sidebar_search input{
+    margin-top:5px;
+    width: 240px;
+    height: 32px;
+}
+.sidebar_search button{
+    height: 50px;
+    width: 50px;
+    border:none;
+    outline:none;
+    background-color: rgba(235, 89, 64, 0.90);
+    padding: 0 0;
+}
+.sidebar_search button:hover{
+    cursor: pointer;
+    background-color: rgba(235, 20, 64, 0.90);
+}
+.sidebar_search button .fa{
+    color: white;
+}
+
+/*侧边栏 搜索 结束*/
+
+/*侧边栏 热门资源*/
+.widget_meta{
+    margin-top: 20px;
+}
+.widget_meta .div-hot{
+    width: 340px;
+    margin: auto;
+}
+.widget_meta h2{
+    font-weight: normal;
+    font-size: 16px;
+    padding-top: 15px;
+}
+/*侧边栏 热门资源 结束*/
+/*侧边栏 结束*/
