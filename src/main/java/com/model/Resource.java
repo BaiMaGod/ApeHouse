@@ -2,11 +2,19 @@ package com.model;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
+import org.springframework.web.multipart.MultipartFile;
+
 public class Resource {
     private String id;
 
+    @Length(min=20,max=25,message="{resourceUpload.userId.error}")
     private String userId;
 
+    @NotBlank(message="{resourceUpload.name.null}")
     private String name;
 
     private String icon;
@@ -15,17 +23,43 @@ public class Resource {
 
     private String src;
 
+    @Length(min=20,max=25,message="{resourceUpload.typeId.error}")
     private String typeId;
 
+    @Length(min=20,max=25,message="{resourceUpload.categoryId.error}")
     private String categoryId;
 
+    @Length(min=2,max=120,message="{resourceUpload.depict.length}")
     private String depict;
 
     private Date updateTime;
 
     private Date createTime;
+    
+    @NotNull(message="{resourceUpload.resourceFile.null}")
+    private MultipartFile resourceFile;
+    
+    private MultipartFile iconfFile;
+    
 
-    public String getId() {
+    
+    public MultipartFile getResourceFile() {
+		return resourceFile;
+	}
+
+	public void setResourceFile(MultipartFile resourceFile) {
+		this.resourceFile = resourceFile;
+	}
+
+	public MultipartFile getIconfFile() {
+		return iconfFile;
+	}
+
+	public void setIconfFile(MultipartFile iconfFile) {
+		this.iconfFile = iconfFile;
+	}
+
+	public String getId() {
         return id;
     }
 
@@ -112,4 +146,14 @@ public class Resource {
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
+
+    
+    
+	@Override
+	public String toString() {
+		return "Resource [id=" + id + ", userId=" + userId + ", name=" + name + ", icon=" + icon + ", realName="
+				+ realName + ", src=" + src + ", typeId=" + typeId + ", categoryId=" + categoryId + ", depict=" + depict
+				+ ", updateTime=" + updateTime + ", createTime=" + createTime + "]";
+	}
+    
 }

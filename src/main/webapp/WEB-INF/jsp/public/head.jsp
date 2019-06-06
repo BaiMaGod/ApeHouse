@@ -13,9 +13,9 @@
     <title>${title}</title>
 
 
-    <link rel="stylesheet" href="../../../statics/css/public.css">
-    <link rel="stylesheet" href="../../../statics/css/font-awesome-4.7.0/css/font-awesome.css">
-    <link rel="stylesheet" href="../../../statics/css/fhNav.css">
+    <link rel="stylesheet" href="statics/css/public.css">
+    <link rel="stylesheet" href="statics/css/font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="statics/css/fhNav.css">
 </head>
 <body>
     <input type="hidden" id="path" name="path" value="${pageContext.request.contextPath }"/>
@@ -29,10 +29,10 @@
             <div class="fhNav">
                 <div class="bottomLine"></div>
                 <ul class="nav clearfix">
-                    <li class="selectedNav"><a href="home.html">首页</a></li>
-                    <li><a href="blog.html">博客文章</a></li>
+                    <li class="selectedNav"><a href="main">首页</a></li>
+                    <li><a href="blog.jsp">博客文章</a></li>
                     <li>福利分享</li>
-                    <li><a href="resourceCenter.html"> 资源中心</a></li>
+                    <li><a href="resource/"> 资源中心</a></li>
                     <li>赞助白马</li>
                     <li>技术交流</li>
                     <li>给我留言</li>
@@ -44,8 +44,8 @@
 
             </div>
         </div>
-        <script src="../../../statics/js/jquery.js"></script>
-        <script src="../../../statics/js/fhNav.js"></script>
+        <script src="statics/js/jquery.js"></script>
+        <script src="statics/js/fhNav.js"></script>
         <script>
             $(".div_search button").click(function () {
                 var search_input = $(".div_search input");

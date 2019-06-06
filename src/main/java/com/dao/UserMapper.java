@@ -5,6 +5,8 @@ import com.model.UserExample;
 import java.util.List;
 
 public interface UserMapper {
+    long countByExample(UserExample example);
+
     int deleteByPrimaryKey(String id);
 
     int insert(User record);

@@ -1,6 +1,26 @@
 package com.service;
 
 import org.springframework.stereotype.Component;
+import java.io.File;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.URL;
+
+
+import javax.servlet.http.HttpServletRequest;
+
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
+import com.maxmind.geoip2.DatabaseReader;
+import com.maxmind.geoip2.exception.GeoIp2Exception;
+import com.maxmind.geoip2.model.CityResponse;
+import com.maxmind.geoip2.record.City;
+import com.maxmind.geoip2.record.Country;
+import com.maxmind.geoip2.record.Subdivision;
+import com.pojo.GeoLocation;
 
 @Component
 public class GeoLocationService {

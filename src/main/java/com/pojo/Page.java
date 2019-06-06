@@ -59,5 +59,12 @@ public class Page {
     public int getTotalPages() {
         return this.totalRows/(this.pageRows+1)+1;
     }
-
+    
+    
+    
+	@Override
+	public String toString() {
+		return "Page [curPage=" + curPage + ", pageRows=" + pageRows + ", totalRows=" + totalRows + ", totalPages="
+				+ totalPages + ", startRow=" + startRow + ", endRow=" + endRow + "]";
+	}
 }

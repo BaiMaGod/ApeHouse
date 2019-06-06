@@ -1,0 +1,35 @@
+ 	::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+	}
+	::-webkit-scrollbar-button,
+	::-webkit-scrollbar-button:vertical {
+	    display: none;
+	}
+	
+	::-webkit-scrollbar-track,
+	::-webkit-scrollbar-track:vertical {
+	    background-color: #000;
+	}
+	
+	::-webkit-scrollbar-track-piece {
+	    /* background-color: #363734; */
+	    background-color: transparent;
+	}
+	
+	::-webkit-scrollbar-thumb,
+	::-webkit-scrollbar-thumb:vertical {
+	    border-radius: 5px;
+	    margin-right: 10px;
+	    background-color: #a6a6a6;
+	}
+	
+	::-webkit-scrollbar-thumb:hover,
+	::-webkit-scrollbar-thumb:vertical:hover {
+	    background-color: #aaa;
+	}
+	
+	::-webkit-scrollbar-corner,
+	::-webkit-scrollbar-corner:vertical {
+	    background-color: #535353;
+	}

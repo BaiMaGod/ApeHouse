@@ -57,21 +57,53 @@
 		</mvc:interceptor>
 	</mvc:interceptors>
 	
-	<!-- 配置统一异常处理 -->
+	
+	
+	
+	<!-- 加载国际化资源文件、消息属性文件 -->
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basenames" >
+			<list>
+				<value>/WEB-INF/resource/messages</value>
+				<value>/WEB-INF/resource/error</value>
+			</list>
+		</property>
+		
+	</bean>
+	
+	
+	<!-- 注册校验器 -->
+	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+		<!-- hibernate校验器 -->
+		<property name="providerClass" value="org.hibernate.validator.HibernateValidator" />
+		
+		<!-- 制定校验使用的资源文件，在文件中配置校验错误信息，如果不制定则默认使用classpath下的ValidationMessageSource.properties -->
+		<property name="validationMessageSource" ref="messageSource" />
+	</bean>
+	
+	<!-- 开启spring的valid功能 -->
+	<mvc:annotation-driven conversion-service="conversionService" validator="validator" />
+	
+	<!-- 注册格式化转换器 -->
+	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean"></bean>
+	
+	<!-- 
+		
+	配置统一异常处理
 	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-		<!-- 定义默认的异常处理页面，当该异常类型注册时使用 -->
+		定义默认的异常处理页面，当该异常类型注册时使用
 		<property name="defaultErrorView" value="error"></property>
 		
-		<!-- 定义异常处理页面用来获取异常信息的变量名，默认为exception -->
+		定义异常处理页面用来获取异常信息的变量名，默认为exception
 		<property name="exceptionAttribute" value="ex"></property>
 		
-		<!-- 定义需要特殊处理的异常，用雷鸣或完全路径名作为key，异常也 名作为值 -->
+		定义需要特殊处理的异常，用雷鸣或完全路径名作为key，异常也 名作为值
 		<property name="exceptionMappings">
 			<props>
 				<prop key="java.lang.Exception">exception</prop>
 			</props>
 		</property>
 	</bean>
-
+ -->
 
 </beans>

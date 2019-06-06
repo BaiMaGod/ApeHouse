@@ -15,8 +15,6 @@ public class User {
 
     private Date createTime;
 
-    private Date loginTime;
-
     private String tel;
 
     private Integer vip;
@@ -67,14 +65,6 @@ public class User {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
-    }
-
-    public Date getLoginTime() {
-        return loginTime;
-    }
-
-    public void setLoginTime(Date loginTime) {
-        this.loginTime = loginTime;
     }
 
     public String getTel() {

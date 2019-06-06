@@ -117,4 +117,11 @@ public class MyUtil {
         File file = new File(absolutePath);
         file.delete();
     }
+    
+    
+    public static boolean notEmpty(String str) {
+    	if(str!=null && !"".equals(str.trim())) return true;
+    	
+    	return false;
+    }
 }

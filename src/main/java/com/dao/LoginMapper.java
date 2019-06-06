@@ -5,6 +5,8 @@ import com.model.LoginExample;
 import java.util.List;
 
 public interface LoginMapper {
+    long countByExample(LoginExample example);
+
     int deleteByPrimaryKey(String id);
 
     int insert(Login record);
