@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <title>猿馆 - 白马46的个人博客</title>
+    <link rel="icon" type="image/png" href="../.././../statics/images/ape-icon.png"/>
+
+    <link rel="stylesheet" href="../../../statics/bootstrap-4.0.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../statics/css/font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="../../../statics/icon/iconfont.css">
+    <link rel="stylesheet" href="../../../statics/layui/css/layui.css">
+
+    <style>
+        body{
+            -webkit-user-select:none;
+            -moz-user-select:none;
+            -ms-user-select:none;
+            user-select:none;
+        }
+
+        .navbar-brand img{
+            width: 40px;
+            height: 40px;
+        }
+
+        .fa-qq:hover{
+            color: deepskyblue;
+        }
+        .fa-envelope:hover{
+            color: #C5AB2B;
+        }
+        .fa-weixin:hover {
+            color: lawngreen;
+        }
+        .fa-github:hover{
+            color: #000;
+        }
+        .icon-csdn:hover{
+            color: red;
+        }
+
+        .myQQ{
+            position: absolute;
+            width: 224px;
+            height: 296px;
+            z-index: 999;
+            margin-top:10px ;
+            display: none;
+        }
+        .myweixin{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            z-index: 999;
+            margin-top:10px ;
+            display: none;
+        }
+
+        .btn-search{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: transparent;
+            margin-right: 50px;
+        }
+
+        .head .card{
+            border: none;
+        }
+        .head .card-body{
+            padding: 30px 0;
+        }
+        .top-card div{
+            position: relative;
+            width: 310px;
+            margin: auto;
+            cursor: pointer;
+        }
+        .top-card a:hover{
+            text-decoration: none;
+            cursor: pointer;
+            color: blue;
+        }
+        .top-card h1{
+            font-size: 45px;
+            /*color: red;*/
+            font-weight: 200;
+            font-family:'Aqua Grotesque','sans-serif';
+        }
+        .top-card h5{
+            /*color: red;*/
+            font-family: "等线 Light";
+            position: absolute;
+            top: 20px;
+            left: 60px;
+        }
+        .top-card h4{
+            /*color: red;*/
+            font-family: "等线 Light";
+            position: absolute;
+            top: 45px;
+            left: 120px;
+        }
+
+
+        .music-card .card-body{
+            min-width: 200px;
+            max-width: 900px;
+            margin:10px auto;
+        }
+        .music-card .music{
+            width: 200px;
+            height: 200px;
+
+            overflow: hidden;
+            float: left;
+            margin: 10px 40px;
+            position: relative;
+        }
+        .music-card .music > img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            z-index:100;
+        }
+        .music-card .music .zhezhao {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: absolute;
+            z-index:200;
+            background-color: transparent;
+            display: none;
+        }
+        .music-card .music .zhezhao img{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            opacity:0.5;
+            filter:alpha(opacity=50);
+            cursor: pointer;
+        }
+        .music-card .music .zhezhao i{
+            position: absolute;
+            left: 70px;
+            top: 65px;
+            z-index:300;
+            opacity:0.5;
+            filter:alpha(opacity=50);
+            cursor: pointer;
+            color: lightgray;
+        }
+
+
+        .music-card h5{
+            color: red;
+            font-family: "等线 Light";
+        }
+
+
+        .nav-list{
+            margin-bottom: 30px;
+        }
+        .nav-list a{
+            color: gray;
+        }
+        .nav-list a:hover,.nav-list a:active{
+            color: red;
+        }
+    </style>
+    <style>
+        .container{
+            width: 80%;
+        }
+        .container .card{
+            margin: 20px 0;
+            border: none;
+        }
+
+        .container .card > hr{
+            width: 100px;
+            margin: 30px auto;
+        }
+        .container a{
+            text-decoration: none;
+        }
+        .container h5{
+            display: inline-block;
+            font-size: 22px;
+            font-weight: 400;
+            color: gray;
+            margin-bottom: 0;
+        }
+        .container .card-title{
+            padding-bottom:10px;
+            margin-bottom: 0;
+        }
+        .container .card-title p{
+            height: 2px;
+            background: #000;
+            /*border: 1px double black;*/
+            margin:auto;
+            display: none
+        }
+
+        .container .blog-info{
+            font-size: 14px;
+        }
+        .container .text-content{
+            padding: 20px 0;
+        }
+        .container .tag{
+            border-radius: 20px;
+            padding: 0 15px;
+            margin-top: 10px;
+        }
+        .container .tag:hover{
+            border-color: red;
+            background-color: white;
+            color: white;
+        }
+
+    </style>
+    <style>
+        .foot .card .text-content{
+            font-size: 12px;
+        }
+
+
+        .elevator-button{
+            position: fixed;
+            right: 2%;
+            bottom: 60px;
+            display: none;
+        }
+        .elevator-button2{
+            position: fixed;
+            right: 2%;
+            bottom: 60px;
+            display: none;
+        }
+
+
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        ::-webkit-scrollbar-button,
+        ::-webkit-scrollbar-button:vertical {
+            display: none;
+        }
+
+        ::-webkit-scrollbar-track,
+        ::-webkit-scrollbar-track:vertical {
+            background-color: whitesmoke;
+        }
+
+        ::-webkit-scrollbar-track-piece {
+            background-color: whitesmoke;
+        }
+
+        ::-webkit-scrollbar-thumb,
+        ::-webkit-scrollbar-thumb:vertical {
+            border-radius: 5px;
+            margin-right: 10px;
+            background-color: #bba;
+        }
+
+        ::-webkit-scrollbar-thumb:hover,
+        ::-webkit-scrollbar-thumb:vertical:hover {
+            background-color: #aaa;
+        }
+
+        ::-webkit-scrollbar-corner,
+        ::-webkit-scrollbar-corner:vertical {
+            background-color: whitesmoke;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="head">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <span class="col-1"></span>
+            <a class="navbar-brand" href="#"> <img src="../.././../statics/images/ape--icon.png" alt="猿馆"  oncontextmenu="return false" ondragstart="return false"> </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">
+                            <i class="fa fa-qq fa-lg"></i>
+                            <img class="myQQ" src="../.././../statics/images/myQQ.jpg" alt="QQ">
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fa fa-weixin fa-lg"></i>
+                            <img class="myweixin" src="../.././../statics/images/myweixin.png" alt="weixin">
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#">
+                            <i class="fa fa-envelope fa-lg"></i>
+                            <img class="myweixin" src="../.././../statics/images/myemail.png" alt="email">
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="https://blog.csdn.net/weixin_42486795" target="_blank"> <i class="iconfont icon-csdn"></i> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="https://github.com/BaiMaGod" target="_blank"> <i class="fa fa-github fa-lg"></i> </a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="input-search form-control mr-sm-2" type="text" placeholder="全站搜索..." aria-label="Search" style="display: none;font-size: 14px">
+                    <button class="btn btn-search btn-secondary" type="button"> <i class="fa fa-search"></i> </button>
+                </form>
+            </div>
+        </nav>
+
+
+        <div class="card">
+            <div class="card-body text-center top-card">
+                <div oncontextmenu="return false" ondragstart="return false">
+                    <h1 class="card-title">A p e H o u s e</h1>
+                    <h5 class="card-text">P &nbsp;&nbsp; E &nbsp;&nbsp; R &nbsp;&nbsp; S &nbsp;&nbsp; O &nbsp;&nbsp; N &nbsp;&nbsp; A &nbsp;&nbsp; L</h5>
+                    <h4 class="card-text">B &nbsp; L &nbsp; O &nbsp; G</h4>
+                </div>
+            </div>
+        </div>
+
+        <hr style="width: 80%;margin:10px auto">
+
+        <div class="card text-center music-card">
+            <div class="card-body"  oncontextmenu="return false" ondragstart="return false">
+                    <div class="music " >
+                        <div class="zhezhao">
+                            <i class="fa fa-play-circle-o fa-5x play1"></i>
+                            <img src="../../../statics/images/music/zhe3.jpg" alt="">
+                        </div>
+                        <img src="../../../statics/images/music/vae.jpg" alt="" class="music-img">
+                    </div>
+                    <div class="music" >
+                        <div class="zhezhao">
+                            <i class="fa fa-play-circle-o fa-5x play2"></i>
+                            <img src="../../../statics/images/music/zhe3.jpg" alt="">
+                        </div>
+                        <img src="../../../statics/images/music/003.jpg" alt="" class="music-img">
+                    </div>
+                    <div class="music" >
+                        <div class="zhezhao">
+                            <i class="fa fa-play-circle-o fa-5x play3"></i>
+                            <img src="../../../statics/images/music/zhe3.jpg" alt="">
+                        </div>
+                        <img src="../../../statics/images/music/xue.jpg" alt="" class="music-img">
+                    </div>
+            </div>
+<!--            <h5>让我猜猜你此刻的心情？</h5>-->
+        </div>
+
+        <a name="miao"></a>
+
+        <hr style="width: 80%;margin:20px auto">
+
+        <ul class="nav justify-content-center nav-list">
+            <li class="nav-item">
+                <a class="nav-link active" href="#"> B L O G </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:;"> 图册 </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"> 资源 </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"> 日志 </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"> 留言 </a>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <div class="container">
+
+        <div class="card">
+            <div class="card-body text-center">
+                <div class="card-title">
+                    <a href="">
+                        <h5>面试笔记——Servlet</h5>
+                        <p></p>
+                    </a>
+                </div>
+                <p class="card-text blog-info">
+                    <i class="fa fa-clock-o"></i>发表于：<span>2019-1-24 09:12:30</span> |
+                    <i class="fa fa-folder-o"></i>分类于：<span>面试笔记</span> |
+                    <i class="fa fa-comment-o"></i>评论：<span>0</span> |
+                    <i class="fa fa-eye"></i>浏览：<span>66</span>
+                </p>
+                <p class="card-text">
+                    <a class="btn btn-outline-secondary btn-sm tag">servlet</a>
+                    <a class="btn btn-outline-secondary btn-sm tag">面试</a>
+                </p>
+                <p class="card-text text-content">
+                    最近面试，问了Servlet是什么，当时也没想那么多，感觉知道怎么用，用在那一层，用什么语言实现，说下与JSP的区别就可以了，但是从面试的结果来看，面试官好像不是很认可，我们不能改变别人，只能让自己无懈可击，所以在网上书上找了些资料总结一下，感觉自己写一下才是自己的东西。
+                </p>
+                <a href="#" class="btn btn-outline-secondary">阅读全文<i class="fa fa-angle-double-right btn-sm"></i></a>
+            </div>
+        </div>
+
+        <div class="card">
+            <hr>
+            <div class="card-body text-center">
+                <div class="card-title">
+                    <a href="">
+                        <h5>面试笔记——Servlet</h5>
+                        <p></p>
+                    </a>
+                </div>
+                <p class="card-text blog-info">
+                    <i class="fa fa-clock-o"></i>发表于：<span>2019-1-24 09:12:30</span> |
+                    <i class="fa fa-folder-o"></i>分类于：<span>面试笔记</span> |
+                    <i class="fa fa-comment-o"></i>评论：<span>0</span> |
+                    <i class="fa fa-eye"></i>浏览：<span>66</span>
+                </p>
+                <p class="card-text">
+                    <a class="btn btn-outline-secondary btn-sm tag">servlet</a>
+                    <a class="btn btn-outline-secondary btn-sm tag">面试</a>
+                </p>
+                <p class="card-text text-content">
+                    最近面试，问了Servlet是什么，当时也没想那么多，感觉知道怎么用，用在那一层，用什么语言实现，说下与JSP的区别就可以了，但是从面试的结果来看，面试官好像不是很认可，我们不能改变别人，只能让自己无懈可击，所以在网上书上找了些资料总结一下，感觉自己写一下才是自己的东西。
+                </p>
+                <a href="#" class="btn btn-outline-secondary">阅读全文<i class="fa fa-angle-double-right btn-sm"></i></a>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <hr>
+            <div class="card-body text-center">
+                <div class="card-title">
+                    <a href="">
+                        <h5>面试笔记——Servlet</h5>
+                        <p></p>
+                    </a>
+                </div>
+                <p class="card-text blog-info">
+                    <i class="fa fa-clock-o"></i>发表于：<span>2019-1-24 09:12:30</span> |
+                    <i class="fa fa-folder-o"></i>分类于：<span>面试笔记</span> |
+                    <i class="fa fa-comment-o"></i>评论：<span>0</span> |
+                    <i class="fa fa-eye"></i>浏览：<span>66</span>
+                </p>
+                <p class="card-text">
+                    <a class="btn btn-outline-secondary btn-sm tag">servlet</a>
+                    <a class="btn btn-outline-secondary btn-sm tag">面试</a>
+                </p>
+                <p class="card-text text-content">
+                    最近面试，问了Servlet是什么，当时也没想那么多，感觉知道怎么用，用在那一层，用什么语言实现，说下与JSP的区别就可以了，但是从面试的结果来看，面试官好像不是很认可，我们不能改变别人，只能让自己无懈可击，所以在网上书上找了些资料总结一下，感觉自己写一下才是自己的东西。
+                </p>
+                <a href="#" class="btn btn-outline-secondary">阅读全文<i class="fa fa-angle-double-right btn-sm"></i></a>
+            </div>
+        </div>
+
+        <div class="card">
+            <hr>
+            <div class="card-body text-center">
+                <div class="card-title">
+                    <a href="">
+                        <h5>面试笔记——Servlet</h5>
+                        <p></p>
+                    </a>
+                </div>
+                <p class="card-text blog-info">
+                    <i class="fa fa-clock-o"></i>发表于：<span>2019-1-24 09:12:30</span> |
+                    <i class="fa fa-folder-o"></i>分类于：<span>面试笔记</span> |
+                    <i class="fa fa-comment-o"></i>评论：<span>0</span> |
+                    <i class="fa fa-eye"></i>浏览：<span>66</span>
+                </p>
+                <p class="card-text">
+                    <a class="btn btn-outline-secondary btn-sm tag">servlet</a>
+                    <a class="btn btn-outline-secondary btn-sm tag">面试</a>
+                </p>
+                <p class="card-text text-content">
+                    最近面试，问了Servlet是什么，当时也没想那么多，感觉知道怎么用，用在那一层，用什么语言实现，说下与JSP的区别就可以了，但是从面试的结果来看，面试官好像不是很认可，我们不能改变别人，只能让自己无懈可击，所以在网上书上找了些资料总结一下，感觉自己写一下才是自己的东西。
+                </p>
+                <a href="#" class="btn btn-outline-secondary">阅读全文<i class="fa fa-angle-double-right btn-sm"></i></a>
+            </div>
+        </div>
+
+        <div class="card">
+            <hr>
+            <div class="card-body text-center">
+                <div class="card-title">
+                    <a href="">
+                        <h5>面试笔记——Servlet</h5>
+                        <p></p>
+                    </a>
+                </div>
+                <p class="card-text blog-info">
+                    <i class="fa fa-clock-o"></i>发表于：<span>2019-1-24 09:12:30</span> |
+                    <i class="fa fa-folder-o"></i>分类于：<span>面试笔记</span> |
+                    <i class="fa fa-comment-o"></i>评论：<span>0</span> |
+                    <i class="fa fa-eye"></i>浏览：<span>66</span>
+                </p>
+                <p class="card-text">
+                    <a class="btn btn-outline-secondary btn-sm tag">servlet</a>
+                    <a class="btn btn-outline-secondary btn-sm tag">面试</a>
+                </p>
+                <p class="card-text text-content">
+                    最近面试，问了Servlet是什么，当时也没想那么多，感觉知道怎么用，用在那一层，用什么语言实现，说下与JSP的区别就可以了，但是从面试的结果来看，面试官好像不是很认可，我们不能改变别人，只能让自己无懈可击，所以在网上书上找了些资料总结一下，感觉自己写一下才是自己的东西。
+                </p>
+                <a href="#" class="btn btn-outline-secondary">阅读全文<i class="fa fa-angle-double-right btn-sm"></i></a>
+            </div>
+        </div>
+
+        <div class="card">
+            <hr>
+            <div class="card-body text-center">
+                <div class="card-title">
+                    <a href="">
+                        <h5>面试笔记——Servlet</h5>
+                        <p></p>
+                    </a>
+                </div>
+                <p class="card-text blog-info">
+                    <i class="fa fa-clock-o"></i>发表于：<span>2019-1-24 09:12:30</span> |
+                    <i class="fa fa-folder-o"></i>分类于：<span>面试笔记</span> |
+                    <i class="fa fa-comment-o"></i>评论：<span>0</span> |
+                    <i class="fa fa-eye"></i>浏览：<span>66</span>
+                </p>
+                <p class="card-text">
+                    <a class="btn btn-outline-secondary btn-sm tag">servlet</a>
+                    <a class="btn btn-outline-secondary btn-sm tag">面试</a>
+                </p>
+                <p class="card-text text-content">
+                    最近面试，问了Servlet是什么，当时也没想那么多，感觉知道怎么用，用在那一层，用什么语言实现，说下与JSP的区别就可以了，但是从面试的结果来看，面试官好像不是很认可，我们不能改变别人，只能让自己无懈可击，所以在网上书上找了些资料总结一下，感觉自己写一下才是自己的东西。
+                </p>
+                <a href="#" class="btn btn-outline-secondary">阅读全文<i class="fa fa-angle-double-right btn-sm"></i></a>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <div class="btn btn-outline-secondary elevator-button" > <i class="fa fa-angle-double-up"></i> </div>
+
+<!--    <a class="btn btn-outline-secondary elevator-button2" href="#miao"> <i class="fa fa-angle-up"></i> </a>-->
+
+    <div class="foot">
+        <div class="card">
+            <div class="card-body bg-light text-center text-content">
+                Copyright © 白马46
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../../../statics/layui/layui.js"></script>
+
+    <script src="../../../statics/js/jquery-1.9.1.min.js"></script>
+    <!--旋转特效插件-->
+    <script src="../../../statics/js/jquery.rotate.min.js"></script>
+    <!--返回顶部特效插件-->
+    <script src="../../../statics/js/elevator.js"></script>
+    <!--颜色渐变动画插件-->
+    <script src="../../../statics/js/jquery.animate-colors-min.js"></script>
+
+
+
+<!--    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+    <script src="https://cdn.bootcss.com/jquery-migrate/1.4.1/jquery-migrate.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <audio id='bgm' src='../../../statics/music/ab.mp3' preload></audio>
+</body>
+</html>
+
+<script>
+    var BGM = [
+        ["../../../statics/music/vae/许嵩,黄龄 - 惊鸿一面.flac","../../../statics/music/vae/许嵩 - 幻听.flac","../../../statics/music/vae/许嵩 - 庐州月.flac"],
+        ["../../../statics/music/gu/你的九儿 - 清明上河图 (cover：李玉刚).mp3","../../../statics/music/gu/刘安琪 - 白山茶（Cover 陈雪凝）.flac"],
+        ["../../../statics/music/xue/薛之谦 - 方圆几里.flac","../../../statics/music/xue/薛之谦 - 演员.flac"]
+    ];
+    var cur,num=0;
+
+    function initmusic(k,async){
+        var data = "num="+k;
+        $.ajax({
+            url:"",
+            data:data,
+            async:async,
+            dataType:"json",
+            success:function (res) {
+                if(k==3){
+                    BGM = res.data;
+                }else{
+                    BGM[k] = res.data;
+                }
+                return true;
+            },
+            error:function () {
+                return false;
+            }
+        });
+    }
+    initmusic(3,true);
+
+    //顶部
+    $(function () {
+        $("#navbarSupportedContent ul li i").mouseenter(function () {
+            $(this).next().show("slow");
+        });
+        $("#navbarSupportedContent ul li i").mouseleave(function () {
+            $(this).next().hide("slow");
+        });
+
+        $(".btn-search").click(function () {
+            $(".input-search").toggle("slow");
+            // $(this).animate({transform:'rotate('+180+'deg)'},2000);
+        });
+        $(".btn-search").rotate({
+            bind: {
+                click: function(){
+                    $(this).rotate({
+                        angle: 0,
+                        animateTo: 360,
+                        easing: $.easing.easeInOutExpo
+                    });
+                }
+            }
+        });
+
+        var top_card = $(".top-card > div");
+        var dh1 = top_card.find(" h1");
+        var dh5 = top_card.find(" h5")
+        var dh4 = top_card.find(" h4")
+        $(".top-card > div").mouseenter(function () {
+            dh1.animate({color:'#F0E400'},1000);
+            dh1.animate({color:'#54F000'},1000);
+            dh1.animate({color:'#00F070'},1000);
+            dh1.animate({color:'#F00054'},1000);
+            dh1.animate({color:'#00D8F0'},1000);
+            dh1.animate({color:'#54F000'},1000);
+            dh1.animate({color:'#00FF73'},1000);
+            dh1.animate({color:'#2400F0'},1000);
+            dh1.animate({color:'#FF0000'},1000);
+
+            dh5.animate({color:'#F00054'},1000);
+            dh5.animate({color:'#2400F0'},1000);
+            dh5.animate({color:'#F0E400'},1000);
+            dh5.animate({color:'#00D8F0'},1000);
+            dh5.animate({color:'#54F000'},1000);
+            dh5.animate({color:'#2400F0'},1000);
+            dh5.animate({color:'#00F070'},1000);
+            dh5.animate({color:'#FF0000'},1000);
+
+            dh4.animate({color:'#F07400'},1000);
+            dh4.animate({color:'#2400F0'},1000);
+            dh4.animate({color:'#1CF000'},1000);
+            dh4.animate({color:'#787878'},1000);
+            dh4.animate({color:'#3B37B9'},1000);
+            dh4.animate({color:'#F0E400'},1000);
+            dh4.animate({color:'#54F000'},1000);
+            dh4.animate({color:'#FF0000'},1000);
+        });
+    });
+
+    //音乐部分
+    $(function () {
+        var musicImg = $('.music-img');
+        musicImg.stop().rotate({animateTo:36000,duration: 2000000});
+
+        musicImg.mouseenter(function(){
+            $(this).stopRotate();
+            $(this).prev().fadeIn("slow");
+        });
+        musicImg.mouseleave(function(){
+            $(this).stop().rotate({animateTo:36000,duration: 2000000});
+        });
+
+        $(".zhezhao").mouseleave(function () {
+            $(this).fadeOut("slow");
+        });
+
+        var me;
+        var zhezhaoi = $(".music-card .music .zhezhao i");
+        var bgm = document.getElementById("bgm");
+        zhezhaoi.click(function () {
+            me = $(this);
+            $(this).animate(
+                {
+                    fontSize:'+='+50,
+                    left:'-='+20,
+                    top:'-='+25,
+                    opacity:'-='+0.7
+                },600,function(){
+                    // $(this).hide();
+                });
+            setTimeout(function () {
+                if(me.hasClass("fa-play-circle-o")) {
+                    playbgm(me);
+                    me.removeClass("fa-play-circle-o");
+                    me.addClass("fa-pause-circle-o");
+
+                    // me.show();
+                    me.animate(
+                        {
+                            fontSize:'-='+50,
+                            left:'+='+20,
+                            top:'+='+25,
+                            opacity:'+='+0.5
+                        },600);
+                }else{
+                    bgm.pause();
+                    me.removeClass("fa-pause-circle-o");
+                    me.addClass("fa-play-circle-o");
+
+                    me.animate(
+                        {
+                            fontSize:'-='+50,
+                            left:'+='+20,
+                            top:'+='+25,
+                            opacity:'+='+0.5
+                        },600);
+                }
+            },600);
+        });
+
+
+        // zhezhaoi.dblclick(function () {
+        //     if(num==0 || $(this).hasClass("fa-pause-circle-o")) return;
+        //     playbgm($(this));
+        // });
+
+        function playbgm(music){
+            // console.log(music);
+            initplay();
+            if(music.hasClass("play1")){
+                if(num == 1){
+                    bgm.play();
+                    return;
+                }
+                num=0;
+            }else if(music.hasClass("play2")){
+                if(num == 2){
+                    bgm.play();
+                    return;
+                }
+                num = 1;
+            }else if(music.hasClass("play3")){
+                if(num == 3){
+                    bgm.play();
+                    return;
+                }
+                num = 2;
+            }
+            cur = getmusic(num);
+            // console.log(cur);
+            bgm.pause();
+            bgm.src = cur;
+            bgm.play();
+        };
+        function initplay(){
+            if(zhezhaoi.hasClass("fa-pause-circle-o")){
+                zhezhaoi.removeClass("fa-pause-circle-o");
+                zhezhaoi.addClass("fa-play-circle-o");
+            }
+        }
+
+        //自动播放下一首
+        bgm.addEventListener("ended",function () {
+            cur = getmusic(num);
+            bgm.src = cur;
+            bgm.play();
+        });
+
+        function getmusic(k){
+            if(BGM[k].length==0){
+                if(initmusic(k,false)){
+                    return BGM[k].pop();
+                }else{
+                    while(initmusic(k,false)){
+                        setTimeout("",1000);
+                    }
+                    return BGM[k].pop();
+                }
+            }else{
+                return BGM[k].pop();
+            }
+        }
+
+        zhezhaoi.mouseenter(function () {
+            $(this).css("opacity",0.7);
+        });
+        zhezhaoi.mouseleave(function () {
+            $(this).css("opacity",0.5);
+        });
+    });
+
+    $(function () {
+        var w;
+        $(".text-center .card-title h5").mouseenter(function () {
+            if($(this).next().is(":visible")) return;
+            w = $(this).innerWidth();
+            // alert($(this).parent().parent().css("padding-bottom"));
+
+            $(this).next().css("width",1);
+            $(this).next().show(400);
+            $(this).next().animate({width:'+='+w},400);
+            $(this).parent().parent().animate({paddingBottom:'20px'},400);
+            $(this).css("color",'#000');
+        });
+        $(".text-center .card-title h5").mouseleave(function () {
+            $(this).css("color",'gray');
+            $(this).next().hide(400);
+            $(this).next().animate({width:'0'},400);
+            $(this).parent().parent().animate({paddingBottom:'10px'},400);
+        });
+
+
+        var backbtn =  $(".elevator-button");
+        window.onscroll = function() {
+            // console.info(window.scrollY);
+
+            if(window.scrollY > 500){
+                backbtn.show(800);
+            }else{
+                backbtn.hide(800);
+            }
+        };
+
+    });
+
+
+
+    window.onload = function() {
+        var elevator = new Elevator({
+            element: document.querySelector('.elevator-button'),//选择元素
+            mainAudio: '../../../statics/music/elevator-music.mp3',
+            endAudio: '../../../statics/music/ding.mp3',
+            duration: 2000 // 单位：毫秒
+        });
+    }
+
+</script>
