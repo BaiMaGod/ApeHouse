@@ -3,10 +3,12 @@ package com.controller;
 import com.model.User;
 import com.pojo.JsonMsg;
 import com.pojo.Page;
+import com.service.BlogService;
+import com.service.MusicService;
 import com.service.ResourceServiceImpl;
 import com.service.UserService;
 
-import org.junit.Test;
+import com.util.MyUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,19 +23,36 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class PublicController {
     @Autowired
 	UserService userService;
+    @Autowired
+	MusicService musicService;
+	@Autowired
+	BlogService blogService;
 
 	@RequestMapping("/main")
-	public String main(Model model) {
+	public String main(Model model,HttpServletRequest request) {
+		if(MyUtil.serverPath == null){
+//        获取本项目在磁盘中的真实路径
+			String realPath = request.getSession().getServletContext().getRealPath("/");
+//        保存
+			MyUtil.serverPath = realPath;
+		}
 
 		model.addAttribute("title","猿馆-白马46的个人博客");
-		return "public/home";
+		return "blog/home";
 	}
 
+	@RequestMapping("/getMusic")
+	@ResponseBody
+	public List getMusic(int number) {
+
+		return musicService.getMusic(number);
+	}
 
 	@RequestMapping("/login")
 	public String login() {
@@ -74,17 +93,5 @@ public class PublicController {
 	}
 	
 	
-	@Test
-	public void test() {
-		Page page  = new Page();
-		
-		System.out.println(page.toString());
-		
-		ResourceServiceImpl  resourceServiceImpl = new ResourceServiceImpl();
-		
-		resourceServiceImpl.find(page);
-		System.out.println(page.toString());
-		
-		System.out.println("test finaily");
-	}
+
 }

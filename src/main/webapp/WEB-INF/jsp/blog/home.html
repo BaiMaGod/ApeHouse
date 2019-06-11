@@ -604,9 +604,9 @@
             dataType:"json",
             success:function (res) {
                 if(k==3){
-                    BGM = res.data;
+                    BGM = res;
                 }else{
-                    BGM[k] = res.data;
+                    BGM[k] = res;
                 }
                 return true;
             },

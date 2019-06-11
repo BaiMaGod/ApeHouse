@@ -17,14 +17,8 @@ public class MyUtil {
     /**
      * 保存本web服务项目在磁盘中的真实路径
      */
-    private static String serverPath = "D:\\E\\eclipseSpace\\ssmTest3\\WebContent\\";
+    public static String serverPath;
 
-    public static void setServerPath(String path){
-        serverPath = path;
-    }
-    public static String getServerPath(){
-        return serverPath;
-    }
 
     /**
      * 生成UUID,32位
