@@ -34,7 +34,7 @@ public class PublicController {
 	@Autowired
 	BlogService blogService;
 
-	@RequestMapping("/main")
+	@RequestMapping("/")
 	public String main(Model model,HttpServletRequest request) {
 		if(MyUtil.serverPath == null){
 //        获取本项目在磁盘中的真实路径

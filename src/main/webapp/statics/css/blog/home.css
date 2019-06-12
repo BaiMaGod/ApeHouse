@@ -1,0 +1,290 @@
+	
+	
+	/* 
+    	顶部部分样式
+     */
+        body{
+            -webkit-user-select:none;
+            -moz-user-select:none;
+            -ms-user-select:none;
+            user-select:none;
+        }
+
+        .navbar-brand img{
+            width: 40px;
+            height: 40px;
+        }
+
+        .fa-qq:hover{
+            color: deepskyblue;
+        }
+        .fa-envelope:hover{
+            color: #C5AB2B;
+        }
+        .fa-weixin:hover {
+            color: lawngreen;
+        }
+        .fa-github:hover{
+            color: #000;
+        }
+        .icon-csdn:hover{
+            color: red;
+        }
+
+        .myQQ{
+            position: absolute;
+            width: 224px;
+            height: 296px;
+            z-index: 999;
+            margin-top:10px ;
+            display: none;
+        }
+        .myweixin{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            z-index: 999;
+            margin-top:10px ;
+            display: none;
+        }
+
+		.input-search{
+			max-width:210px;
+		}
+
+        .btn-search{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: transparent;
+            margin-right: 50px;
+            margin-left: 10px;
+        }
+
+        .head .card{
+            border: none;
+        }
+        .head .card-body{
+            padding: 30px 0;
+        }
+        .top-card div{
+            position: relative;
+            width: 310px;
+            margin: auto;
+            cursor: pointer;
+        }
+        .top-card a:hover{
+            text-decoration: none;
+            cursor: pointer;
+            color: blue;
+        }
+        .top-card h1{
+            font-size: 45px;
+            /*color: red;*/
+            font-weight: 200;
+            font-family:'Aqua Grotesque','sans-serif';
+        }
+        .top-card h5{
+            /*color: red;*/
+            font-family: "等线 Light";
+            position: absolute;
+            top: 20px;
+            left: 50px;
+        }
+        .top-card h4{
+            /*color: red;*/
+            font-family: "等线 Light";
+            position: absolute;
+            top: 45px;
+            left: 110px;
+        }
+
+
+        .music-card .card-body{
+            min-width: 200px;
+            max-width: 900px;
+            margin:10px auto;
+        }
+        .music-card .music{
+            width: 200px;
+            height: 200px;
+
+            overflow: hidden;
+            float: left;
+            margin: 10px 40px;
+            position: relative;
+        }
+        .music-card .music > img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            z-index:100;
+        }
+        .music-card .music .zhezhao {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: absolute;
+            z-index:200;
+            background-color: transparent;
+            display: none;
+        }
+        .music-card .music .zhezhao img{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            opacity:0.5;
+            filter:alpha(opacity=50);
+            cursor: pointer;
+        }
+        .music-card .music .zhezhao i{
+            position: absolute;
+            left: 70px;
+            top: 65px;
+            z-index:300;
+            opacity:0.5;
+            filter:alpha(opacity=50);
+            cursor: pointer;
+            color: lightgray;
+        }
+
+
+        .music-card h5{
+            color: red;
+            font-family: "等线 Light";
+        }
+
+
+        .nav-list{
+            margin-bottom: 30px;
+        }
+        .nav-list a{
+            color: gray;
+        }
+        .nav-list a:hover,.nav-list a:active{
+            color: red;
+        }
+    /* 
+    	顶部部分样式 —— 结束
+     */
+    
+    /* 
+    	中间部分（博客列表）样式
+     */
+     
+        .container{
+            width: 80%;
+        }
+        .container .card{
+            margin: 20px 0;
+            border: none;
+        }
+
+        .container .card > hr{
+            width: 100px;
+            margin: 30px auto;
+        }
+        .container a{
+            text-decoration: none;
+        }
+        .container h5{
+            display: inline-block;
+            font-size: 22px;
+            font-weight: 400;
+            color: gray;
+            margin-bottom: 0;
+        }
+        .container .card-title{
+            padding-bottom:10px;
+            margin-bottom: 0;
+        }
+        .container .card-title p{
+            height: 2px;
+            background: #000;
+            /*border: 1px double black;*/
+            margin:auto;
+            display: none
+        }
+
+        .container .blog-info{
+            font-size: 14px;
+        }
+        .container .text-content{
+            padding: 20px 0;
+        }
+        .container .tag{
+            border-radius: 20px;
+            padding: 0 15px;
+            margin-top: 10px;
+        }
+        .container .tag:hover{
+            border-color: red;
+            background-color: white;
+            color: white;
+        }
+
+    /* 
+    	中间部分（博客列表）样式 —— 结束
+     */
+    
+    /* 
+    	底部及其他部分样式
+     */
+    
+        .foot .card .text-content{
+            font-size: 12px;
+        }
+
+
+        .elevator-button{
+            position: fixed;
+            right: 2%;
+            bottom: 60px;
+            display: none;
+        }
+        .elevator-button2{
+            position: fixed;
+            right: 2%;
+            bottom: 60px;
+            display: none;
+        }
+
+
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        ::-webkit-scrollbar-button,
+        ::-webkit-scrollbar-button:vertical {
+            display: none;
+        }
+
+        ::-webkit-scrollbar-track,
+        ::-webkit-scrollbar-track:vertical {
+            background-color: whitesmoke;
+        }
+
+        ::-webkit-scrollbar-track-piece {
+            background-color: whitesmoke;
+        }
+
+        ::-webkit-scrollbar-thumb,
+        ::-webkit-scrollbar-thumb:vertical {
+            border-radius: 5px;
+            margin-right: 10px;
+            background-color: #bba;
+        }
+
+        ::-webkit-scrollbar-thumb:hover,
+        ::-webkit-scrollbar-thumb:vertical:hover {
+            background-color: #aaa;
+        }
+
+        ::-webkit-scrollbar-corner,
+        ::-webkit-scrollbar-corner:vertical {
+            background-color: whitesmoke;
+        }
+
+	/* 
+    	底部及其他部分样式 —— 结束
+     */

@@ -1,6 +1,8 @@
 package com.service;
 
 import com.util.MyUtil;
+
+import org.apache.cassandra.cli.CliParser.newColumnFamily_return;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -48,7 +50,10 @@ public class MusicServiceImpl implements MusicService {
             files[i] = files[k];
             files[k] = temp;
         }
-        List<String> musics = Arrays.asList(files);
+        List<String> musics = new ArrayList<String>();
+        for(int i=0;i<len;i++){
+            musics.add(path+files[i]);
+        }
         return musics;
     }
 }
