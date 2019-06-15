@@ -17,7 +17,8 @@ public class MyUtil {
     /**
      * 保存本web服务项目在磁盘中的真实路径
      */
-    public static String serverPath = "D:\\E\\eclipseSpace\\ApeHouse\\src\\main\\webapp\\";
+	public static String serverPath;
+//    public static String serverPath = "D:\\E\\eclipseSpace\\ApeHouse\\src\\main\\webapp\\";
 
 
     /**
@@ -97,8 +98,8 @@ public class MyUtil {
 //        防止文件重名,随机生成文件的存储名
         String memoryName = MyUtil.getUUID()+"."+fileSuffix;
 
-//        生成文件src路径，存入数据库中
-        String src = path + memoryName;
+//        生成文件src路径
+        String src = path +"\\"+ memoryName;
         File targetFile = new File(realPath,memoryName);
 //         保存到磁盘
         try {

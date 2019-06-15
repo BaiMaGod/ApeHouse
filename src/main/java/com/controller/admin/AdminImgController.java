@@ -7,25 +7,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.service.ImgService;
 import com.util.MyUtil;
+
+import net.sf.json.JSONObject;
 
 @Controller
 @RequestMapping("/img")
 public class AdminImgController {
 	
 	@RequestMapping("/{type}")
-	public Map<String , Object> upload(@PathVariable String type,MultipartFile imgFile) {
-		Map<String , Object> map = new HashMap<String, Object>();
+	@ResponseBody
+	public JSONObject upload(@PathVariable String type,@RequestParam(value = "editormd-image-file", required = true) MultipartFile imgFile) {
+		JSONObject res = new JSONObject();
 		
-		String url = MyUtil.fileSave(imgFile, "ape/img/"+type);
+		String url = MyUtil.fileSave(imgFile, "ape\\img\\"+type);
 		
-		map.put("success", 1);
-		map.put("message", "");
-		map.put("url", url);
+		res.put("success", 1);
+		res.put("message", "上传成功！");
+		res.put("url", url);
 		
-		return map;
+		return res;
 	}
 }

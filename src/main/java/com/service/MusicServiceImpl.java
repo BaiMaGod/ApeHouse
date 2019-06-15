@@ -14,20 +14,20 @@ public class MusicServiceImpl implements MusicService {
     public List getMusic(int number) {
         if(number==3){
             List<List<String>> res = new ArrayList<>();
-            res.add(randomMusic("statics/music/vae/"));
-            res.add(randomMusic("statics/music/gu/"));
-            res.add(randomMusic("statics/music/xue/"));
+            res.add(randomMusic("ape/music/vae/"));
+            res.add(randomMusic("ape/music/gu/"));
+            res.add(randomMusic("ape/music/xue/"));
 
             return res;
         }
 
         String path;
         if(number==0){
-            path = "statics/music/vae";
+            path = "ape/music/vae/";
         }else if(number==1){
-            path = "statics/music/gu";
+            path = "ape/music/gu/";
         }else{
-            path = "statics/music/xue";
+            path = "ape/music/xue/";
         }
 
         return randomMusic(path);

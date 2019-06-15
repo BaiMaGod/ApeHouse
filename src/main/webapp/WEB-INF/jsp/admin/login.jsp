@@ -75,7 +75,7 @@ function login() {
 		dataType:"json",
 		success:function(data){
 			if(data.code==1){
-				if($("#referer")!=null){
+				if($("#referer").val()!="null"){
 					window.location.href = $("#referer").val();
 				}else{
 					window.location.href = "";

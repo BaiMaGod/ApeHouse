@@ -119,7 +119,7 @@
 
             <div id="sub">
                 <input type="button" value="发布" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal">
-                <img userId="${loginUser.id }" src="statics/images/music/002.jpg" alt="">
+                <img userId="${loginUser.id }" src="${loginUser.headImage }" alt="">
             </div>
         </div>
 

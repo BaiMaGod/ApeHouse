@@ -3,7 +3,7 @@
 	/* 
     	顶部部分样式
      */
-        body{
+        .head{
             -webkit-user-select:none;
             -moz-user-select:none;
             -ms-user-select:none;
@@ -180,7 +180,11 @@
             margin: 20px 0;
             border: none;
         }
-
+		.container .card xmp{
+			white-space:pre-line;
+			font-size:16px;
+			margin:40px auto;
+		}
         .container .card > hr{
             width: 100px;
             margin: 30px auto;
@@ -210,6 +214,12 @@
         .container .blog-info{
             font-size: 14px;
         }
+        .container .blog-info a{
+            color:black;
+        }
+        .container .blog-info a:hover{
+            font-weight: 600;
+        }
         .container .text-content{
             padding: 20px 0;
         }
@@ -224,6 +234,29 @@
             color: white;
         }
 
+
+		/* 博客详情样式 */
+		.detail-blog{
+			width: 100%;
+			margin: auto;
+		}
+		.detail-blog .blog-title{
+			text-align: center; 
+			margin:20px auto;
+		}
+		.detail-blog .blog-info{
+			font-size: 14px;
+			text-align: center;
+			margin:20px auto;
+		}
+		.detail-blog h1,.detail-blog h2,.detail-blog h3,.detail-blog h4,.detail-blog h5,.detail-blog h6{
+			color: gray;
+			margin-top:20px;
+			margin-bottom: 20px; 
+		}
+		
+		/* 博客详情样式 - 结束 */
+		
     /* 
     	中间部分（博客列表）样式 —— 结束
      */

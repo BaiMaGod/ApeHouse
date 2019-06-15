@@ -1,8 +1,8 @@
 
     var BGM = [
-        ["statics/music/vae/许嵩,黄龄 - 惊鸿一面.flac","statics/music/vae/许嵩 - 幻听.flac","statics/music/vae/许嵩 - 庐州月.flac"],
-        ["statics/music/gu/你的九儿 - 清明上河图 (cover：李玉刚).mp3","statics/music/gu/刘安琪 - 白山茶（Cover 陈雪凝）.flac"],
-        ["statics/music/xue/薛之谦 - 方圆几里.flac","statics/music/xue/薛之谦 - 演员.flac"]
+        ["许嵩,黄龄 - 惊鸿一面.flac","许嵩 - 幻听.flac","许嵩 - 庐州月.flac"],
+        ["你的九儿 - 清明上河图 (cover：李玉刚).mp3","刘安琪 - 白山茶（Cover 陈雪凝）.flac"],
+        ["薛之谦 - 方圆几里.flac","薛之谦 - 演员.flac"]
     ];
     var cur,num=-1;
 
@@ -199,6 +199,7 @@
         
         //发生错误
         bgm.onerror = function() {
+        	if(num<0 || num>2) return;
             console.log("歌曲播放异常");
             cur = getmusic(num);
             bgm.src = cur;
@@ -206,6 +207,8 @@
         };
 
         function getmusic(k){
+        	console.log("k:"+k);
+        	if(k<0 || k>2) return;
             if(BGM[k].length==0){
                 if(initmusic(k,false)){
                     return BGM[k].pop();
@@ -267,9 +270,70 @@
     window.onload = function() {
         var elevator = new Elevator({
             element: document.querySelector('.elevator-button'),//选择元素
-            mainAudio: 'statics/music/elevator-music.mp3',
-            endAudio: 'statics/music/ding.mp3',
+            mainAudio: 'ape/music/elevator-music.mp3',
+            endAudio: 'ape/music/ding.mp3',
             duration: 2000 // 单位：毫秒
         });
     }
+    
+    
+    
+   
 
+    //博客详情
+    $(function() {
+    	 $(".detail-blog img").each(function() {
+    		 console.log($(this).width());
+    		 console.log($(this).parent().width());
+    		if($(this).width()>$(this).parent().width()){
+    			$(this).css("width","100%");
+    		};
+    	});
+    	
+    	
+    	var blog = {msg:"获取博客失败！"};
+		$("#pills-blog .read-detail").click(function() {
+			console.log("read-detail");
+			$("#detail").load($(this).attr("blog-url"));
+			$("#pills-detail-tab").click();
+			$("html, body").animate({scrollTop:$('#mao').offset().top}, 800); 
+			//getBlogDetail($(this).attr("blog-id"))
+			//blogDetail(blog);
+		});
+    	
+		function getBlogDetail(id) {
+			$.ajax({
+				url:"blog/detail?id="+id,
+				async:false,
+				success:function(res){
+					console.log("获取博客成功："+id);
+					blog = res;
+				},
+				error:function(){
+					console.log("获取博客失败："+id);
+				}
+			});
+		}
+    	function blogDetail(blog) {
+    		console.log(blog);
+    		var html = "";
+    		if(!('msg' in blog)){
+				html = "<div class='detail-blog'>"+
+					            "<h2 class='blog-title'>"+blog.title+"</h2>"+
+					            "<p class='blog-info'>"+
+					                "<i class='fa fa-clock-o'></i>发表于：<fmt:formatDate type='both' value='"+blog.createTime+"'/> |"+
+					                "<i class=fa fa-folder-o></i>分类于：<span>"+blog.category.name+"</span> |"+
+					                "<i class=fa fa-comment-o'></i>评论：<span>0</span> |"+
+					                "<i class=fa fa-eye'></i>浏览：<span>66</span>"+
+					            "</p>"+
+					            "<br>"+
+								"<jsp:include page='/"+blog.htmlUrl+"'></jsp:include>"+
+							"</div>";
+    		} else{
+    			html = "<div class='detail-blog'>"+
+    						"<h6 class='blog-title'>获取博客失败！</h6>"+
+    					"</div>";
+    		}
+			$("#detail").html(html);
+		}
+	});

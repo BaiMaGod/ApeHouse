@@ -18,6 +18,7 @@
     <title>${title}</title>
     <link rel="icon" type="image/png" href="statics/images/ape-icon.png"/>
 
+	<link rel="stylesheet" href="statics/editormd/css/editormd.css" />
     <!-- <link rel="stylesheet" href="statics/bootstrap-4.0.0/dist/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -110,7 +111,7 @@
             </div>
         </div>
 
-        <a name="mao"></a>
+        <a name="mao" id="mao"></a>
 
         <hr style="width: 80%;margin:20px auto">
 
@@ -130,6 +131,10 @@
             <li class="nav-item">
                 <a class="nav-link" href="#"> 留言 </a>
             </li>
+            
+            <li class="nav-item">
+            	<a class="nav-link" id="pills-detail-tab" data-toggle="pill" href="#detail" role="tab" aria-controls="pills-detail" aria-selected="false"></a>
+            </li>
         </ul>
     </div>
 
@@ -140,16 +145,17 @@
 			<c:if test="${blogs!=null }">
 				<c:forEach var="blog" items="${blogs}">
 					<div class="card">
+						<hr>
 			            <div class="card-body text-center">
 			                <div class="card-title">
-			                    <a href="blog/${blog.id }">
+			                    <a href="javascript:;" blog-url="${blog.htmlUrl }" class="read-detail">
 			                        <h5>${blog.title }</h5>
 			                        <p></p>
 			                    </a>
 			                </div>
 			                <p class="card-text blog-info">
 			                    <i class="fa fa-clock-o"></i>发表于：<fmt:formatDate type="both" value="${blog.createTime }"/> |
-			                    <i class="fa fa-folder-o"></i>分类于：<span>${blog.category.name }</span> |
+			                    <i class="fa fa-folder-o"></i>分类于：<a href="javascript:;" category-id="{blog.category.id}">${blog.category.name }</a> |
 			                    <i class="fa fa-comment-o"></i>评论：<span>0</span> |
 			                    <i class="fa fa-eye"></i>浏览：<span>66</span>
 			                </p>
@@ -160,8 +166,8 @@
 			                		</c:forEach>
 			                	</c:if>
 			                </p>
-			                <p class="card-text text-content">${blog.summary }</p>
-			                <a href="blog/${blog.id }" class="btn btn-outline-secondary">阅读全文<i class="fa fa-angle-double-right btn-sm"></i></a>
+			                <xmp>${blog.summary }</xmp>
+			                <a href="javascript:;" blog-url="${blog.htmlUrl }" class="btn btn-outline-secondary read-detail">阅读全文<i class="fa fa-angle-double-right btn-sm"></i></a>
 			            </div>
 			        </div>
 				</c:forEach>
@@ -170,11 +176,16 @@
     	
     	<div class="tab-pane fade container" id="pills-photo" role="tabpanel" aria-labelledby="pills-photo-tab">
     	
-    		
+    		图册
     	</div>
 	  	<div class="tab-pane fade container" id="pills-resource" role="tabpanel" aria-labelledby="pills-resource-tab">
 	  	
+	  		资源
+	  	</div>
+	  	
+	  	<div class="tab-pane fade container editormd-preview-container" id="detail">
 	  		
+	  		详情
 	  	</div>
 	</div>
 

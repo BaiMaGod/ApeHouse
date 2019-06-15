@@ -31,7 +31,7 @@ public class BlogServiceImpl implements BlogService {
 	TagMapper tagMapper;
 	
 	private String save(String id,String content,String type){
-		String url = "statics\\"+type+"\\"+id+"."+type;
+		String url = "ape\\"+type+"\\"+id+"."+type;
 		System.out.println(url);
 		File file = new File(MyUtil.serverPath+url);
 		FileWriter fw = null;
@@ -60,12 +60,14 @@ public class BlogServiceImpl implements BlogService {
 		
 		return url;
 	}
+	
 
 	@Override
 	public String add(Blog blog) {
 		String id = MyUtil.getLongId();
 		
-		String htmlUrl = save(id, blog.getHtmlString(),"jsp");
+		save(id, blog.getHtmlString(),"jsp");
+		String htmlUrl = save(id, blog.getHtmlString(),"html");
 		if(htmlUrl==null) return null;
 		String mdUrl = save(id, blog.getContent(),"md");
 		if(mdUrl==null) return null;
@@ -92,7 +94,7 @@ public class BlogServiceImpl implements BlogService {
 		String content = blog.getSummary();
 		blog.setContent(content);
 		
-		String summary =  content.length()>125 ? content.substring(0,125):content;
+		String summary =  content.length()>200 ? content.substring(0,200):content;
 		blog.setSummary(summary.replaceAll("\n", " "));
 		
 		return blogMapper.insertSelective(blog)>0 ? id : null;
@@ -131,6 +133,7 @@ public class BlogServiceImpl implements BlogService {
 	@Override
 	public List<Blog> findByExample(Blog blog, Page page) {
 		BlogExample example = new BlogExample();
+		example.setOrderByClause("createTime desc");
 		
 		List<Blog> blogs = blogMapper.selectByExample(example);
 		
