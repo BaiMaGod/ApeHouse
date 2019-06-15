@@ -20,7 +20,7 @@ public class ResourceServiceImpl implements ResourceService {
 	ResourceMapper resourceMapper;
 
     public String add(Resource resource) {
-    	String id = MyUtil.getTableId();
+    	String id = MyUtil.getLongId();
     	
     	resource.setId(id);
     	resource.setCreateTime(MyUtil.nowDate());

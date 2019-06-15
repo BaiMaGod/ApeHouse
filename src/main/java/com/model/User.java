@@ -2,13 +2,20 @@ package com.model;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotBlank;
+
+import org.hibernate.validator.constraints.Length;
+
 public class User {
+	
     private String id;
 
+    @NotBlank(message="账号不能为空")
     private String number;
 
     private String name;
 
+    @Length(min=6,max=16,message="密码不能为空")
     private String password;
 
     private String headImage;

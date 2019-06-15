@@ -26,14 +26,14 @@ public class UserServiceImpl implements  UserService {
         }
 
         UserExample example = new UserExample();
-        example.createCriteria().andNumberEqualTo(user.getNumber()).andPasswordEqualTo(user.getPassword());
+        example.createCriteria().andNumberEqualTo(user.getNumber()).andPasswordEqualTo(MyUtil.md5(user.getPassword()));
         List<User> users = userMapper.selectByExample(example);
 
         if(users.isEmpty()){
             return null;
         }
         Login login = new Login();
-        login.setId(MyUtil.getTableId());
+        login.setId(MyUtil.getLongId());
         login.setUserId(users.get(0).getId());
         login.setIp(request.getRemoteAddr());
 
@@ -46,10 +46,11 @@ public class UserServiceImpl implements  UserService {
             return null;
         }
 
-        String id = MyUtil.getTableId();
+        String id = MyUtil.getLongId();
 
         user.setId(id);
         user.setHeadImage("static/headimage/headimg.jpg");
+        user.setPassword(MyUtil.md5(user.getPassword()));
         user.setCreateTime(MyUtil.nowDate());
 
         return id;

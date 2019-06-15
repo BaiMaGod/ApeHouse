@@ -53,11 +53,11 @@
 
 	<div style="position: absolute;bottom: 10px">
 		<div class="container">
-			<p class="mt-5 mb-3 text-muted">&copy;2019 猿馆</p>
+			<p class="mt-5 mb-3 text-muted">Copyright © 白马46</p>
 		</div>
 	</div>
 	
-	<script type="text/javascript" src="statics/js/jquery-3.3.1.js"></script>
+	<script src="https://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
 </body>
 </html>
 
@@ -66,19 +66,20 @@ function login() {
 	var number = $("#number").val();
 	var password = $("#password").val();
 	
-	alert("fasong:"+number+" "+password);
 	
 	$.ajax({
-		url:"doLogin",
+		url:"admin/login",
 		type:"post",
 		data:JSON.stringify({number:number,password:password}),
 		contentType:"application/json;charset=utf-8",
 		dataType:"json",
 		success:function(data){
-			alert("data");
 			if(data.code==1){
-				alert("1");
-				window.location.href = $("#referer");
+				if($("#referer")!=null){
+					window.location.href = $("#referer").val();
+				}else{
+					window.location.href = "";
+				}
 			}else{
 				alert("密码或用户名错误！");
 			}
@@ -87,6 +88,5 @@ function login() {
 			alert("error");
 		}
 	});
-	alert("guo");
 }
 </script>

@@ -17,8 +17,7 @@
 	<context:component-scan base-package="com.controller" />
 	<context:component-scan base-package="com.service"/>
 	<context:component-scan base-package="com.dao"/>
-	<mvc:annotation-driven />
-	
+	<mvc:annotation-driven/>
 	
     <!-- 静态资源需要单独处理，不需要dispatcher servlet -->  
 	<mvc:resources location="/statics/" mapping="/statics/**"></mvc:resources>
@@ -52,7 +51,8 @@
 	<!-- 配置拦截器 -->
 	<mvc:interceptors>
 		<mvc:interceptor>
-			<mvc:mapping path="/user/*"/>
+			<mvc:mapping path="/admin/**"/>
+			<mvc:exclude-mapping path="/admin/login"/>
 			<bean class="com.interceptor.MyInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>

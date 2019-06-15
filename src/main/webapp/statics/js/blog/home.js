@@ -4,7 +4,7 @@
         ["statics/music/gu/你的九儿 - 清明上河图 (cover：李玉刚).mp3","statics/music/gu/刘安琪 - 白山茶（Cover 陈雪凝）.flac"],
         ["statics/music/xue/薛之谦 - 方圆几里.flac","statics/music/xue/薛之谦 - 演员.flac"]
     ];
-    var cur,num=0;
+    var cur,num=-1;
 
     function initmusic(k,async){
         var data = "number="+k;
@@ -91,14 +91,14 @@
     //音乐部分
     $(function () {
         var musicImg = $('.music-img');
-        musicImg.stop().rotate({animateTo:36000,duration: 2000000});
+        musicImg.stop().rotate({animateTo:360000,duration: 20000000});
 
         musicImg.mouseenter(function(){
             $(this).stopRotate();
             $(this).prev().fadeIn("slow");
         });
         musicImg.mouseleave(function(){
-            $(this).stop().rotate({animateTo:36000,duration: 2000000});
+            $(this).stop().rotate({animateTo:360000,duration: 20000000});
         });
 
         $(".zhezhao").mouseleave(function () {
@@ -159,19 +159,19 @@
             // console.log(music);
             initplay();
             if(music.hasClass("play1")){
-                if(num == 1){
+                if(num == 0){
                     bgm.play();
                     return;
                 }
                 num=0;
             }else if(music.hasClass("play2")){
-                if(num == 2){
+                if(num == 1){
                     bgm.play();
                     return;
                 }
                 num = 1;
             }else if(music.hasClass("play3")){
-                if(num == 3){
+                if(num == 2){
                     bgm.play();
                     return;
                 }
@@ -196,6 +196,14 @@
             bgm.src = cur;
             bgm.play();
         });
+        
+        //发生错误
+        bgm.onerror = function() {
+            console.log("歌曲播放异常");
+            cur = getmusic(num);
+            bgm.src = cur;
+            bgm.play();
+        };
 
         function getmusic(k){
             if(BGM[k].length==0){

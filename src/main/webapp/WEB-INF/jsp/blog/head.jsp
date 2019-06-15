@@ -1,4 +1,4 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
@@ -110,19 +110,19 @@
             </div>
         </div>
 
-        <a name="mao"></a>
+        <a name="mao" id="mao"></a>
 
         <hr style="width: 80%;margin:20px auto">
 
-        <ul class="nav justify-content-center nav-list" id="pills-tab" role="tablist">
-            <li class="nav-item" >
-                <a class="nav-link active" id="pills-blog-tab" data-toggle="pill" href="#pills-blog" role="tab" aria-controls="pills-blog" aria-selected="true"> B L O G </a>
+        <ul class="nav justify-content-center nav-list">
+            <li class="nav-item">
+                <a class="nav-link active" href="#"> B L O G </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="pills-photo-tab" data-toggle="pill" href="#pills-photo" role="tab" aria-controls="pills-photo" aria-selected="false"> 图册 </a>
+                <a class="nav-link" href="javascript:;"> 图册 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="pills-resource-tab" data-toggle="pill" href="#pills-resource" role="tab" aria-controls="pills-resource" aria-selected="false"> 资源 </a>
+                <a class="nav-link" href="#"> 资源 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#"> 日志 </a>
@@ -133,82 +133,5 @@
         </ul>
     </div>
 
-	
-	<div class="tab-content" id="pills-tabContent">
-	
-	    <div class="tab-pane fade show active container" id="pills-blog" role="tabpanel" aria-labelledby="pills-blog-tab">
-			<c:if test="${blogs!=null }">
-				<c:forEach var="blog" items="${blogs}">
-					<div class="card">
-			            <div class="card-body text-center">
-			                <div class="card-title">
-			                    <a href="blog/${blog.id }">
-			                        <h5>${blog.title }</h5>
-			                        <p></p>
-			                    </a>
-			                </div>
-			                <p class="card-text blog-info">
-			                    <i class="fa fa-clock-o"></i>发表于：<fmt:formatDate type="both" value="${blog.createTime }"/> |
-			                    <i class="fa fa-folder-o"></i>分类于：<span>${blog.category.name }</span> |
-			                    <i class="fa fa-comment-o"></i>评论：<span>0</span> |
-			                    <i class="fa fa-eye"></i>浏览：<span>66</span>
-			                </p>
-			                <p class="card-text">
-			                	<c:if test="${blog.tags!=null }">
-			                		<c:forEach items="${blog.tags }" var="tag">
-			                			<a class="btn btn-outline-secondary btn-sm tag">${tag.name}</a>
-			                		</c:forEach>
-			                	</c:if>
-			                </p>
-			                <p class="card-text text-content">${blog.summary }</p>
-			                <a href="blog/${blog.id }" class="btn btn-outline-secondary">阅读全文<i class="fa fa-angle-double-right btn-sm"></i></a>
-			            </div>
-			        </div>
-				</c:forEach>
-			</c:if>
-    	</div>
-    	
-    	<div class="tab-pane fade container" id="pills-photo" role="tabpanel" aria-labelledby="pills-photo-tab">
-    	
-    		
-    	</div>
-	  	<div class="tab-pane fade container" id="pills-resource" role="tabpanel" aria-labelledby="pills-resource-tab">
-	  	
-	  		
-	  	</div>
-	</div>
-
-
-    <div class="btn btn-outline-secondary elevator-button" > <i class="fa fa-angle-double-up"></i> </div>
-
-    <div class="foot">
-        <div class="card">
-            <div class="card-body bg-light text-center text-content">
-                Copyright © 白马46
-            </div>
-        </div>
-    </div>
-
-
-
-    <!-- <script src="statics/js/jquery-1.9.1.min.js"></script> -->
-    <script src="https://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
-    <!--旋转特效插件-->
-    <script src="statics/js/jquery.rotate.min.js"></script>
-    <!--返回顶部特效插件-->
-    <script src="statics/js/elevator.js"></script>
-    <!--颜色渐变动画插件-->
-    <!-- <script src="statics/js/jquery.animate-colors-min.js"></script> -->
-    <script src="//cdn.jsdelivr.net/jquery.color-animation/1/mainfile"></script>
-
-
-<!--    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
-    <script src="https://cdn.bootcss.com/jquery-migrate/1.4.1/jquery-migrate.js"></script>
-    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-    <audio id='bgm' src=''></audio>
     
-    <script src="statics/js/blog/home.js"></script>
-</body>
-</html>
+    

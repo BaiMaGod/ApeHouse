@@ -17,11 +17,11 @@ public class MyUtil {
     /**
      * 保存本web服务项目在磁盘中的真实路径
      */
-    public static String serverPath;
+    public static String serverPath = "D:\\E\\eclipseSpace\\ApeHouse\\src\\main\\webapp\\";
 
 
     /**
-     * 生成UUID,32位
+           * 生成UUID,32位
      * @return id
      */
     public static String getUUID() {
@@ -32,18 +32,26 @@ public class MyUtil {
 
         return id;
     }
-
+    
     /**
-     * 生成表ID,纯数字，递增，22位左右
+            * 生成短数字id,8位左右
      * @return id
      */
-    public static String getTableId() {
+    public static String getShortId() {
         //取UUID的哈希码，换成纯数字
         int num = getUUID().hashCode();
         //去绝对值
         num = num < 0 ? -num : num;
-//		在生成的随机数字前加入时间戳，形成递增
-        return String.valueOf(System.currentTimeMillis()) + num;
+        return String.valueOf(num);
+    }
+
+    /**
+             * 生成长数字ID,纯数字，递增，23位左右
+     * @return id
+     */
+    public static String getLongId() {
+//		在生成的 短id 前加入时间戳，形成递增
+        return String.valueOf(System.currentTimeMillis()) + getShortId();
     }
 
 
@@ -114,8 +122,6 @@ public class MyUtil {
     
     
     public static boolean notEmpty(String str) {
-    	if(str!=null && !"".equals(str.trim())) return true;
-    	
-    	return false;
+    	return str!=null && !"".equals(str.trim());
     }
 }

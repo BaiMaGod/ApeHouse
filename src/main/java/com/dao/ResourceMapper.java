@@ -4,10 +4,6 @@ import com.model.Resource;
 import com.model.ResourceExample;
 import java.util.List;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.mybatis.spring.annotation.MapperScan;
-
-@MapperScan
 public interface ResourceMapper {
     long countByExample(ResourceExample example);
 

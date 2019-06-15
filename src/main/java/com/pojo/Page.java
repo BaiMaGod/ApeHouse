@@ -1,10 +1,10 @@
 package com.pojo;
 
 public class Page {
-    //	默认为查询第一页
-    private int curPage=1;
-    //	默认一页十条记录
-    private int pageRows=10;
+    //	当前第几页
+    private int curPage;
+    //	每页条数
+    private int pageRows;
 
     private int totalRows;
 

@@ -6,12 +6,12 @@ import com.pojo.Page;
 import java.util.List;
 
 public interface BlogService {
-    String add(Blog resource);
+    String add(Blog blog);
     boolean delete(String id);
-    boolean update(Blog resource);
+    boolean update(Blog blog);
 
-    int countByExample(Blog resource);
+    int countByExample(Blog blog);
 
     Blog findById(String id);
-    List<Blog> findByExample(Blog resource, Page page);
+    List<Blog> findByExample(Blog blog, Page page);
 }
