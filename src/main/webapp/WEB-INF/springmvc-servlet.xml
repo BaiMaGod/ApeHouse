@@ -21,6 +21,7 @@
 	
     <!-- 静态资源需要单独处理，不需要dispatcher servlet -->  
 	<mvc:resources location="/statics/" mapping="/statics/**"></mvc:resources>
+	<mvc:resources location="/ape/" mapping="/ape/**"></mvc:resources>
 	
 	
 	<!-- 配置视图解析器 -->

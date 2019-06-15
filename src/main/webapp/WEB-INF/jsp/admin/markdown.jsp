@@ -191,6 +191,11 @@
                 syncScrolling: "single",
                 emoji:true,
                 saveHTMLToTextarea : true,
+                imageUpload       : true,				//图片上传
+                imageFormats      : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+                imageUploadURL    : "img/blog",
+            //    crossDomainUpload : true,				//跨域上传
+            //    uploadCallbackURL : "http://xxxxxx/upload_callback.html?test=dfdf",	//跨域上传
                 codeFold : true,		//启用代码折叠功能
                 htmlDecode : true,		//解析所有的HTML标签和属性
                 // markdown: "xxxx",     // dynamic set Markdown text
@@ -338,7 +343,7 @@
         $("#del-tag").click(function() {
 			if(tagNum > 1){
 				$("#add-tag").prev().hide("slow");
-				setTimeout(() => {
+				setTimeout(function() {
 					$("#add-tag").prev().remove();
 				}, 600);
 				tagNum--;
