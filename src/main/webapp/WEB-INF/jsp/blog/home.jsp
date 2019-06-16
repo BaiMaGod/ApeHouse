@@ -148,7 +148,7 @@
 						<hr>
 			            <div class="card-body text-center">
 			                <div class="card-title">
-			                    <a href="javascript:;" blog-url="${blog.htmlUrl }" class="read-detail">
+			                    <a href="javascript:;" blog-id="${blog.id }" blog-url="${blog.htmlUrl }" class="read-detail">
 			                        <h5>${blog.title }</h5>
 			                        <p></p>
 			                    </a>
@@ -167,7 +167,7 @@
 			                	</c:if>
 			                </p>
 			                <xmp>${blog.summary }</xmp>
-			                <a href="javascript:;" blog-url="${blog.htmlUrl }" class="btn btn-outline-secondary read-detail">阅读全文<i class="fa fa-angle-double-right btn-sm"></i></a>
+			                <a href="javascript:;" blog-id="${blog.id }" blog-url="${blog.htmlUrl }" class="btn btn-outline-secondary read-detail">阅读全文<i class="fa fa-angle-double-right btn-sm"></i></a>
 			            </div>
 			        </div>
 				</c:forEach>

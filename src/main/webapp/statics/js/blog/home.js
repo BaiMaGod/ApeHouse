@@ -105,55 +105,69 @@
             $(this).fadeOut("slow");
         });
 
+        
+      //定义setTimeout执行方法
+        var time = null;
+        
         var me;
         var zhezhaoi = $(".music-card .music .zhezhao i");
         var bgm = document.getElementById("bgm");
         zhezhaoi.click(function () {
+        	// 取消上次延时未执行的方法
+            clearTimeout(time);
+            
             me = $(this);
-            $(this).animate(
-                {
-                    fontSize:'+='+50,
-                    left:'-='+20,
-                    top:'-='+25,
-                    opacity:'-='+0.7
-                },600,function(){
-                    // $(this).hide();
-                });
-            setTimeout(function () {
-                if(me.hasClass("fa-play-circle-o")) {
-                    playbgm(me);
-                    me.removeClass("fa-play-circle-o");
-                    me.addClass("fa-pause-circle-o");
-
-                    // me.show();
-                    me.animate(
-                        {
-                            fontSize:'-='+50,
-                            left:'+='+20,
-                            top:'+='+25,
-                            opacity:'+='+0.5
-                        },600);
-                }else{
-                    bgm.pause();
-                    me.removeClass("fa-pause-circle-o");
-                    me.addClass("fa-play-circle-o");
-
-                    me.animate(
-                        {
-                            fontSize:'-='+50,
-                            left:'+='+20,
-                            top:'+='+25,
-                            opacity:'+='+0.5
-                        },600);
-                }
-            },600);
+            //执行延时
+            time = setTimeout(function(){
+            	me.animate(
+	                {
+	                    fontSize:'+='+50,
+	                    left:'-='+20,
+	                    top:'-='+25,
+	                    opacity:'-='+0.7
+	                },600,function(){
+	                    // $(this).hide();
+	                });
+	            setTimeout(function () {
+	                if(me.hasClass("fa-play-circle-o")) {
+	                    playbgm(me);
+	                    me.removeClass("fa-play-circle-o");
+	                    me.addClass("fa-pause-circle-o");
+	
+	                    // me.show();
+	                    me.animate(
+	                        {
+	                            fontSize:'-='+50,
+	                            left:'+='+20,
+	                            top:'+='+25,
+	                            opacity:'+='+0.5
+	                        },600);
+	                }else{
+	                    bgm.pause();
+	                    me.removeClass("fa-pause-circle-o");
+	                    me.addClass("fa-play-circle-o");
+	
+	                    me.animate(
+	                        {
+	                            fontSize:'-='+50,
+	                            left:'+='+20,
+	                            top:'+='+25,
+	                            opacity:'+='+0.5
+	                        },600);
+	                }
+	            },600);
+            },300);
         });
 
-
-        // zhezhaoi.dblclick(function () {
-        //     if(num==0 || $(this).hasClass("fa-pause-circle-o")) return;
-        //     playbgm($(this));
-        // });
+        
+        //在播放状态下，双击暂停键播放下一首
+         zhezhaoi.dblclick(function () {
+        	// 取消上次延时未执行的方法
+        	 clearTimeout(time);
+        	 
+             if( $(this).hasClass("fa-play-circle-o") ) return;
+             nextMusic();
+         });
 
         function playbgm(music){
             // console.log(music);
@@ -190,21 +204,25 @@
             }
         }
 
-        //自动播放下一首
+        //歌曲播放完毕
         bgm.addEventListener("ended",function () {
-            cur = getmusic(num);
-            bgm.src = cur;
-            bgm.play();
+        	nextMusic();
         });
-        
-        //发生错误
+        //歌曲播放发生错误
         bgm.onerror = function() {
-        	if(num<0 || num>2) return;
             console.log("歌曲播放异常");
-            cur = getmusic(num);
+            nextMusic();
+        };
+        
+        //播放下一首
+        function nextMusic() {
+        	if(num<0 || num>2) return;
+        	
+        	cur = getmusic(num);
             bgm.src = cur;
             bgm.play();
-        };
+		}
+        
 
         function getmusic(k){
         	console.log("k:"+k);
@@ -263,22 +281,17 @@
             }
         };
 
+        window.onload = function() {
+            var elevator = new Elevator({
+                element: document.querySelector('.elevator-button'),//选择元素
+                mainAudio: 'ape/music/elevator-music.mp3',
+                endAudio: 'ape/music/ding.mp3',
+                duration: 2000 // 单位：毫秒
+            });
+        }
     });
 
 
-
-    window.onload = function() {
-        var elevator = new Elevator({
-            element: document.querySelector('.elevator-button'),//选择元素
-            mainAudio: 'ape/music/elevator-music.mp3',
-            endAudio: 'ape/music/ding.mp3',
-            duration: 2000 // 单位：毫秒
-        });
-    }
-    
-    
-    
-   
 
     //博客详情
     $(function() {
@@ -293,12 +306,20 @@
     	
     	var blog = {msg:"获取博客失败！"};
 		$("#pills-blog .read-detail").click(function() {
-			console.log("read-detail");
-			$("#detail").load($(this).attr("blog-url"));
+			getBlogDetail($(this).attr("blog-id"));
+			blogDetail(blog);
+			$("#detail .blog-content").load($(this).attr("blog-url"));
+			
+			
 			$("#pills-detail-tab").click();
 			$("html, body").animate({scrollTop:$('#mao').offset().top}, 800); 
-			//getBlogDetail($(this).attr("blog-id"))
-			//blogDetail(blog);
+			
+			$("#detail .blog-content img").each(function() {
+				console.log("width:"+$(this).width());
+				if($(this).width()>$(this).parent().width()){
+	    			$(this).css("width","100%")
+	    		}
+			})
 		});
     	
 		function getBlogDetail(id) {
@@ -313,23 +334,36 @@
 					console.log("获取博客失败："+id);
 				}
 			});
-		}
+		};
     	function blogDetail(blog) {
-    		console.log(blog);
     		var html = "";
     		if(!('msg' in blog)){
 				html = "<div class='detail-blog'>"+
 					            "<h2 class='blog-title'>"+blog.title+"</h2>"+
 					            "<p class='blog-info'>"+
-					                "<i class='fa fa-clock-o'></i>发表于：<fmt:formatDate type='both' value='"+blog.createTime+"'/> |"+
-					                "<i class=fa fa-folder-o></i>分类于：<span>"+blog.category.name+"</span> |"+
-					                "<i class=fa fa-comment-o'></i>评论：<span>0</span> |"+
+					                "<i class='fa fa-clock-o'></i>发表于：<fmt:formatDate type='both' value='"+blog.createTime+"'/> | "+
+					                "<i class=fa fa-folder-o></i>分类于：<a href='javascript:;' category-id='"+blog.category.id+"'> "+ blog.category.name +" </a> | "+
+					                "<i class=fa fa-comment-o'></i>评论：<span>0</span> | "+
 					                "<i class=fa fa-eye'></i>浏览：<span>66</span>"+
 					            "</p>"+
 					            "<br>"+
-								"<jsp:include page='/"+blog.htmlUrl+"'></jsp:include>"+
+								"<div class='blog-content'></div>"+
 							"</div>";
-    		} else{
+				
+				html += "<script>"+
+							"console.log('博客内容加载成功');"+
+							"var wid = $('#detail .detail-blog').width());"+
+							"$('#detail .blog-content img').each(function() {"+
+								"console.log('1:'+$(this).width());"+
+								"$(this).on('load',function() {"+
+									"console.log('load:'+$(this).width()+'parent:'+wid);"+
+								　　　　"if( $(this).width() > wid){"+
+										"$(this).css('width','100%');"+
+								　　　　"}"+
+								"})"+
+							"})"+
+						"</script>";
+    		}else{
     			html = "<div class='detail-blog'>"+
     						"<h6 class='blog-title'>获取博客失败！</h6>"+
     					"</div>";

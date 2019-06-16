@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.model.User;
 import com.pojo.JsonMsg;
 import com.service.UserService;
+import com.util.MyUtil;
 
 @Controller
 @RequestMapping("/admin")
@@ -27,7 +28,12 @@ public class AdminController {
 
 	
 	@RequestMapping("/login")
-	public String login() {
+	public String login(HttpServletRequest request) {
+		if(MyUtil.serverPath == null){
+//	        获取本项目在磁盘中的真实路径
+			MyUtil.serverPath = request.getSession().getServletContext().getRealPath("/");
+		}
+		
 
 		return "admin/login";
 	}

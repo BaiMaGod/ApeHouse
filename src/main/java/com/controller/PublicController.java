@@ -35,7 +35,13 @@ public class PublicController {
 	BlogService blogService;
 
 	@RequestMapping("/")
-	public String main(Model model) {
+	public String main(Model model,HttpServletRequest request) {
+		if(MyUtil.serverPath == null){
+//	        获取本项目在磁盘中的真实路径
+			MyUtil.serverPath = request.getSession().getServletContext().getRealPath("/");
+		}
+		
+		
 		model.addAttribute("blogs", blogService.findByExample(new Blog(), new Page()));
 		model.addAttribute("title","猿馆 - 白马46的个人博客");
 		

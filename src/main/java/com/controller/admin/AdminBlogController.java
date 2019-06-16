@@ -32,12 +32,9 @@ public class AdminBlogController {
 	}
 	@RequestMapping(value="/blog/add",method=RequestMethod.POST)
 	@ResponseBody
-	public String add(@Valid @RequestBody Blog blog,BindingResult result,HttpServletRequest request) {
+	public String add(@Valid @RequestBody Blog blog,BindingResult result) {
 //		System.out.println("收到一个/admin/add请求，参数为："+blog.toString());
-		if(MyUtil.serverPath == null){
-//	        获取本项目在磁盘中的真实路径
-			MyUtil.serverPath = request.getSession().getServletContext().getRealPath("/");
-		}
+
 		if(result.hasErrors()) {
 			
 			return null;

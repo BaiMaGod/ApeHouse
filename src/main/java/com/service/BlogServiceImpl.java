@@ -11,12 +11,16 @@ import com.model.TagExample;
 import com.pojo.Page;
 import com.util.MyUtil;
 
+import org.apache.commons.io.output.WriterOutputStream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.io.StringWriter;
 import java.sql.Blob;
 import java.util.List;
@@ -34,27 +38,38 @@ public class BlogServiceImpl implements BlogService {
 		String url = "ape\\"+type+"\\"+id+"."+type;
 		System.out.println(url);
 		File file = new File(MyUtil.serverPath+url);
-		FileWriter fw = null;
+		FileOutputStream fos = null;
+		BufferedWriter bw = null;
 		try {
 			file.createNewFile();
-			fw = new FileWriter(file);
+			
+			fos = new FileOutputStream(file);
+			bw = new BufferedWriter(new OutputStreamWriter(fos, "UTF-8"));	//以utf-8格式保存文件，以防乱码
 			
 			if("jsp".equals(type)) {
-				fw.write("<%@ page language=\"java\" contentType=\"text/html; charset=UTF-8\"\n" + 
+				bw.write("<%@ page language=\"java\" contentType=\"text/html; charset=UTF-8\"\n" + 
 						"	pageEncoding=\"UTF-8\"%>"+content);
 			}else {
-				fw.write(content);
+				bw.write(content);
 			}
-			
+			bw.flush();
 		} catch (IOException e) {
 			e.printStackTrace();
 			return null;
 		}finally{
-			try {
-				if(fw!=null)
-					fw.close();
-			} catch (IOException e1) {
-				e1.printStackTrace();
+			if(fos!=null) {
+				try {
+					fos.close();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+			}
+			if(bw!=null) {
+				try {
+					bw.close();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
 			}
 		}
 		
