@@ -94,11 +94,11 @@
         musicImg.stop().rotate({animateTo:360000,duration: 20000000});
 
         musicImg.mouseenter(function(){
-            $(this).stopRotate();
+            // $(this).stopRotate();
             $(this).prev().fadeIn("slow");
         });
         musicImg.mouseleave(function(){
-            $(this).stop().rotate({animateTo:360000,duration: 20000000});
+            // $(this).stop().rotate({animateTo:360000,duration: 20000000});
         });
 
         $(".zhezhao").mouseleave(function () {
@@ -112,7 +112,15 @@
         var me;
         var zhezhaoi = $(".music-card .music .zhezhao i");
         var bgm = document.getElementById("bgm");
+        // var bgm = window.parent.frames[0].document.getElementById("bgm");
         zhezhaoi.click(function () {
+            //如果不是在首页
+            if(document.getElementById("gohome")){
+                if(num<0){
+                    $("#gohome").modal("show");
+                }
+            }
+
         	// 取消上次延时未执行的方法
             clearTimeout(time);
             
@@ -249,6 +257,8 @@
         });
     });
 
+
+    //
     $(function () {
         var w;
         $(".text-center .card-title h5").mouseenter(function () {
@@ -288,86 +298,20 @@
                 endAudio: 'ape/music/ding.mp3',
                 duration: 2000 // 单位：毫秒
             });
+
+
+            if(document.getElementById("gohome")){
+                $("html, body").animate({scrollTop:$('#mao').offset().top}, 800);
+            }
         }
+
+
+
+        $("#gohome #cancel").click(function () {
+            $("#gohome").modal("hide");
+        });
     });
 
 
 
-    //博客详情
-    $(function() {
-    	 $(".detail-blog img").each(function() {
-    		 console.log($(this).width());
-    		 console.log($(this).parent().width());
-    		if($(this).width()>$(this).parent().width()){
-    			$(this).css("width","100%");
-    		};
-    	});
-    	
-    	
-    	var blog = {msg:"获取博客失败！"};
-		$("#pills-blog .read-detail").click(function() {
-			getBlogDetail($(this).attr("blog-id"));
-			blogDetail(blog);
-			$("#detail .blog-content").load($(this).attr("blog-url"));
-			
-			
-			$("#pills-detail-tab").click();
-			$("html, body").animate({scrollTop:$('#mao').offset().top}, 800); 
-			
-			$("#detail .blog-content img").each(function() {
-				console.log("width:"+$(this).width());
-				if($(this).width()>$(this).parent().width()){
-	    			$(this).css("width","100%")
-	    		}
-			})
-		});
-    	
-		function getBlogDetail(id) {
-			$.ajax({
-				url:"blog/detail?id="+id,
-				async:false,
-				success:function(res){
-					console.log("获取博客成功："+id);
-					blog = res;
-				},
-				error:function(){
-					console.log("获取博客失败："+id);
-				}
-			});
-		};
-    	function blogDetail(blog) {
-    		var html = "";
-    		if(!('msg' in blog)){
-				html = "<div class='detail-blog'>"+
-					            "<h2 class='blog-title'>"+blog.title+"</h2>"+
-					            "<p class='blog-info'>"+
-					                "<i class='fa fa-clock-o'></i>发表于：<fmt:formatDate type='both' value='"+blog.createTime+"'/> | "+
-					                "<i class=fa fa-folder-o></i>分类于：<a href='javascript:;' category-id='"+blog.category.id+"'> "+ blog.category.name +" </a> | "+
-					                "<i class=fa fa-comment-o'></i>评论：<span>0</span> | "+
-					                "<i class=fa fa-eye'></i>浏览：<span>66</span>"+
-					            "</p>"+
-					            "<br>"+
-								"<div class='blog-content'></div>"+
-							"</div>";
-				
-				html += "<script>"+
-							"console.log('博客内容加载成功');"+
-							"var wid = $('#detail .detail-blog').width());"+
-							"$('#detail .blog-content img').each(function() {"+
-								"console.log('1:'+$(this).width());"+
-								"$(this).on('load',function() {"+
-									"console.log('load:'+$(this).width()+'parent:'+wid);"+
-								　　　　"if( $(this).width() > wid){"+
-										"$(this).css('width','100%');"+
-								　　　　"}"+
-								"})"+
-							"})"+
-						"</script>";
-    		}else{
-    			html = "<div class='detail-blog'>"+
-    						"<h6 class='blog-title'>获取博客失败！</h6>"+
-    					"</div>";
-    		}
-			$("#detail").html(html);
-		}
-	});
+    

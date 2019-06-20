@@ -2,8 +2,11 @@ package com.dao;
 
 import com.model.Tag;
 import com.model.TagExample;
+import org.apache.ibatis.annotations.Mapper;
+
 import java.util.List;
 
+@Mapper
 public interface TagMapper {
     long countByExample(TagExample example);
 

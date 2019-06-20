@@ -15,6 +15,9 @@
             height: 40px;
         }
 
+        .fa-qq{
+            color: gray;
+        }
         .fa-qq:hover{
             color: deepskyblue;
         }
@@ -264,7 +267,9 @@
     /* 
     	底部及其他部分样式
      */
-    
+
+
+
         .foot .card .text-content{
             font-size: 12px;
         }

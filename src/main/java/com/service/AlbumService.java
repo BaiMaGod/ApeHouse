@@ -9,7 +9,7 @@ import com.pojo.Page;
 public interface AlbumService {
 	String add(Album album);
     boolean delete(String id);
-    boolean update(String id);
+    boolean update(Album album);
 
     int countByExample(Album album);
 

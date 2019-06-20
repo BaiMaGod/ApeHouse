@@ -2,8 +2,12 @@ package com.dao;
 
 import com.model.Blog;
 import com.model.BlogExample;
+import org.apache.ibatis.annotations.Mapper;
+import org.mybatis.spring.annotation.MapperScan;
+
 import java.util.List;
 
+@Mapper
 public interface BlogMapper {
     long countByExample(BlogExample example);
 

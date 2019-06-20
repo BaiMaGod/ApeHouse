@@ -8,6 +8,8 @@ public class Category {
 
     private String parentId;
 
+    private String type;
+
     private String name;
 
     private String depict;
@@ -15,9 +17,16 @@ public class Category {
     private Date createTime;
     
     private List<Category> childCategories;
-    
-    
-    
+
+
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     public List<Category> getChildCategories() {
 		return childCategories;

@@ -88,7 +88,6 @@
         }
         #del-tag{
         	color:red;
-        	border-color:color;
         	display: none;
         }
         #del-tag:hover{
@@ -205,7 +204,9 @@
         });
     </script>
 
-	 <script src="statics/js/jquery.shCircleLoader-min.js"></script> 
+    //页面加载动画插件
+	 <script src="statics/js/jquery.shCircleLoader-min.js"></script>
+
    <!-- <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
     <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -230,9 +231,10 @@
         });
 
 
+        //标题输入框 内容变化事件
         $('#title input').bind('input propertychange', function() {
             var title = $("#title input").val();
-            console.log(title);
+            // console.log(title);
             var len = title.length;
             if(len > 64) {
 
@@ -249,7 +251,7 @@
         });
         
         
-        
+        //获取博客分类
         var category = [];
         $.get("category/all",function(data,status){category = data;createOption($("#category1"),category);});
         
@@ -310,7 +312,7 @@
     				$('#loading').hide();
     				console.log(res);
     				if(res!=null && res.length>20){
-    					window.location.href = "admin/blog/addBlogSuccess?id="+res;
+    					window.location.href = "admin/blog/addSuccess?id="+res;
     				}else{
 	    				alert("发布失败");
     				}

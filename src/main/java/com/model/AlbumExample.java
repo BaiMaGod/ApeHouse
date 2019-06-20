@@ -265,6 +265,76 @@ public class AlbumExample {
             return (Criteria) this;
         }
 
+        public Criteria andCategoryIdIsNull() {
+            addCriterion("categoryId is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIdIsNotNull() {
+            addCriterion("categoryId is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIdEqualTo(String value) {
+            addCriterion("categoryId =", value, "categoryId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIdNotEqualTo(String value) {
+            addCriterion("categoryId <>", value, "categoryId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIdGreaterThan(String value) {
+            addCriterion("categoryId >", value, "categoryId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIdGreaterThanOrEqualTo(String value) {
+            addCriterion("categoryId >=", value, "categoryId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIdLessThan(String value) {
+            addCriterion("categoryId <", value, "categoryId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIdLessThanOrEqualTo(String value) {
+            addCriterion("categoryId <=", value, "categoryId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIdLike(String value) {
+            addCriterion("categoryId like", value, "categoryId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIdNotLike(String value) {
+            addCriterion("categoryId not like", value, "categoryId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIdIn(List<String> values) {
+            addCriterion("categoryId in", values, "categoryId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIdNotIn(List<String> values) {
+            addCriterion("categoryId not in", values, "categoryId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIdBetween(String value1, String value2) {
+            addCriterion("categoryId between", value1, value2, "categoryId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCategoryIdNotBetween(String value1, String value2) {
+            addCriterion("categoryId not between", value1, value2, "categoryId");
+            return (Criteria) this;
+        }
+
         public Criteria andTitleIsNull() {
             addCriterion("title is null");
             return (Criteria) this;

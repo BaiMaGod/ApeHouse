@@ -2,8 +2,11 @@ package com.dao;
 
 import com.model.Resource;
 import com.model.ResourceExample;
+import org.apache.ibatis.annotations.Mapper;
+
 import java.util.List;
 
+@Mapper
 public interface ResourceMapper {
     long countByExample(ResourceExample example);
 

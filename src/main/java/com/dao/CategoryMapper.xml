@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.model.Category">
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="parentId" jdbcType="VARCHAR" property="parentId" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="depict" jdbcType="VARCHAR" property="depict" />
     <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
@@ -38,7 +39,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, parentId, name, depict, createTime
+    id, parentId, type, name, depict, createTime
   </sql>
   <select id="selectByExample" parameterType="com.model.CategoryExample" resultMap="BaseResultMap">
     select
@@ -69,10 +70,12 @@
     where id = #{id,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.model.Category">
-    insert into category (id, parentId, name, 
-      depict, createTime)
-    values (#{id,jdbcType=VARCHAR}, #{parentId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
-      #{depict,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
+    insert into category (id, parentId, type, 
+      name, depict, createTime
+      )
+    values (#{id,jdbcType=VARCHAR}, #{parentId,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{depict,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.model.Category">
     insert into category
@@ -82,6 +85,9 @@
       </if>
       <if test="parentId != null">
         parentId,
+      </if>
+      <if test="type != null">
+        type,
       </if>
       <if test="name != null">
         name,
@@ -99,6 +105,9 @@
       </if>
       <if test="parentId != null">
         #{parentId,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
       </if>
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
@@ -123,6 +132,9 @@
       <if test="parentId != null">
         parentId = #{parentId,jdbcType=VARCHAR},
       </if>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
       <if test="name != null">
         name = #{name,jdbcType=VARCHAR},
       </if>
@@ -138,6 +150,7 @@
   <update id="updateByPrimaryKey" parameterType="com.model.Category">
     update category
     set parentId = #{parentId,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},
       depict = #{depict,jdbcType=VARCHAR},
       createTime = #{createTime,jdbcType=TIMESTAMP}

@@ -117,14 +117,12 @@ public class BlogServiceImpl implements BlogService {
 
 	@Override
 	public boolean delete(String id) {
-		// TODO Auto-generated method stub
-		return false;
+		return blogMapper.deleteByPrimaryKey(id)>0;
 	}
 
 	@Override
 	public boolean update(Blog blog) {
-		// TODO Auto-generated method stub
-		return false;
+		return blogMapper.updateByPrimaryKeySelective(blog)>0;
 	}
 
 	@Override

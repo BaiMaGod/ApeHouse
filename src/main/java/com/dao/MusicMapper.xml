@@ -4,8 +4,9 @@
   <resultMap id="BaseResultMap" type="com.model.Music">
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="songSheet" jdbcType="VARCHAR" property="songSheet" />
     <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="artists" jdbcType="VARCHAR" property="artists" />
+    <result column="artist" jdbcType="VARCHAR" property="artist" />
     <result column="tag" jdbcType="VARCHAR" property="tag" />
     <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
   </resultMap>
@@ -39,7 +40,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, url, name, artists, tag, createTime
+    id, url, songSheet, name, artist, tag, createTime
   </sql>
   <select id="selectByExample" parameterType="com.model.MusicExample" resultMap="BaseResultMap">
     select
@@ -70,12 +71,12 @@
     where id = #{id,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.model.Music">
-    insert into music (id, url, name, 
-      artists, tag, createTime
-      )
-    values (#{id,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
-      #{artists,jdbcType=VARCHAR}, #{tag,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
-      )
+    insert into music (id, url, songSheet, 
+      name, artist, tag, 
+      createTime)
+    values (#{id,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{songSheet,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{artist,jdbcType=VARCHAR}, #{tag,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.model.Music">
     insert into music
@@ -86,11 +87,14 @@
       <if test="url != null">
         url,
       </if>
+      <if test="songSheet != null">
+        songSheet,
+      </if>
       <if test="name != null">
         name,
       </if>
-      <if test="artists != null">
-        artists,
+      <if test="artist != null">
+        artist,
       </if>
       <if test="tag != null">
         tag,
@@ -106,11 +110,14 @@
       <if test="url != null">
         #{url,jdbcType=VARCHAR},
       </if>
+      <if test="songSheet != null">
+        #{songSheet,jdbcType=VARCHAR},
+      </if>
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
       </if>
-      <if test="artists != null">
-        #{artists,jdbcType=VARCHAR},
+      <if test="artist != null">
+        #{artist,jdbcType=VARCHAR},
       </if>
       <if test="tag != null">
         #{tag,jdbcType=VARCHAR},
@@ -132,11 +139,14 @@
       <if test="url != null">
         url = #{url,jdbcType=VARCHAR},
       </if>
+      <if test="songSheet != null">
+        songSheet = #{songSheet,jdbcType=VARCHAR},
+      </if>
       <if test="name != null">
         name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="artists != null">
-        artists = #{artists,jdbcType=VARCHAR},
+      <if test="artist != null">
+        artist = #{artist,jdbcType=VARCHAR},
       </if>
       <if test="tag != null">
         tag = #{tag,jdbcType=VARCHAR},
@@ -150,8 +160,9 @@
   <update id="updateByPrimaryKey" parameterType="com.model.Music">
     update music
     set url = #{url,jdbcType=VARCHAR},
+      songSheet = #{songSheet,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},
-      artists = #{artists,jdbcType=VARCHAR},
+      artist = #{artist,jdbcType=VARCHAR},
       tag = #{tag,jdbcType=VARCHAR},
       createTime = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=VARCHAR}

@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.model.Album">
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="userId" jdbcType="VARCHAR" property="userId" />
+    <result column="categoryId" jdbcType="VARCHAR" property="categoryId" />
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="summary" jdbcType="VARCHAR" property="summary" />
     <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
@@ -42,7 +43,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, userId, title, summary, createTime, updateTime
+    id, userId, categoryId, title, summary, createTime, updateTime
   </sql>
   <sql id="Blob_Column_List">
     content
@@ -95,12 +96,12 @@
     where id = #{id,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.model.Album">
-    insert into album (id, userId, title, 
-      summary, createTime, updateTime, 
-      content)
-    values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
-      #{summary,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
-      #{content,jdbcType=LONGVARCHAR})
+    insert into album (id, userId, categoryId, 
+      title, summary, createTime, 
+      updateTime, content)
+    values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{categoryId,jdbcType=VARCHAR}, 
+      #{title,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{content,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.model.Album">
     insert into album
@@ -110,6 +111,9 @@
       </if>
       <if test="userId != null">
         userId,
+      </if>
+      <if test="categoryId != null">
+        categoryId,
       </if>
       <if test="title != null">
         title,
@@ -133,6 +137,9 @@
       </if>
       <if test="userId != null">
         #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryId != null">
+        #{categoryId,jdbcType=VARCHAR},
       </if>
       <if test="title != null">
         #{title,jdbcType=VARCHAR},
@@ -163,6 +170,9 @@
       <if test="userId != null">
         userId = #{userId,jdbcType=VARCHAR},
       </if>
+      <if test="categoryId != null">
+        categoryId = #{categoryId,jdbcType=VARCHAR},
+      </if>
       <if test="title != null">
         title = #{title,jdbcType=VARCHAR},
       </if>
@@ -184,6 +194,7 @@
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.model.Album">
     update album
     set userId = #{userId,jdbcType=VARCHAR},
+      categoryId = #{categoryId,jdbcType=VARCHAR},
       title = #{title,jdbcType=VARCHAR},
       summary = #{summary,jdbcType=VARCHAR},
       createTime = #{createTime,jdbcType=TIMESTAMP},
@@ -194,6 +205,7 @@
   <update id="updateByPrimaryKey" parameterType="com.model.Album">
     update album
     set userId = #{userId,jdbcType=VARCHAR},
+      categoryId = #{categoryId,jdbcType=VARCHAR},
       title = #{title,jdbcType=VARCHAR},
       summary = #{summary,jdbcType=VARCHAR},
       createTime = #{createTime,jdbcType=TIMESTAMP},

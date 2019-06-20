@@ -40,29 +40,29 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:;">
                             <i class="fa fa-qq fa-lg"></i>
                             <img class="myQQ" src="statics/images/myQQ.jpg" alt="QQ">
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="javascript:;">
                             <i class="fa fa-weixin fa-lg"></i>
                             <img class="myweixin" src="statics/images/myweixin.png" alt="weixin">
                         </a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" href="#">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="javascript:;">
                             <i class="fa fa-envelope fa-lg"></i>
                             <img class="myweixin" src="statics/images/myemail.png" alt="email">
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="https://blog.csdn.net/weixin_42486795" target="_blank"> <i class="iconfont icon-csdn"></i> </a>
+                        <a class="nav-link " href="https://blog.csdn.net/weixin_42486795" target="_blank"> <i class="iconfont icon-csdn"></i> </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="https://github.com/BaiMaGod" target="_blank"> <i class="fa fa-github fa-lg"></i> </a>
+                        <a class="nav-link " href="https://github.com/BaiMaGod" target="_blank"> <i class="fa fa-github fa-lg"></i> </a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">

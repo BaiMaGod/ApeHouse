@@ -2,8 +2,11 @@ package com.dao;
 
 import com.model.User;
 import com.model.UserExample;
+import org.apache.ibatis.annotations.Mapper;
+
 import java.util.List;
 
+@Mapper
 public interface UserMapper {
     long countByExample(UserExample example);
 

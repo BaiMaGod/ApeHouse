@@ -265,6 +265,76 @@ public class MusicExample {
             return (Criteria) this;
         }
 
+        public Criteria andSongSheetIsNull() {
+            addCriterion("songSheet is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSongSheetIsNotNull() {
+            addCriterion("songSheet is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSongSheetEqualTo(String value) {
+            addCriterion("songSheet =", value, "songSheet");
+            return (Criteria) this;
+        }
+
+        public Criteria andSongSheetNotEqualTo(String value) {
+            addCriterion("songSheet <>", value, "songSheet");
+            return (Criteria) this;
+        }
+
+        public Criteria andSongSheetGreaterThan(String value) {
+            addCriterion("songSheet >", value, "songSheet");
+            return (Criteria) this;
+        }
+
+        public Criteria andSongSheetGreaterThanOrEqualTo(String value) {
+            addCriterion("songSheet >=", value, "songSheet");
+            return (Criteria) this;
+        }
+
+        public Criteria andSongSheetLessThan(String value) {
+            addCriterion("songSheet <", value, "songSheet");
+            return (Criteria) this;
+        }
+
+        public Criteria andSongSheetLessThanOrEqualTo(String value) {
+            addCriterion("songSheet <=", value, "songSheet");
+            return (Criteria) this;
+        }
+
+        public Criteria andSongSheetLike(String value) {
+            addCriterion("songSheet like", value, "songSheet");
+            return (Criteria) this;
+        }
+
+        public Criteria andSongSheetNotLike(String value) {
+            addCriterion("songSheet not like", value, "songSheet");
+            return (Criteria) this;
+        }
+
+        public Criteria andSongSheetIn(List<String> values) {
+            addCriterion("songSheet in", values, "songSheet");
+            return (Criteria) this;
+        }
+
+        public Criteria andSongSheetNotIn(List<String> values) {
+            addCriterion("songSheet not in", values, "songSheet");
+            return (Criteria) this;
+        }
+
+        public Criteria andSongSheetBetween(String value1, String value2) {
+            addCriterion("songSheet between", value1, value2, "songSheet");
+            return (Criteria) this;
+        }
+
+        public Criteria andSongSheetNotBetween(String value1, String value2) {
+            addCriterion("songSheet not between", value1, value2, "songSheet");
+            return (Criteria) this;
+        }
+
         public Criteria andNameIsNull() {
             addCriterion("name is null");
             return (Criteria) this;
@@ -335,73 +405,73 @@ public class MusicExample {
             return (Criteria) this;
         }
 
-        public Criteria andArtistsIsNull() {
-            addCriterion("artists is null");
+        public Criteria andArtistIsNull() {
+            addCriterion("artist is null");
             return (Criteria) this;
         }
 
-        public Criteria andArtistsIsNotNull() {
-            addCriterion("artists is not null");
+        public Criteria andArtistIsNotNull() {
+            addCriterion("artist is not null");
             return (Criteria) this;
         }
 
-        public Criteria andArtistsEqualTo(String value) {
-            addCriterion("artists =", value, "artists");
+        public Criteria andArtistEqualTo(String value) {
+            addCriterion("artist =", value, "artist");
             return (Criteria) this;
         }
 
-        public Criteria andArtistsNotEqualTo(String value) {
-            addCriterion("artists <>", value, "artists");
+        public Criteria andArtistNotEqualTo(String value) {
+            addCriterion("artist <>", value, "artist");
             return (Criteria) this;
         }
 
-        public Criteria andArtistsGreaterThan(String value) {
-            addCriterion("artists >", value, "artists");
+        public Criteria andArtistGreaterThan(String value) {
+            addCriterion("artist >", value, "artist");
             return (Criteria) this;
         }
 
-        public Criteria andArtistsGreaterThanOrEqualTo(String value) {
-            addCriterion("artists >=", value, "artists");
+        public Criteria andArtistGreaterThanOrEqualTo(String value) {
+            addCriterion("artist >=", value, "artist");
             return (Criteria) this;
         }
 
-        public Criteria andArtistsLessThan(String value) {
-            addCriterion("artists <", value, "artists");
+        public Criteria andArtistLessThan(String value) {
+            addCriterion("artist <", value, "artist");
             return (Criteria) this;
         }
 
-        public Criteria andArtistsLessThanOrEqualTo(String value) {
-            addCriterion("artists <=", value, "artists");
+        public Criteria andArtistLessThanOrEqualTo(String value) {
+            addCriterion("artist <=", value, "artist");
             return (Criteria) this;
         }
 
-        public Criteria andArtistsLike(String value) {
-            addCriterion("artists like", value, "artists");
+        public Criteria andArtistLike(String value) {
+            addCriterion("artist like", value, "artist");
             return (Criteria) this;
         }
 
-        public Criteria andArtistsNotLike(String value) {
-            addCriterion("artists not like", value, "artists");
+        public Criteria andArtistNotLike(String value) {
+            addCriterion("artist not like", value, "artist");
             return (Criteria) this;
         }
 
-        public Criteria andArtistsIn(List<String> values) {
-            addCriterion("artists in", values, "artists");
+        public Criteria andArtistIn(List<String> values) {
+            addCriterion("artist in", values, "artist");
             return (Criteria) this;
         }
 
-        public Criteria andArtistsNotIn(List<String> values) {
-            addCriterion("artists not in", values, "artists");
+        public Criteria andArtistNotIn(List<String> values) {
+            addCriterion("artist not in", values, "artist");
             return (Criteria) this;
         }
 
-        public Criteria andArtistsBetween(String value1, String value2) {
-            addCriterion("artists between", value1, value2, "artists");
+        public Criteria andArtistBetween(String value1, String value2) {
+            addCriterion("artist between", value1, value2, "artist");
             return (Criteria) this;
         }
 
-        public Criteria andArtistsNotBetween(String value1, String value2) {
-            addCriterion("artists not between", value1, value2, "artists");
+        public Criteria andArtistNotBetween(String value1, String value2) {
+            addCriterion("artist not between", value1, value2, "artist");
             return (Criteria) this;
         }
 

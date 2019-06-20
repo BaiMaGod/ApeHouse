@@ -15,8 +15,7 @@
         
 	<!-- 使用扫描机制，扫描包 -->
 	<context:component-scan base-package="com.controller" />
-	<context:component-scan base-package="com.service"/>
-	<context:component-scan base-package="com.dao"/>
+
 	<mvc:annotation-driven/>
 	
     <!-- 静态资源需要单独处理，不需要dispatcher servlet -->  

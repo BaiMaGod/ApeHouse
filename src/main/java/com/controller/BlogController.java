@@ -1,6 +1,7 @@
 package com.controller;
 
 
+import com.pojo.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,9 +21,12 @@ public class BlogController {
 
 	
 	@RequestMapping("")
-	public void main(Model model){
-		
+	public String main(Model model){
+		model.addAttribute("blogs", blogService.findByExample(new Blog(), new Page()));
 		model.addAttribute("title", "所有博客 - 猿馆");
+
+
+		return "blog/bloglist";
 	}
 	
 	
@@ -41,7 +45,7 @@ public class BlogController {
 		Blog blog = blogService.findById(id);
 		model.addAttribute("blog", blog);
 		model.addAttribute("title", blog.getTitle()+" - 猿馆");
-		return "blog/detail";
+		return "blog/blogdetail";
 	}
 	
 }

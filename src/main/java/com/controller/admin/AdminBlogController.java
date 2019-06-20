@@ -1,6 +1,5 @@
 package com.controller.admin;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,22 +14,21 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.model.Blog;
 import com.service.BlogService;
-import com.util.MyUtil;
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/admin/blog")
 public class AdminBlogController {
 	@Autowired
 	BlogService blogService;
 
 	
-	@RequestMapping(value="/blog/add")
+	@RequestMapping(value="/add")
 	public String add(Model model) {
 		
 		model.addAttribute("title", "发布博客 - 猿馆后台 ");
 		return "admin/markdown";
 	}
-	@RequestMapping(value="/blog/add",method=RequestMethod.POST)
+	@RequestMapping(value="/add",method=RequestMethod.POST)
 	@ResponseBody
 	public String add(@Valid @RequestBody Blog blog,BindingResult result) {
 //		System.out.println("收到一个/admin/add请求，参数为："+blog.toString());
@@ -43,25 +41,25 @@ public class AdminBlogController {
 		return blogService.add(blog);
 	}
 	
-	@RequestMapping(value="/blog/addBlogSuccess")
+	@RequestMapping(value="/addSuccess")
 	public String addBlogSuccess(String id,Model model) {
-		System.out.println("收到一个/admin/addBlogSuccess请求，参数为："+id);
+		System.out.println("收到一个/admin/addSuccess请求，参数为："+id);
 		
 		model.addAttribute("id", id);
-		return "admin/addBlogSuccess";
+		return "admin/addSuccess";
 	}
 	
 	
 	
 	
-	@RequestMapping(value="/blog/{id}",method=RequestMethod.DELETE)
+	@RequestMapping(value="/{id}",method=RequestMethod.DELETE)
 	@ResponseBody
 	public boolean delete(@PathVariable String id) {
 		
 		return blogService.delete(id);
 	}
 
-	@RequestMapping(value="/blog/{id}",method=RequestMethod.PUT)
+	@RequestMapping(value="/{id}",method=RequestMethod.PUT)
 	@ResponseBody
 	public boolean update(@RequestBody Blog blog) {
 		

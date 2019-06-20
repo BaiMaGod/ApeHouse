@@ -27,19 +27,19 @@
 <input type="hidden" id="path" name="path" value="${pageContext.request.contextPath }"/>
 <input type="hidden" id="referer" name="referer" value="<%=request.getHeader("Referer")%>"/>
 
-	<form:form class="form-signin" action="doLogin" method="post" modelAttribute="user">
+	<form:form class="form-signin" method="post">
 		<div class="form-group">
 	    	<h1 class="h3 mb-3 font-weight-normal">登录</h1>
 		</div>
 		
 		<div class="form-group">
-		    <label for="inputEmail" class="sr-only">账户：</label>
+		    <label for="number" class="sr-only">账户：</label>
 		    <input type="text" id="number" name="number" class="form-control" placeholder="邮箱"  autofocus>
 		    <font color="red"><form:errors path="number"></form:errors></font>
 		</div>
 		
 		<div class="form-group">
-		    <label for="inputPassword" class="sr-only">密码：</label>
+		    <label for="password" class="sr-only">密码：</label>
 		    <input type="password" id="password" name="password" class="form-control" placeholder="密码" >
 			<font color="red"><form:errors path="password"></form:errors></font>
 		</div>
@@ -78,7 +78,7 @@ function login() {
 				if($("#referer").val()!="null"){
 					window.location.href = $("#referer").val();
 				}else{
-					window.location.href = "";
+					window.location.href = "admin";
 				}
 			}else{
 				alert("密码或用户名错误！");

@@ -19,20 +19,20 @@ public class CategoryServiceImpl implements CategoryService{
 
 	@Override
 	public String add(Category category) {
-		// TODO Auto-generated method stub
-		return null;
+		String id = MyUtil.getLongId();
+		category.setId(id);
+		category.setCreateTime(MyUtil.nowDate());
+		return categoryMapper.insertSelective(category)>0 ? id : null;
 	}
 
 	@Override
 	public boolean delete(String id) {
-		// TODO Auto-generated method stub
-		return false;
+		return categoryMapper.deleteByPrimaryKey(id)>0;
 	}
 
 	@Override
 	public boolean update(Category category) {
-		// TODO Auto-generated method stub
-		return false;
+		return categoryMapper.updateByPrimaryKeySelective(category)>0;
 	}
 
 	@Override
@@ -43,8 +43,7 @@ public class CategoryServiceImpl implements CategoryService{
 
 	@Override
 	public Category findById(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		return categoryMapper.selectByPrimaryKey(id);
 	}
 
 	@Override
@@ -63,20 +62,34 @@ public class CategoryServiceImpl implements CategoryService{
 		if(MyUtil.notEmpty(category.getDepict())) {
 			criteria.andDepictLike(category.getDepict());
 		}
-		
+		if(MyUtil.notEmpty(category.getType())) {
+			criteria.andTypeEqualTo(category.getType());
+		}
+
 		
 		if(page.getCurPage()>0) {
 			example.setStartRow(page.getStartRow());
 			example.setPageRows(page.getPageRows());
 		}
 		page.setTotalRows((int)categoryMapper.countByExample(example));
+
+
+		//查询子类
+		List<Category> categorie1 = categoryMapper.selectByExample(example);
+
+		for (Category category2 : categorie1) {
+			CategoryExample example2 = new CategoryExample();
+			example2.createCriteria().andParentIdEqualTo(category.getId());
+			category2.setChildCategories( categoryMapper.selectByExample(example2) );
+
+		}
 		
-		return categoryMapper.selectByExample(example);
+		return categorie1;
 	}
 
 	@Override
 	public List<Category> findAll(Page page) {
-		CategoryExample example = new CategoryExample();
+		/*CategoryExample example = new CategoryExample();
 		Criteria criteria = example.createCriteria();
 		//先查询一级分类
 		criteria.andParentIdIsNull();
@@ -96,7 +109,8 @@ public class CategoryServiceImpl implements CategoryService{
 			
 		}
 		
-		return categorie1;
+		return categorie1;*/
+		return null;
 	}
 
 }

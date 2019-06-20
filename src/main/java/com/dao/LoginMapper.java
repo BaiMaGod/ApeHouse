@@ -2,8 +2,11 @@ package com.dao;
 
 import com.model.Login;
 import com.model.LoginExample;
+import org.apache.ibatis.annotations.Mapper;
+
 import java.util.List;
 
+@Mapper
 public interface LoginMapper {
     long countByExample(LoginExample example);
 

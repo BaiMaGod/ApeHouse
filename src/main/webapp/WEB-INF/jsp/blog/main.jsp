@@ -2,6 +2,30 @@
 	pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/jsp/blog/head.jsp"%>
 
+	<link rel="stylesheet" href="statics\css\jquery.Timeline.css">
+
+	<ul class="nav justify-content-center nav-list" id="pills-tab" role="tablist">
+		<li class="nav-item" >
+			<a class="nav-link active" id="pills-blog-tab" data-toggle="pill" href="#pills-blog" role="tab" aria-controls="pills-blog" aria-selected="true"> B L O G </a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" id="pills-photo-tab" data-toggle="pill" href="#pills-photo" role="tab" aria-controls="pills-photo" aria-selected="false"> 图册 </a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" id="pills-resource-tab" data-toggle="pill" href="#pills-resource" role="tab" aria-controls="pills-resource" aria-selected="false"> 资源 </a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" id="pills-log-tab" data-toggle="pill" href="#pills-log" role="tab" aria-controls="pills-log" aria-selected="false"> 日志 </a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" id="pills-massage-tab" data-toggle="pill" href="#pills-massage" role="tab" aria-controls="pills-massage" aria-selected="false"> 留言 </a>
+		</li>
+
+		<li class="nav-item">
+			<a class="nav-link" id="pills-detail-tab" data-toggle="pill" href="#detail" role="tab" aria-controls="pills-detail" aria-selected="false"></a>
+		</li>
+	</ul>
+
 
 	<div class="tab-content" id="pills-tabContent">
 	
@@ -12,7 +36,7 @@
 						<hr>
 			            <div class="card-body text-center">
 			                <div class="card-title">
-			                    <a href="blog/${blog.id }" blog-id="${blog.id }" class="read-detail">
+			                    <a href="blog/${blog.id }" target="_blank" blog-id="${blog.id }" class="read-detail">
 			                        <h5>${blog.title }</h5>
 			                        <p></p>
 			                    </a>
@@ -31,7 +55,7 @@
 			                	</c:if>
 			                </p>
 			                <xmp>${blog.summary }</xmp>
-			                <a href="blog/${blog.id }" blog-id="${blog.id }" class="btn btn-outline-secondary read-detail">阅读全文<i class="fa fa-angle-double-right btn-sm"></i></a>
+			                <a href="blog/${blog.id }" target="_blank" blog-id="${blog.id }" class="btn btn-outline-secondary read-detail">阅读全文<i class="fa fa-angle-double-right btn-sm"></i></a>
 			            </div>
 			        </div>
 				</c:forEach>
@@ -40,17 +64,51 @@
     	
     	<div class="tab-pane fade container" id="pills-photo" role="tabpanel" aria-labelledby="pills-photo-tab">
     	
-    		图册
+    		图册，还没有哦~~~~~
     	</div>
 	  	<div class="tab-pane fade container" id="pills-resource" role="tabpanel" aria-labelledby="pills-resource-tab">
 	  	
-	  		资源
+	  		资源，还没有哦~~~~~
 	  	</div>
-	  	
-	  	<div class="tab-pane fade container" id="detail">
-	  		
-	  		详情
-	  	</div>
+		<div class="tab-pane fade container" id="pills-log" role="tabpanel" aria-labelledby="pills-log-tab">
+
+			<div class="VivaTimeline">
+				<dl>
+					<c:if test="${logs!=null }">
+						<c:forEach var="log" items="${logs}">
+							<dt><fmt:formatDate type="date" value="${log.createTime}" pattern="yyyy M d"/></dt>
+							<dd class="pos-left clearfix">
+								<div class="circ"></div>
+								<div class="time"><p> <fmt:formatDate type="time" value="${log.createTime}"/> </p> <p style="font-size: 12px">${log.weather}</p></div>
+								<div class="events">
+									<div class="events-header">${log.title}</div>
+									<div class="events-body">
+										<div class="row" style="display: block;">
+											<div class="events-desc">${log.content}</div>
+										</div>
+									</div>
+								</div>
+							</dd>
+						</c:forEach>
+					</c:if>
+				</dl>
+			</div>
+
+		</div>
+		<div class="tab-pane fade container" id="pills-massage" role="tabpanel" aria-labelledby="pills-massage-tab">
+
+			留言，还没有哦~~~~~
+		</div>
 	</div>
 
 <%@include file="/WEB-INF/jsp/blog/foot.jsp"%>
+
+<script src="statics/js/jquery.Timeline.js"></script>
+<script type="text/javascript">
+	$(function () {
+		$('.VivaTimeline').vivaTimeline({
+			carousel: true,
+			carouselTime: 3000
+		});
+	});
+</script>

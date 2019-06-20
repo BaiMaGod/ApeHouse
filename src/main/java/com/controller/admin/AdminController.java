@@ -26,6 +26,15 @@ public class AdminController {
 	 @Autowired
 	UserService userService;
 
+
+	 @RequestMapping("")
+	 public String home(Model model){
+		 model.addAttribute("title","猿馆后台");
+
+	 	return "admin/home";
+	 }
+
+
 	
 	@RequestMapping("/login")
 	public String login(HttpServletRequest request) {

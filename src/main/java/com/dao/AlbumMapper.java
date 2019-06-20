@@ -2,8 +2,11 @@ package com.dao;
 
 import com.model.Album;
 import com.model.AlbumExample;
+import org.apache.ibatis.annotations.Mapper;
+
 import java.util.List;
 
+@Mapper
 public interface AlbumMapper {
     long countByExample(AlbumExample example);
 

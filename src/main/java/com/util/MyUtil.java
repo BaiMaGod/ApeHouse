@@ -9,7 +9,9 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 public class MyUtil {
@@ -17,8 +19,8 @@ public class MyUtil {
     /**
      * 保存本web服务项目在磁盘中的真实路径
      */
-	public static String serverPath;
-//    public static String serverPath = "D:\\E\\eclipseSpace\\ApeHouse\\src\\main\\webapp\\";
+//	public static String serverPath;
+    public static String serverPath = "D:\\E\\eclipseSpace\\ApeHouse\\src\\main\\webapp\\";
 
 
     /**
@@ -81,10 +83,62 @@ public class MyUtil {
         return DigestUtils.md5Hex(psw);
     }
 
+
+    /**
+     * 字符串数组乱序，并转为ArrayList<string>
+     * @param datas 要乱序的数组
+     * @param prefix    可在每个数据项中加前缀
+     * @return
+     */
+    public static List<String> randomArray(String[] datas, String prefix){
+        if(datas==null) return null;
+
+        int len = datas.length;
+        int k;
+        String temp;
+        for(int i=0;i<len;i++){
+            while( (k = (int)(Math.random()*len)) == i){ }
+            temp = datas[i];
+            datas[i] = datas[k];
+            datas[k] = temp;
+        }
+
+        List<String> resultList = new ArrayList<>();
+        for(int i=0;i<len;i++){
+            resultList.add(prefix+datas[i]);
+        }
+        return resultList;
+    }
+
+
+
+
+
+    /**
+     * 获取本项目文件夹中子文件名
+     * @param path
+     * @return  字符串数组，子文件名
+     */
+    public static String[] getFileNames(String path){
+        File file = new File(MyUtil.serverPath+path);
+        if(!file.exists()) return null;
+
+        return file.list();
+    }
+
+
+
     /**
      * 将文件存入磁盘中,路径在本项项目WebContent目录下
      */
     public static String fileSave(MultipartFile file, String path){
+        return fileSave(file,path,MyUtil.getLongId());
+    }
+
+    /**
+     * 将文件存入磁盘中,路径在本项项目WebContent目录下,指定存储文件名
+     */
+    public static String fileSave(MultipartFile file, String path,String memoryName){
         String realPath = serverPath + path;
         File targetDir = new File(realPath);
         if(!targetDir.exists()){
@@ -95,8 +149,12 @@ public class MyUtil {
         String fileName = file.getOriginalFilename();
 //        获得原文件后缀名
         String fileSuffix = fileName.substring(fileName.lastIndexOf(".")+1);
+
 //        防止文件重名,随机生成文件的存储名
-        String memoryName = MyUtil.getUUID()+"."+fileSuffix;
+//        String memoryName = MyUtil.getLongId()+"."+fileSuffix;
+
+
+        memoryName = memoryName + "."+fileSuffix;
 
 //        生成文件src路径
         String src = path +"\\"+ memoryName;
@@ -111,6 +169,9 @@ public class MyUtil {
 
         return src;
     }
+
+
+
 
     /**
      * 删除本项目下的文件

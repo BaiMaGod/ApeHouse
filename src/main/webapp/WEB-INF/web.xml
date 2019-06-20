@@ -15,7 +15,7 @@
   		<!-- 加载src目录下的applicationContext.xml文件 -->
   		<param-name>contextConfigLocation</param-name>
   		<param-value>
-  			classpath:applicationContext.xml
+  			classpath*:applicationContext.xml
   		</param-value>
   	</context-param>
   	

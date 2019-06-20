@@ -1,15 +1,20 @@
 package com.model;
 
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
 public class Music {
+    @NotBlank
     private String id;
 
+    @NotBlank
     private String url;
+
+    private String songSheet;
 
     private String name;
 
-    private String artists;
+    private String artist;
 
     private String tag;
 
@@ -31,6 +36,14 @@ public class Music {
         this.url = url == null ? null : url.trim();
     }
 
+    public String getSongSheet() {
+        return songSheet;
+    }
+
+    public void setSongSheet(String songSheet) {
+        this.songSheet = songSheet == null ? null : songSheet.trim();
+    }
+
     public String getName() {
         return name;
     }
@@ -39,12 +52,12 @@ public class Music {
         this.name = name == null ? null : name.trim();
     }
 
-    public String getArtists() {
-        return artists;
+    public String getArtist() {
+        return artist;
     }
 
-    public void setArtists(String artists) {
-        this.artists = artists == null ? null : artists.trim();
+    public void setArtist(String artist) {
+        this.artist = artist == null ? null : artist.trim();
     }
 
     public String getTag() {
@@ -61,5 +74,19 @@ public class Music {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Music{" +
+                "id='" + id + '\'' +
+                ", url='" + url + '\'' +
+                ", songSheet='" + songSheet + '\'' +
+                ", name='" + name + '\'' +
+                ", artist='" + artist + '\'' +
+                ", tag='" + tag + '\'' +
+                ", createTime=" + createTime +
+                '}';
     }
 }
