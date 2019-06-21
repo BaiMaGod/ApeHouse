@@ -74,15 +74,16 @@ public class CategoryServiceImpl implements CategoryService{
 		page.setTotalRows((int)categoryMapper.countByExample(example));
 
 
-		//查询子类
+//
 		List<Category> categorie1 = categoryMapper.selectByExample(example);
 
-		for (Category category2 : categorie1) {
-			CategoryExample example2 = new CategoryExample();
-			example2.createCriteria().andParentIdEqualTo(category.getId());
-			category2.setChildCategories( categoryMapper.selectByExample(example2) );
-
-		}
+//		//查询子类
+//		for (Category category2 : categorie1) {
+//			CategoryExample example2 = new CategoryExample();
+//			example2.createCriteria().andParentIdEqualTo(category.getId());
+//			category2.setChildCategories( categoryMapper.selectByExample(example2) );
+//
+//		}
 		
 		return categorie1;
 	}
@@ -111,6 +112,36 @@ public class CategoryServiceImpl implements CategoryService{
 		
 		return categorie1;*/
 		return null;
+	}
+
+	@Override
+	public List<Category> findByType(String type, Page page) {
+		CategoryExample example = new CategoryExample();
+		Criteria criteria = example.createCriteria();
+
+		criteria.andTypeEqualTo(type);
+
+		//先查询一级分类
+		criteria.andParentIdIsNull();
+
+		if(page.getCurPage()>0) {
+			example.setStartRow(page.getStartRow());
+			example.setPageRows(page.getPageRows());
+		}
+		page.setTotalRows((int)categoryMapper.countByExample(example));
+
+		List<Category> categorie1 = categoryMapper.selectByExample(example);
+
+		//查询子类
+		for (Category category : categorie1) {
+			CategoryExample example2 = new CategoryExample();
+			example2.createCriteria().andParentIdEqualTo(category.getId());
+			category.setChildCategories( categoryMapper.selectByExample(example2) );
+
+		}
+
+		return categorie1;
+
 	}
 
 }

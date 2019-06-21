@@ -97,18 +97,38 @@
 		</div>
 		<div class="tab-pane fade container" id="pills-massage" role="tabpanel" aria-labelledby="pills-massage-tab">
 
-			留言，还没有哦~~~~~
+			<div class="message-board">
+				<c:if test="${messages!=null }">
+					<c:forEach var="message" items="${messages}">
+						<div class="message fadeIn">
+							<img src="statics/images/message/bg1.png">
+							<p class="header">${message.nickname}</p>
+							<div class="message-content" >${message.content}</div>
+							<p class="footer"><fmt:formatDate type="both" value="${message.createTime }"/></p>
+						</div>
+					</c:forEach>
+				</c:if>
+			</div>
+		</div>
+	</div>
+
+
+	<button class="btn btn-outline-secondary" id="btn-message-add" type="button"  data-toggle="modal" data-target="#message-add"><i class="fa fa-send"></i> </button>
+
+
+	<div class="modal fade" id="message-add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-body text-content">
+					<div class="message-add ">
+						<input class="header" type="text" placeholder="输入昵称..." maxlength="10">
+						<div class="message-content" contenteditable="true"></div>
+						<button class="btn btn-outline-primary btn-sm footer">留言</button>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 
 <%@include file="/WEB-INF/jsp/blog/foot.jsp"%>
 
-<script src="statics/js/jquery.Timeline.js"></script>
-<script type="text/javascript">
-	$(function () {
-		$('.VivaTimeline').vivaTimeline({
-			carousel: true,
-			carouselTime: 3000
-		});
-	});
-</script>

@@ -14,6 +14,7 @@ public interface CategoryService {
 
     Category findById(String id);
     List<Category> findAll(Page page);
+    List<Category> findByType(String type,Page page);
     List<Category> findByExample(Category category, Page page);
 
 }

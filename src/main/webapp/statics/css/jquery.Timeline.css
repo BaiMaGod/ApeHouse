@@ -133,6 +133,9 @@
     transform: scale(2);
 }
 
+.VivaTimeline dl dd .time p{
+    margin-bottom:5px ;
+}
 .VivaTimeline dl dd.pos-right .time {
     margin-left: -100px;
     text-align: right

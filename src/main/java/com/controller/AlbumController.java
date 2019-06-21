@@ -24,7 +24,7 @@ public class AlbumController {
         model.addAttribute("title", "所有博客 - 猿馆");
 
 
-        return "album/albumlist";
+        return "blog/albumlist";
     }
 
 
@@ -43,7 +43,7 @@ public class AlbumController {
         Album album = albumService.findById(id);
         model.addAttribute("album", album);
         model.addAttribute("title", album.getTitle()+" - 猿馆");
-        return "album/albumdetail";
+        return "blog/albumdetail";
     }
 
 

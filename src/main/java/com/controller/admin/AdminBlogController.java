@@ -26,7 +26,7 @@ public class AdminBlogController {
 	public String add(Model model) {
 		
 		model.addAttribute("title", "发布博客 - 猿馆后台 ");
-		return "admin/markdown";
+		return "admin/blogAdd";
 	}
 	@RequestMapping(value="/add",method=RequestMethod.POST)
 	@ResponseBody
@@ -59,9 +59,21 @@ public class AdminBlogController {
 		return blogService.delete(id);
 	}
 
-	@RequestMapping(value="/{id}",method=RequestMethod.PUT)
+	@RequestMapping(value="/update/{id}")
+	public String update(@PathVariable String id,Model model) {
+		model.addAttribute("blog", blogService.findById(id));
+		model.addAttribute("title", "修改博客 - 猿馆后台 ");
+
+		return "admin/blogUpdate";
+	}
+
+	@RequestMapping(value="//update",method=RequestMethod.PUT)
 	@ResponseBody
-	public boolean update(@RequestBody Blog blog) {
+	public boolean update(@Valid @RequestBody Blog blog,BindingResult result) {
+		if(result.hasErrors()) {
+
+			return false;
+		}
 		
 		return blogService.update(blog);
 	}

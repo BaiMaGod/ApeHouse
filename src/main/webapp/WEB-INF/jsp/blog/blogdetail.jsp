@@ -20,7 +20,7 @@
             <a class="nav-link" href="log"> 日志 </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="javascript:;"> 留言 </a>
+            <a class="nav-link" href="message"> 留言 </a>
         </li>
     </ul>
 

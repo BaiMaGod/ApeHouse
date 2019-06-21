@@ -1,8 +1,12 @@
 package com.controller;
 
 import com.model.Blog;
+import com.model.Log;
+import com.model.Message;
 import com.pojo.Page;
 import com.service.BlogService;
+import com.service.LogService;
+import com.service.MessageService;
 import com.service.MusicService;
 
 import com.util.MyUtil;
@@ -22,6 +26,10 @@ public class PublicController {
 	MusicService musicService;
 	@Autowired
 	BlogService blogService;
+	@Autowired
+	LogService logService;
+	@Autowired
+	MessageService messageService;
 
 	@RequestMapping("/")
 	public String home(Model model,HttpServletRequest request) {
@@ -29,9 +37,10 @@ public class PublicController {
 //	        获取本项目在磁盘中的真实路径
 			MyUtil.serverPath = request.getSession().getServletContext().getRealPath("/");
 		}
-		
-		
+
 		model.addAttribute("blogs", blogService.findByExample(new Blog(), new Page()));
+		model.addAttribute("logs", logService.findByExample(new Log(), new Page()));
+		model.addAttribute("messages",messageService.findByExample(new Message(), null));
 		model.addAttribute("title","猿馆 - 白马46的个人博客");
 		
 		return "blog/main";

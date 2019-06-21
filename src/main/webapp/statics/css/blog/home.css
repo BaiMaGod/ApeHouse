@@ -178,6 +178,7 @@
      
         .container{
             width: 80%;
+            margin-bottom: 40px;
         }
         .container .card{
             margin: 20px 0;
@@ -259,7 +260,73 @@
 		}
 		
 		/* 博客详情样式 - 结束 */
-		
+
+
+
+        /*  留言样式  */
+
+        .message-board{
+            width: 100%;
+        }
+        .message-board .message,.message-add{
+            display: inline-block;
+            width:290px;
+            height:300px;
+            background-size: cover;
+            -moz-background-size: cover;
+            /*box-shadow: 5px 5px 5px grey;*/
+            position: relative;
+            font-family: 华文新魏;
+            margin: 10px 10px;
+            background-color: transparent;
+        }
+        .message-board .message img{
+            width:290px;
+            height:300px;
+            z-index: 0;
+        }
+        .message-board .message .header,.message-add .header{
+            position: absolute;
+            top:15px;
+            left: 15px;
+        }
+        .message-board .message .message-content,.message-add .message-content{
+            position: absolute;
+            top:60px;
+            left: 10px;
+            height: 200px;
+            width: 260px;
+            border-style: none;
+        }
+        .message-board .message .footer,.message-add .footer{
+            position: absolute;
+            bottom:0px;
+            right: 10px;
+            font-size: 12px;
+        }
+
+
+        .modal-content{
+            background: transparent;
+            border-style: none;
+            margin-top: 10%;
+        }
+        .message-add{
+            display: block;
+            margin: auto;
+            background: transparent url("../../images/message/bg1.png");
+        }
+        .message-add .message-content{
+            border-style: dashed;
+        }
+        #btn-message-add{
+            position: fixed;
+            right: 2%;
+            bottom:120px;
+            display: none;
+        }
+
+        /*  留言样式 - 结束 */
     /* 
     	中间部分（博客列表）样式 —— 结束
      */
@@ -327,3 +394,10 @@
 	/* 
     	底部及其他部分样式 —— 结束
      */
+
+
+    @media screen and (max-width:660px) {
+        .music-card .music{
+            margin-left:26%;
+        }
+    }

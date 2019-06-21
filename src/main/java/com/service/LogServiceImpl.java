@@ -54,6 +54,7 @@ public class LogServiceImpl implements LogService {
         LogExample example = new LogExample();
         LogExample.Criteria criteria = example.createCriteria();
 
+        example.setOrderByClause("createTime desc");
         if(MyUtil.notEmpty(log.getId())){
             criteria.andIdEqualTo(log.getId());
         }
@@ -70,6 +71,6 @@ public class LogServiceImpl implements LogService {
             example.setPageRows(page.getPageRows());
         }
 
-        return logMapper.selectByExample(example);
+        return logMapper.selectByExampleWithBLOBs(example);
     }
 }

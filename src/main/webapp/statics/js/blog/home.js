@@ -28,7 +28,8 @@
     }
     initmusic(3,true);
 
-    //顶部
+
+    //顶部--------------------------------------------
     $(function () {
         $("#navbarSupportedContent ul li i").mouseenter(function () {
             $(this).next().show("slow");
@@ -88,7 +89,10 @@
         });
     });
 
-    //音乐部分
+
+
+
+    //音乐部分-------------------------------
     $(function () {
         var musicImg = $('.music-img');
         musicImg.stop().rotate({animateTo:360000,duration: 20000000});
@@ -115,7 +119,7 @@
         // var bgm = window.parent.frames[0].document.getElementById("bgm");
         zhezhaoi.click(function () {
             //如果不是在首页
-            if(document.getElementById("gohome")){
+            if(!document.getElementById("pills-tabContent")){
                 if(num<0){
                     $("#gohome").modal("show");
                 }
@@ -258,7 +262,7 @@
     });
 
 
-    //
+    //-------------------------------------
     $(function () {
         var w;
         $(".text-center .card-title h5").mouseenter(function () {
@@ -281,8 +285,18 @@
 
 
         var backbtn =  $(".elevator-button");
+        var message_add_btn = $("#btn-message-add");
+        var container = $(".container");
+        var pills_massage = $("#pills-massage");
         window.onscroll = function() {
             // console.info(window.scrollY);
+
+            if(pills_massage.hasClass("active") && window.scrollY > container.offset().top-window.innerHeight+120){
+                message_add_btn.show(800);
+            }else{
+                message_add_btn.hide(800);
+            }
+
 
             if(window.scrollY > 500){
                 backbtn.show(800);
@@ -300,7 +314,7 @@
             });
 
 
-            if(document.getElementById("gohome")){
+            if(!document.getElementById("pills-tabContent")){
                 $("html, body").animate({scrollTop:$('#mao').offset().top}, 800);
             }
         }
@@ -310,8 +324,71 @@
         $("#gohome #cancel").click(function () {
             $("#gohome").modal("hide");
         });
+
+
+        //时间线
+        $('.VivaTimeline').vivaTimeline({
+            carousel: true,
+            carouselTime: 3000
+        });
+
+
+        // //留言
+        // $("#btn-message-add").click(function () {
+        //     $(".message-add").fadeIn("slow");
+        // });
     });
 
+
+    //时间线------------------------------
+    $(function () {
+        $('.VivaTimeline').vivaTimeline({
+            carousel: true,
+            carouselTime: 3000
+        });
+
+        var pre;
+        $(".VivaTimeline .clearfix").each(function () {
+            var curTime = $(this).prev().text();
+            if(pre!=null){
+                // console.log("pre:"+preTime);
+                // console.log("cur:"+curTime);
+                //日期与前一个不一样
+                if(curTime!=pre.prev().text()){
+                    console.log(curTime+"!="+pre.prev().text());
+                    //前一个在左边
+                    if(pre.hasClass("pos-left")){
+                        //当前不在右边，变换成右边
+                        if(!$(this).hasClass("pos-right")){
+                            $(this).removeClass("pos-left");
+                            $(this).addClass("pos-right");
+                        }
+                    }else if(pre.hasClass("pos-right")){
+                        if(!$(this).hasClass("pos-left")){
+                            $(this).removeClass("pos-right");
+                            $(this).addClass("pos-left");
+                        }
+                    }
+                }else{
+                    //前一个在左边
+                    if(pre.hasClass("pos-left")){
+                        //当前不在左边，变换成左边
+                        if(!$(this).hasClass("pos-left")) {
+                            $(this).removeClass("pos-right");
+                            $(this).addClass("pos-left");
+                        }
+                    }else if(pre.hasClass("pos-right")){
+                        //当前不在右边，变换成右边
+                        if(!$(this).hasClass("pos-right")) {
+                            $(this).removeClass("pos-left");
+                            $(this).addClass("pos-right");
+                        }
+                    }
+                }
+            }
+            pre = $(this);
+        });
+    });
 
 
     

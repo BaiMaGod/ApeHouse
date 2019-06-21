@@ -124,22 +124,18 @@
                             <label class="col-sm-2 col-form-label">标题：</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="add-log-title" placeholder="输入标题">
-                                <div class="tooltip bs-tooltip-top" style="display: none;will-change: transform; position: absolute; transform: translate3d(150px, 176px, 0px); top: 0px; left: 0px;">
-                                    <div class="arrow" style="left: 44px;"></div>
-                                    <div class="tooltip-inner">标题不能为空</div>
-                                </div>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">天气：</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="add-log-weather" placeholder="今天天气如何？"  data-toggle="tooltip" data-placement="top" title="天气不能为空">
+                                <input type="text" class="form-control" id="add-log-weather" placeholder="今天天气如何？">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">内容：</label>
                             <div class="col-sm-10">
-                                <textarea type="text" class="form-control" id="add-log-content" rows="10" placeholder="记录今天发生的事件..."  data-toggle="tooltip" data-placement="top" title="内容不能为空"></textarea>
+                                <textarea type="text" class="form-control" id="add-log-content" wrap="hard" rows="10" placeholder="记录今天发生的事件..."></textarea>
                             </div>
                         </div>
                     </div>
@@ -165,13 +161,16 @@
 <script>
     $(function () {
         var log_alert = $("#add-log-alert");
-
+        var userId_obj = $(".user-info img");
+        var title_obj = $("#add-log-title");
+        var weather_obj = $("#add-log-weather")
+        var content_obj = $("#add-log-content");
 
         $("#log-submit").click(function () {
-            var userId = $(".user-info img").attr("userId");
-            var title = $("#add-log-title").val();
-            var weather = $("#add-log-weather").val();
-            var content = $("#add-log-content").val();
+            var userId = userId_obj.attr("userId");
+            var title = title_obj.val();
+            var weather = weather_obj.val();
+            var content = content_obj.val();
 
             $.ajax({
                 url:"admin/log/add",
@@ -184,7 +183,7 @@
                         log_alert.text("发布成功!");
                         log_alert.fadeIn("slow");
                         $("#add-log").modal("hide");
-
+                        clearLog();
                         setTimeout(function () {
                             log_alert.fadeOut("slow");
                         },3000);
@@ -208,7 +207,11 @@
 
         });
 
-
+        function clearLog() {
+            title_obj.val("");
+            weather_obj.val("");
+            content_obj.val("");
+        }
 
 
     })

@@ -122,6 +122,8 @@ public class BlogServiceImpl implements BlogService {
 
 	@Override
 	public boolean update(Blog blog) {
+
+
 		return blogMapper.updateByPrimaryKeySelective(blog)>0;
 	}
 

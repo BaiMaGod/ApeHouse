@@ -25,9 +25,9 @@ public class AdminMusicController {
     public String add(Model model){
         model.addAttribute("title","添加音乐 - 猿馆后台");
 
-        add("gu");
-        add("xue");
-        add("vae");
+//        add("gu");
+//        add("xue");
+//        add("vae");
 
 
         return "admin/musicAdd";
