@@ -11,9 +11,9 @@
         this.imgLoad = false;
         //初始化
         this._init(opt);
-                    
+
         this._event();
-        
+
     }
 
     //ImportKML2D預設參數
@@ -48,7 +48,7 @@
                             .addClass('active');
                     }
                 });
-            
+
             self.target
                 .find('.events-body')
                 .each(function(){
@@ -57,33 +57,36 @@
                         .first()
                         .show()
                         .siblings()
-                        .hide();  
-                });              
-                             
+                        .hide();
+                });
+
             self.target
                 .find('img').on('load', function(){
-                    self.target
-                        .find('.events-body')
-                        .each(function(){
-                            var maxHeight = 0;
-                            $(this)
-                                .find('.row')
-                                .each(function(){                                    
-                                    if($(this).height() > maxHeight){
-                                        maxHeight = $(this).height();
-                                    }
-                                });                                                        
-                            $(this).find('.row').height(maxHeight);
-                        });                                
-                }); 
+                self.target
+                    .find('.events-body')
+                    .each(function(){
+                        var maxHeight = 0;
+                        $(this)
+                            .find('.row')
+                            .each(function(){
+                                if($(this).height() > maxHeight){
+                                    maxHeight = $(this).height();
+                                }
+                            });
+                        $(this).find('.row').height(maxHeight);
+                    });
+            });
         },
 
         //綁定事件
         _event: function () {
             var self = this;
+
             self.target
                 .find('.events-header')
                 .click(function(){
+                    // console.log($(this));
+                    // console.log("点击标题");
                     $(this)
                         .siblings('.events-body').slideToggle()
                         .end()
@@ -106,7 +109,7 @@
                     .hover(function(){
                         clearInterval(self.carouselInterval);
                         self.carouselInterval = null;
-                        
+
                     }, function(){
                         if(self.carouselInterval == undefined){
                             self.carouselInterval = setInterval(function(){
@@ -116,7 +119,7 @@
                     });
             }
         },
-        
+
         //自動輪播
         _carousel: function(_container) {
             var self = this;
@@ -141,13 +144,13 @@
                     .addClass('active')
                     .siblings()
                     .removeClass('active');
-                    
+
                 _container
                     .closest('.events-footer')
                     .siblings('.events-body')
                     .find('.row')
                     .eq(target).show()
-                    .siblings().hide();  
+                    .siblings().hide();
             }
         }
     }

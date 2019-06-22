@@ -22,7 +22,8 @@ public class MessageServiceImpl implements MessageService {
         message.setId(id);
         message.setCreateTime(MyUtil.nowDate());
 
-        return null;
+
+        return messageMapper.insertSelective(message)>0 ? id : null;
     }
 
     @Override

@@ -24,8 +24,16 @@
     <!-- <link rel="stylesheet" href="statics/css/font-awesome-4.7.0/css/font-awesome.css"> -->
     <link rel="stylesheet" href="statics/icon/iconfont.css">
 
+    <!-- 时间轴 -->
+    <link rel="stylesheet" href="statics\css\jquery.Timeline.css">
 
-	<link rel="stylesheet" href="statics/css/blog/home.css">
+    <!-- 表情输入 -->
+    <link rel="stylesheet" href="statics/jQuery-emoji/css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="statics/jQuery-emoji/css/jquery.emoji.css">
+
+
+    <link rel="stylesheet" href="statics/css/blog/home.css">
+
 </head>
 <body>
     <div class="head">

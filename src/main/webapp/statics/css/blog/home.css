@@ -287,8 +287,8 @@
         }
         .message-board .message .header,.message-add .header{
             position: absolute;
-            top:15px;
-            left: 15px;
+            top: 20px;
+            left: 10px;
         }
         .message-board .message .message-content,.message-add .message-content{
             position: absolute;
@@ -298,14 +298,20 @@
             width: 260px;
             border-style: none;
         }
+        .message-board .message .message-content img{
+            max-width: 30px;
+            max-height: 30px;
+        }
         .message-board .message .footer,.message-add .footer{
             position: absolute;
-            bottom:0px;
+            bottom:1px;
             right: 10px;
             font-size: 12px;
         }
 
 
+
+        /*添加留言弹框*/
         .modal-content{
             background: transparent;
             border-style: none;
@@ -316,14 +322,52 @@
             margin: auto;
             background: transparent url("../../images/message/bg1.png");
         }
-        .message-add .message-content{
-            border-style: dashed;
+        .message-add .header{
+            width: 120px;
+            background: transparent;
+            border-style: none;
+            outline: #0000FF dotted thin;
+            font-size: 14px;
+            padding: 4px;
+            top:20px;
         }
+        .message-add .message-content{
+            outline: #0000FF dotted thin;
+            overflow-y: auto;
+            padding: 5px;
+        }
+
+
+
         #btn-message-add{
             position: fixed;
             right: 2%;
             bottom:120px;
             display: none;
+        }
+
+
+        #message-add-emoji{
+            position: absolute;
+            bottom: 6px;
+            left: 15px;
+        }
+        #message-add-emoji:hover{
+            color: blue;
+            cursor: pointer;
+        }
+        #change-bg{
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        #change-bg:hover{
+            color: red;
+            cursor: pointer;
+        }
+
+        .emoji_container{
+            z-index: 9999;
         }
 
         /*  留言样式 - 结束 */
@@ -356,6 +400,28 @@
         }
 
 
+        /*提示框*/
+        .tipsbox{
+            position: fixed;
+            top: 40%;
+            left: 50%;
+            z-index: 10000;
+            min-width: 200px;
+            min-height: 40px;
+            max-width: 500px;
+            border-radius: 5px;
+            text-align: center;
+            padding: 10px;
+            color: white;
+            background-color: red;
+            opacity: 0.6;
+            display: none;
+        }
+
+        /*提示框 - 结束*/
+
+
+        /*滚动条*/
         ::-webkit-scrollbar {
             width: 10px;
             height: 10px;

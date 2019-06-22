@@ -87,6 +87,13 @@
             dh4.animate({color:'#54F000'},1000);
             dh4.animate({color:'#FF0000'},1000);
         });
+
+
+
+
+        $("#pills-tab .nav-item").click(function () {
+            $("html, body").animate({scrollTop:$('#mao').offset().top}, 800);
+        });
     });
 
 
@@ -286,12 +293,12 @@
 
         var backbtn =  $(".elevator-button");
         var message_add_btn = $("#btn-message-add");
-        var container = $(".container");
         var pills_massage = $("#pills-massage");
+        var message_board = $(".message-board");
         window.onscroll = function() {
-            // console.info(window.scrollY);
+            // console.info(pills_massage);
 
-            if(pills_massage.hasClass("active") && window.scrollY > container.offset().top-window.innerHeight+120){
+            if((document.getElementById("pills-massage")==null || pills_massage.hasClass("active")) && window.scrollY > message_board.offset().top-window.innerHeight+120){
                 message_add_btn.show(800);
             }else{
                 message_add_btn.hide(800);
@@ -326,22 +333,34 @@
         });
 
 
-        //时间线
-        $('.VivaTimeline').vivaTimeline({
-            carousel: true,
-            carouselTime: 3000
-        });
 
 
-        // //留言
-        // $("#btn-message-add").click(function () {
-        //     $(".message-add").fadeIn("slow");
-        // });
     });
+
+    function tipsbox(msg,bgcolor,time) {
+        $("body").append("<div id='tips' class='tipsbox'>" + msg + "</div>");
+        var tips = $("#tips");
+        tips.css("margin-left","-"+tips.width()/2+"px");
+        if(bgcolor!=null){
+            tips.css("background-color",bgcolor);
+        }
+        if(time == null){
+            time = 3000;
+        }
+        tips.fadeIn("slow");
+        setTimeout(function () {
+            tips.fadeOut("slow");
+            setTimeout(function () {
+                tips.remove();
+            },1000);
+        },time)
+
+    }
 
 
     //时间线------------------------------
     $(function () {
+
         $('.VivaTimeline').vivaTimeline({
             carousel: true,
             carouselTime: 3000
@@ -351,11 +370,9 @@
         $(".VivaTimeline .clearfix").each(function () {
             var curTime = $(this).prev().text();
             if(pre!=null){
-                // console.log("pre:"+preTime);
-                // console.log("cur:"+curTime);
                 //日期与前一个不一样
                 if(curTime!=pre.prev().text()){
-                    console.log(curTime+"!="+pre.prev().text());
+                    // console.log(curTime+"!="+pre.prev().text());
                     //前一个在左边
                     if(pre.hasClass("pos-left")){
                         //当前不在右边，变换成右边
@@ -391,4 +408,279 @@
     });
 
 
-    
+    //=留言------------------------------
+    $(function () {
+        var message_add_editor = $("#message-add-editor");
+        var flag = false;
+
+        message_add_editor.keyup(function () {
+            var scrollHeight=$(this)[0].scrollHeight; //div文档总高度
+            // var offsetHeight=message_add_editor[0].offsetHeight; //获取div窗口显示高度
+            // var allheight=scrollHeight-offsetHeight;           //div内容的实际高度
+
+            var text;
+            if(scrollHeight>200){
+                while(scrollHeight>200){
+                    console.log("scrollHeight:"+scrollHeight);
+
+                    text = $(this).html();
+                    if(text.lastIndexOf("&nbsp;")==text.length-6){
+                        text = text.substring(0,text.length-6);
+                    }else if(text.lastIndexOf("<div><br></div>")==text.length-15){
+                        text = text.substring(0,text.length-15);
+                    } else{
+                        text = text.substring(0,text.length-1);
+                    }
+
+                    flag = true;
+                    $(this).html(text);
+                    scrollHeight=$(this)[0].scrollHeight;
+                }
+                tipsbox("内容不能太多哦~~~",null,null);
+                setFocus($(this));
+            }
+        });
+        message_add_editor.bind("DOMNodeInserted",function(){
+            if(flag){
+                flag = false;
+                return;
+            }
+            var scrollHeight=$(this)[0].scrollHeight; //div文档总高度
+            console.log("内容变化："+$(this).html());
+            console.log("内容变化后scrollHeight："+scrollHeight);
+
+            if(scrollHeight>200){
+                var text = $(this).html();
+                var index1 = text.lastIndexOf("<img");
+                var index2 = text.lastIndexOf(">");
+                if(index1>0 && index2>index1){
+                    console.log("删除："+text.substring(index1,index2-index1));
+                    text = text.replace(text.substring(index1,index2-index1),"");
+                    flag = true;
+                    $(this).html(text);
+                }
+                tipsbox("内容不能太多哦~~~",null,null);
+                setFocus($(this));
+            }
+        });
+
+
+
+        message_add_editor.emoji({
+            button: "#message-add-emoji",
+            showTab: true,
+            animation: 'slide',
+            icons: [{
+                name: "QQ表情",
+                path: "statics/jQuery-emoji/img/qq/",
+                maxNum: 91,
+                excludeNums: [41, 45, 54],
+                file: ".gif",
+                placeholder: "#qq_{alias}#"
+            },{
+                name: "百度贴吧",
+                path: "statics/jQuery-emoji/img/tieba/",
+                maxNum: 50,
+                file: ".jpg",
+                placeholder: ":{alias}:",
+                alias: {
+                    1: "hehe",
+                    2: "haha",
+                    3: "tushe",
+                    4: "a",
+                    5: "ku",
+                    6: "lu",
+                    7: "kaixin",
+                    8: "han",
+                    9: "lei",
+                    10: "heixian",
+                    11: "bishi",
+                    12: "bugaoxing",
+                    13: "zhenbang",
+                    14: "qian",
+                    15: "yiwen",
+                    16: "yinxian",
+                    17: "tu",
+                    18: "yi",
+                    19: "weiqu",
+                    20: "huaxin",
+                    21: "hu",
+                    22: "xiaonian",
+                    23: "neng",
+                    24: "taikaixin",
+                    25: "huaji",
+                    26: "mianqiang",
+                    27: "kuanghan",
+                    28: "guai",
+                    29: "shuijiao",
+                    30: "jinku",
+                    31: "shengqi",
+                    32: "jinya",
+                    33: "pen",
+                    34: "aixin",
+                    35: "xinsui",
+                    36: "meigui",
+                    37: "liwu",
+                    38: "caihong",
+                    39: "xxyl",
+                    40: "taiyang",
+                    41: "qianbi",
+                    42: "dnegpao",
+                    43: "chabei",
+                    44: "dangao",
+                    45: "yinyue",
+                    46: "haha2",
+                    47: "shenli",
+                    48: "damuzhi",
+                    49: "ruo",
+                    50: "OK"
+                },
+                title: {
+                    1: "呵呵",
+                    2: "哈哈",
+                    3: "吐舌",
+                    4: "啊",
+                    5: "酷",
+                    6: "怒",
+                    7: "开心",
+                    8: "汗",
+                    9: "泪",
+                    10: "黑线",
+                    11: "鄙视",
+                    12: "不高兴",
+                    13: "真棒",
+                    14: "钱",
+                    15: "疑问",
+                    16: "阴脸",
+                    17: "吐",
+                    18: "咦",
+                    19: "委屈",
+                    20: "花心",
+                    21: "呼~",
+                    22: "笑脸",
+                    23: "冷",
+                    24: "太开心",
+                    25: "滑稽",
+                    26: "勉强",
+                    27: "狂汗",
+                    28: "乖",
+                    29: "睡觉",
+                    30: "惊哭",
+                    31: "生气",
+                    32: "惊讶",
+                    33: "喷",
+                    34: "爱心",
+                    35: "心碎",
+                    36: "玫瑰",
+                    37: "礼物",
+                    38: "彩虹",
+                    39: "星星月亮",
+                    40: "太阳",
+                    41: "钱币",
+                    42: "灯泡",
+                    43: "茶杯",
+                    44: "蛋糕",
+                    45: "音乐",
+                    46: "haha",
+                    47: "胜利",
+                    48: "大拇指",
+                    49: "弱",
+                    50: "OK"
+                }
+            },{
+                name: "emoji",
+                path: "statics/jQuery-emoji/img/emoji/",
+                maxNum: 84,
+                file: ".png",
+            }]
+        });
+        $("#message-add-emoji").click(function () {
+            var el = $("#message-add-editor");
+            setFocus(el);
+            // el.emoji('toggle');
+
+        });
+        //切换背景
+        $("#change-bg").click(function () {
+            var bg = parseInt($(this).attr("bg"))%3;
+            $(".message-add").css("background","transparent url(\"statics/images/message/bg"+(bg+1)%3+".png\")")
+            $(this).attr("bg",(bg+1)%3);
+        });
+
+
+        //下面的解决代码,光标位置
+        function setFocus(el) {
+            el = el[0]; // jquery 对象转dom对象
+            el.focus();
+            var range = document.createRange();
+            range.selectNodeContents(el);
+            range.collapse(false);
+            var sel = window.getSelection();
+            //判断光标位置，如不需要可删除
+            if (sel.anchorOffset != 0) {
+                return;
+            };
+            sel.removeAllRanges();
+            sel.addRange(range);
+        };
+
+        $("#message-send").click(function () {
+            var nickname_obj = $("#nickname");
+            var nickname = nickname_obj.val();
+            if(nickname.trim()==""){
+                nickname = "神秘人";
+            }
+            var content_obj = $("#message-add-editor");
+            var content = content_obj.html();
+            var background = "bg"+$("#change-bg").attr("bg");
+
+            if(content.trim() == ""){
+                tipsbox("留言内容不能为空",null,3000);
+                return;
+            }
+
+            console.log("content:"+content);
+
+            content = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + content;
+
+            $.ajax({
+                url:"message/add",
+                type:"POST",
+                data:JSON.stringify({nickname:nickname,content:content,background:background}),
+                contentType:"application/json",
+                async:"false",
+                success:function (res) {
+                    console.log("res:"+res);
+                    if(res!=null){
+                        tipsbox("留言成功！","blue",3000);
+
+                        $("#message-add").modal("hide");
+                        nickname_obj.val("");
+                        content_obj.html("");
+
+                        addMessage(nickname,content,background);
+                    }else{
+                        tipsbox("留言失败，看看输入是否合理哦~~~·",null,20000);
+                    }
+
+                },
+                error:function () {
+                    tipsbox("请求错误，留言失败，请稍后再试！",null,20000);
+                }
+            });
+
+        });
+
+        function addMessage(nickname,content,background) {
+            var html = "<div class=\"message fadeIn first\" style='display: none;'>\n" +
+                "                        <img src=\"statics/images/message/"+background+".png\">\n" +
+                "                        <p class=\"header\">"+nickname+"：</p>\n" +
+                "                        <div class=\"message-content\" >"+content+"</div>\n" +
+                "                        <p class=\"footer\">"+new Date().toLocaleString()+"</p>\n" +
+                "                    </div>";
+            var board = $(".message-board");
+            board.prepend(html);
+            board.find(".first").show("slow");
+            board.find(".first").removeClass("first");
+        };
+    });

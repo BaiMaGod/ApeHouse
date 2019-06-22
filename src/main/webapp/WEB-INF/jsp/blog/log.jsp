@@ -35,7 +35,7 @@
                         <div class="circ"></div>
                         <div class="time">
                             <p><fmt:formatDate type="time" value="${log.createTime}"/> </p>
-                            <p style="font-size: 12px;text-align: center">${log.weather}</p>
+<%--                            <p style="font-size: 12px;text-align: center">${log.weather}</p>--%>
                         </div>
                         <div class="events">
                             <div class="events-header">${log.title}</div>

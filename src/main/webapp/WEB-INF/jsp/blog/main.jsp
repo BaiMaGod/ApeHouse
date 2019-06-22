@@ -2,11 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/jsp/blog/head.jsp"%>
 
-	<link rel="stylesheet" href="statics\css\jquery.Timeline.css">
 
 	<ul class="nav justify-content-center nav-list" id="pills-tab" role="tablist">
-		<li class="nav-item" >
-			<a class="nav-link active" id="pills-blog-tab" data-toggle="pill" href="#pills-blog" role="tab" aria-controls="pills-blog" aria-selected="true"> B L O G </a>
+		<li class="nav-item active" >
+			<a class="nav-link" id="pills-blog-tab" data-toggle="pill" href="#pills-blog" role="tab" aria-controls="pills-blog" aria-selected="true"> B L O G </a>
 		</li>
 		<li class="nav-item">
 			<a class="nav-link" id="pills-photo-tab" data-toggle="pill" href="#pills-photo" role="tab" aria-controls="pills-photo" aria-selected="false"> 图册 </a>
@@ -101,8 +100,8 @@
 				<c:if test="${messages!=null }">
 					<c:forEach var="message" items="${messages}">
 						<div class="message fadeIn">
-							<img src="statics/images/message/bg1.png">
-							<p class="header">${message.nickname}</p>
+							<img src="statics/images/message/${message.background}.png">
+							<p class="header">${message.nickname}：</p>
 							<div class="message-content" >${message.content}</div>
 							<p class="footer"><fmt:formatDate type="both" value="${message.createTime }"/></p>
 						</div>
@@ -121,14 +120,15 @@
 			<div class="modal-content">
 				<div class="modal-body text-content">
 					<div class="message-add ">
-						<input class="header" type="text" placeholder="输入昵称..." maxlength="10">
-						<div class="message-content" contenteditable="true"></div>
-						<button class="btn btn-outline-primary btn-sm footer">留言</button>
+						<input id="nickname" class="header" type="text" placeholder="输入昵称..." maxlength="7">
+						<div id="message-add-editor" class="message-content" contenteditable="true"></div>
+						<button id="message-send" class="btn btn-outline-primary btn-sm footer">留言</button>
+						<i id="message-add-emoji" class="fa fa-smile-o fa-2x"></i>
+						<i id="change-bg" bg="1" class="fa fa-arrow-circle-o-right fa-2x"></i>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
 <%@include file="/WEB-INF/jsp/blog/foot.jsp"%>
 

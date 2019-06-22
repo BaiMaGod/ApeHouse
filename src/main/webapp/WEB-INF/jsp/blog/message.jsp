@@ -3,8 +3,6 @@
 <%@include file="/WEB-INF/jsp/blog/head.jsp"%>
 
 
-<link rel="stylesheet" href="statics\css\jquery.Timeline.css">
-
 
 <ul class="nav justify-content-center nav-list">
     <li class="nav-item">
@@ -30,29 +28,20 @@
 
 </style>
 
-<div class="container">
-    <div class="message-board">
-        <div class="message fadeIn">
-            <img src="statics/images/message/bg1.png">
-            <p class="header">头：</p>
-            <div class="message-content" ></div>
-            <p class="footer">2019 6 18 18:25:00</p>
-        </div>
-        <div class="message fadeIn">
-            <img src="statics/images/message/bg2.png">
-            <p class="header">头：</p>
-            <div class="message-content" ></div>
-            <p class="footer">2019 6 18 18:25:00</p>
-        </div>
-        <div class="message fadeIn">
-            <img src="statics/images/message/bg3.png" alt="">
-            <p class="header">头：</p>
-            <div class="message-content" ></div>
-            <p class="footer">2019 6 18 18:25:00</p>
+    <div class="container">
+        <div class="message-board">
+            <c:if test="${messages!=null }">
+                <c:forEach var="message" items="${messages}">
+                    <div class="message fadeIn">
+                        <img src="statics/images/message/${message.background}.png">
+                        <p class="header">${message.nickname}：</p>
+                        <div class="message-content" >${message.content}</div>
+                        <p class="footer"><fmt:formatDate type="both" value="${message.createTime }"/></p>
+                    </div>
+                </c:forEach>
+            </c:if>
         </div>
     </div>
-
-</div>
 
     <button class="btn btn-outline-secondary" id="btn-message-add" type="button"  data-toggle="modal" data-target="#message-add"><i class="fa fa-send"></i> </button>
 
@@ -62,9 +51,11 @@
             <div class="modal-content">
                 <div class="modal-body text-content">
                     <div class="message-add ">
-                        <input class="header" type="text" placeholder="输入昵称..." maxlength="10">
-                        <div class="message-content" contenteditable="true"></div>
-                        <button class="btn btn-outline-primary btn-sm footer">留言</button>
+                        <input id="nickname" class="header" type="text" placeholder="输入昵称..." maxlength="7">
+                        <div id="message-add-editor" class="message-content" contenteditable="true"></div>
+                        <button id="message-send" class="btn btn-outline-primary btn-sm footer">留言</button>
+                        <i id="message-add-emoji" class="fa fa-smile-o fa-2x"></i>
+                        <i id="change-bg" bg="1" class="fa fa-arrow-circle-o-right fa-2x"></i>
                     </div>
                 </div>
             </div>
@@ -72,5 +63,11 @@
     </div>
 
 
-
 <%@include file="/WEB-INF/jsp/blog/foot.jsp"%>
+
+<script>
+
+
+
+
+</script>

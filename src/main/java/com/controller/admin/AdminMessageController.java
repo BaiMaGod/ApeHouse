@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/message")
+@RequestMapping("/admin/message")
 public class AdminMessageController {
     @Autowired
     MessageService messageService;

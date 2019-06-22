@@ -8,7 +8,7 @@ public class Message {
 
     private String ip;
 
-    private String loction;
+    private String location;
 
     private String nickname;
 
@@ -16,6 +16,8 @@ public class Message {
     private String content;
 
     private Date createTime;
+
+    private String background;
 
     public String getId() {
         return id;
@@ -33,12 +35,12 @@ public class Message {
         this.ip = ip == null ? null : ip.trim();
     }
 
-    public String getLoction() {
-        return loction;
+    public String getLocation() {
+        return location;
     }
 
-    public void setLoction(String loction) {
-        this.loction = loction == null ? null : loction.trim();
+    public void setLocation(String location) {
+        this.location = location == null ? null : location.trim();
     }
 
     public String getNickname() {
@@ -63,5 +65,13 @@ public class Message {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public String getBackground() {
+        return background;
+    }
+
+    public void setBackground(String background) {
+        this.background = background == null ? null : background.trim();
     }
 }

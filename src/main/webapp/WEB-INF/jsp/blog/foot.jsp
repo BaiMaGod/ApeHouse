@@ -57,6 +57,11 @@
     <!--时间线特效-->
     <script src="statics/js/jquery.Timeline.js"></script>
 
+    <!--表情插件-->
+    <script src="statics/jQuery-emoji/js/jquery.mousewheel-3.0.6.min.js"></script>
+    <script src="statics/jQuery-emoji/js/jquery.mCustomScrollbar.min.js"></script>
+    <script src="statics/jQuery-emoji/js/jquery.emoji.min.js"></script>
+
     <audio id='bgm' src=''></audio>
     
     <script src="statics/js/blog/home.js"></script>

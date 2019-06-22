@@ -3,7 +3,6 @@ package com.util;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.sun.org.apache.bcel.internal.generic.NEW;
 
 import java.io.File;
 import java.io.IOException;

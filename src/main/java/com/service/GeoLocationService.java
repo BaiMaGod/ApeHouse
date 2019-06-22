@@ -1,6 +1,5 @@
 package com.service;
 
-import org.springframework.stereotype.Component;
 import java.io.File;
 import java.io.IOException;
 import java.net.InetAddress;
@@ -21,15 +20,16 @@ import com.maxmind.geoip2.record.City;
 import com.maxmind.geoip2.record.Country;
 import com.maxmind.geoip2.record.Subdivision;
 import com.pojo.GeoLocation;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class GeoLocationService {
     private DatabaseReader reader;
     private static Logger logger = LoggerFactory.getLogger(GeoLocationService.class);
 
 
     public GeoLocationService() {
-        String dataFile = "resource/GeoLite2-City.mmdb";
+        String dataFile = "GeoLite2-City.mmdb";
         URL url = getClass().getClassLoader().getResource(dataFile);
 
 
@@ -47,8 +47,8 @@ public class GeoLocationService {
 
 
     /**
-     * 获取ip地址映射的国家
-     * @param ipAddress
+     * 获取ip地址映射的地区
+     * @param ip Address
      * @return
      */
     public GeoLocation getLocationFromRequest(String ip) {
@@ -88,7 +88,7 @@ public class GeoLocationService {
 
 
     /**
-     * 获取ip地址映射的国家
+     * 获取ip地址映射的地区
      * @param ipAddress
      * @return
      */

@@ -4,10 +4,11 @@
   <resultMap id="BaseResultMap" type="com.model.Message">
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="ip" jdbcType="VARCHAR" property="ip" />
-    <result column="loction" jdbcType="VARCHAR" property="loction" />
+    <result column="location" jdbcType="VARCHAR" property="location" />
     <result column="nickname" jdbcType="VARCHAR" property="nickname" />
     <result column="content" jdbcType="VARCHAR" property="content" />
     <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="background" jdbcType="VARCHAR" property="background" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -39,7 +40,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, ip, loction, nickname, content, createTime
+    id, ip, location, nickname, content, createTime, background
   </sql>
   <select id="selectByExample" parameterType="com.model.MessageExample" resultMap="BaseResultMap">
     select
@@ -60,7 +61,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from message
     where id = #{id,jdbcType=VARCHAR}
@@ -70,12 +71,12 @@
     where id = #{id,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.model.Message">
-    insert into message (id, ip, loction, 
-      nickname, content, createTime
-      )
-    values (#{id,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, #{loction,jdbcType=VARCHAR}, 
-      #{nickname,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
-      )
+    insert into message (id, ip, location,
+      nickname, content, createTime,
+      background)
+    values (#{id,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, #{location,jdbcType=VARCHAR},
+      #{nickname,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
+      #{background,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.model.Message">
     insert into message
@@ -86,8 +87,8 @@
       <if test="ip != null">
         ip,
       </if>
-      <if test="loction != null">
-        loction,
+      <if test="location != null">
+        location,
       </if>
       <if test="nickname != null">
         nickname,
@@ -98,6 +99,9 @@
       <if test="createTime != null">
         createTime,
       </if>
+      <if test="background != null">
+        background,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -106,8 +110,8 @@
       <if test="ip != null">
         #{ip,jdbcType=VARCHAR},
       </if>
-      <if test="loction != null">
-        #{loction,jdbcType=VARCHAR},
+      <if test="location != null">
+        #{location,jdbcType=VARCHAR},
       </if>
       <if test="nickname != null">
         #{nickname,jdbcType=VARCHAR},
@@ -117,6 +121,9 @@
       </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="background != null">
+        #{background,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -132,8 +139,8 @@
       <if test="ip != null">
         ip = #{ip,jdbcType=VARCHAR},
       </if>
-      <if test="loction != null">
-        loction = #{loction,jdbcType=VARCHAR},
+      <if test="location != null">
+        location = #{location,jdbcType=VARCHAR},
       </if>
       <if test="nickname != null">
         nickname = #{nickname,jdbcType=VARCHAR},
@@ -144,16 +151,20 @@
       <if test="createTime != null">
         createTime = #{createTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="background != null">
+        background = #{background,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.model.Message">
     update message
     set ip = #{ip,jdbcType=VARCHAR},
-      loction = #{loction,jdbcType=VARCHAR},
+      location = #{location,jdbcType=VARCHAR},
       nickname = #{nickname,jdbcType=VARCHAR},
       content = #{content,jdbcType=VARCHAR},
-      createTime = #{createTime,jdbcType=TIMESTAMP}
+      createTime = #{createTime,jdbcType=TIMESTAMP},
+      background = #{background,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

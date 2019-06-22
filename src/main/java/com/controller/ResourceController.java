@@ -14,7 +14,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/resource")
+@RequestMapping("/src/main/resource")
 public class ResourceController {
     @Autowired
     ResourceService resourceService;
