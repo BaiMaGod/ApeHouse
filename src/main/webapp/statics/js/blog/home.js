@@ -421,7 +421,7 @@
             var text;
             if(scrollHeight>200){
                 while(scrollHeight>200){
-                    console.log("scrollHeight:"+scrollHeight);
+                    // console.log("scrollHeight:"+scrollHeight);
 
                     text = $(this).html();
                     if(text.lastIndexOf("&nbsp;")==text.length-6){
@@ -446,16 +446,21 @@
                 return;
             }
             var scrollHeight=$(this)[0].scrollHeight; //div文档总高度
-            console.log("内容变化："+$(this).html());
-            console.log("内容变化后scrollHeight："+scrollHeight);
+            // console.log("内容变化："+$(this).html());
+            // console.log("内容变化后scrollHeight："+scrollHeight);
 
             if(scrollHeight>200){
                 var text = $(this).html();
+                // var text = deleteImg($(this).html());
+
                 var index1 = text.lastIndexOf("<img");
                 var index2 = text.lastIndexOf(">");
                 if(index1>0 && index2>index1){
-                    console.log("删除："+text.substring(index1,index2-index1));
-                    text = text.replace(text.substring(index1,index2-index1),"");
+                    // console.log("index1："+index1+",index2:"+index2);
+                    // console.log("删除："+text.substring(index1,index2-index1));
+                    // console.log("总长度："+text.length);
+                    // text = text.replace(text.substring(index1,index2-index1),"");
+                    text = text.substring(0,index1);
                     flag = true;
                     $(this).html(text);
                 }
@@ -463,7 +468,6 @@
                 setFocus($(this));
             }
         });
-
 
 
         message_add_editor.emoji({

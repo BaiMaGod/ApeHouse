@@ -298,7 +298,7 @@
             width: 260px;
             border-style: none;
         }
-        .message-board .message .message-content img{
+        .message-board .message .message-content .emoji_icon{
             max-width: 30px;
             max-height: 30px;
         }

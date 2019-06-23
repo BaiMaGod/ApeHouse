@@ -287,7 +287,8 @@
     		});
         	
         	var content =  $("textarea[name='editor-markdown-doc']").text();
-    		var htmlString = $("textarea[name='editor-html-code']").text();
+    		var htmlString = $(".editormd-preview").html();
+            // console.log("htmlString:"+htmlString);
     		var summary = $(".editormd-preview-container").text();
     		var userId = $("#sub img").attr("userId");
     		var categoryId;
@@ -297,17 +298,17 @@
     		}
     		if($("#category2").val()=="-1") categoryId = category[$("#category1").val()-'0'].id;
     		else categoryId = category[$("#category1").val()-'0'].childCategories[$("#category2").val()-'0'].id;
-    		console.log("category2:"+$("#category2").val());
-    		console.log("categoryId:"+categoryId);
+    		// console.log("category2:"+$("#category2").val());
+    		// console.log("categoryId:"+categoryId);
     		var title = $("#title input").val();
     		var tagString = [];
     		var tags = $("input[name='tagString']");
     		for (let i = 0; i < tags.length; i++) {
 				tagString.push(tags.eq(i).val());
-				console.log(i+":"+tags.eq(i).val());
+				// console.log(i+":"+tags.eq(i).val());
 			}
     		
-    		console.log("tagString:"+tagString);
+    		// console.log("tagString:"+tagString);
     		$.ajax({
     			url:"admin/blog/add",
     			type:"post",

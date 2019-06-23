@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%
 
 	String path = request.getContextPath();
@@ -10,11 +8,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-<base href="<%=basePath%>">
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<base href="<%=basePath%>">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>QAQ内容找不到了 - 猿馆</title>
+	<link rel="icon" type="image/png" href="statics/images/ape-icon.png"/>
+
+	<link rel="stylesheet" href="statics/css/blog/404.css" />
+	<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 </head>
 <body>
-<h1 style="margin: auto;">网络异常。。。。。。</h1>
+<div class="code">
+	<p>ERROR 404</p>
+</div>
+<div class="road">
+	<div class="shadow">
+		<div class="shelt">
+			<div class="head">
+				<div class="eyes">
+					<div class="lefteye">
+						<div class="eyeball"></div>
+						<div class="eyebrow"></div>
+					</div>
+					<div class="righteye">
+						<div class="eyeball"></div>
+						<div class="eyebrow"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="hat"></div>
+		<div class="bubble">
+			<a href="">Go back Home?</a>
+		</div>
+	</div>
+	<p>PAGE NOT FOUND</p>
+</div>
+
+<script type="text/javascript" src="statics/js/blog/404.js" ></script>
 </body>
 </html>

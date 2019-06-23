@@ -87,23 +87,23 @@
     </style>
 </head>
 <body>
-    <div class="user-info">
+    <div class="user-info" style="margin: auto">
         <img userId="${loginUser.id }" src="${loginUser.headImage }" alt="">
     </div>
 
-    <div>
+    <div style="margin: auto">
         <a href="admin/blog/add">发布博客</a>
     </div>
-    <div>
+    <div style="margin: auto">
         <button class="btn btn-primary">上传图册</button>
     </div>
-    <div>
+    <div style="margin: auto">
         <a href="admin">上传资源</a>
     </div>
-    <div>
+    <div style="margin: auto">
         <button class="btn btn-primary" data-toggle="modal" data-target="#add-log">发表日志</button>
     </div>
-    <div>
+    <div style="margin: auto">
         <a href="admin/music/add" class="btn btn-primary">获取音乐</a>
     </div>
 

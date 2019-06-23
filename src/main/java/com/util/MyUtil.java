@@ -18,8 +18,8 @@ public class MyUtil {
     /**
      * 保存本web服务项目在磁盘中的真实路径
      */
-//	public static String serverPath;
-    public static String serverPath = "D:\\E\\eclipseSpace\\ApeHouse\\src\\main\\webapp\\";
+	public static String serverPath;
+//    public static String serverPath = "D:\\E\\eclipseSpace\\ApeHouse\\src\\main\\webapp\\";
 
 
     /**

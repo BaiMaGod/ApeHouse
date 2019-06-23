@@ -87,23 +87,23 @@
 	<!-- 注册格式化转换器 -->
 	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean"></bean>
 	
-	<!-- 
+
 		
-	配置统一异常处理
+	<!--配置统一异常处理-->
 	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-		定义默认的异常处理页面，当该异常类型注册时使用
+<!--		定义默认的异常处理页面，当该异常类型注册时使用-->
 		<property name="defaultErrorView" value="error"></property>
 		
-		定义异常处理页面用来获取异常信息的变量名，默认为exception
+<!--		定义异常处理页面用来获取异常信息的变量名，默认为exception-->
 		<property name="exceptionAttribute" value="ex"></property>
 		
-		定义需要特殊处理的异常，用雷鸣或完全路径名作为key，异常也 名作为值
+<!--		定义需要特殊处理的异常，用类名或完全路径名作为key，异常也 名作为值-->
 		<property name="exceptionMappings">
 			<props>
 				<prop key="java.lang.Exception">exception</prop>
 			</props>
 		</property>
 	</bean>
- -->
+
 
 </beans>
